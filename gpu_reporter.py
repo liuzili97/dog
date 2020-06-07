@@ -141,11 +141,10 @@ class Reporter():
 
     def init_headers(self):
         gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
-        tasks_headers = ['node', 'tasks_names']
-        return gpu_headers, tasks_headers
+        return gpu_headers
 
-    def build_disp(self, data, summary):
-        table = tabulate(data, headers=self.headers[0], tablefmt='rst')
+    def build_disp(self, prog_data, summary, task_data):
+        prog_table = tabulate(prog_data, headers=self.headers, tablefmt='rst')
         summary_msg = colored(
             "All free ({}):\t{}".format(len(summary['node_l3']), '  '.join(summary['node_l3'])),
             'green', attrs=['bold']) + colored(
@@ -155,26 +154,55 @@ class Reporter():
             "\nSome free ({}):\t{}\n".format(len(summary['node_l1']),
                                              '  '.join(summary['node_l1'])),
             'yellow')
-        return table, summary_msg
+        task_table = tabulate(task_data, tablefmt='grid', showindex=True)
+        return prog_table, summary_msg, task_table
+
+    def build_prog_data(self):
+        prog_data = []
+        summary = dict(node_l3=[], node_l2=[], node_l1=[], node_l0=[])
+
+        for name in self.all_nodes:
+            prog_info, suggest_level = self.single_node(name)
+            prog_data.append(prog_info)
+            summary['node_l{}'.format(suggest_level)].append(name)
+        return prog_data, summary
+
+    def build_task_data(self):
+        task_data = []
+        task_data_raw = defaultdict(dict)
+        for k, v in self.tasks_results.items():
+            month_day = int(k.split('-')[0].replace('.', ''))
+            min_sec = int(k.split('-')[1].replace('.', ''))
+
+            eta = colored(v.pop('eta'), 'cyan')
+            name = colored(v.pop('name'), 'blue')
+            task_data_raw[month_day][min_sec] = f"{eta} {name} {v.values()}"
+
+        sort_month_day = sorted(task_data_raw.keys())
+        for k in sort_month_day:
+            sub_task_data_raw = task_data_raw[k]
+            sort_min_sec = sorted(sub_task_data_raw.keys())
+            task_strs = []
+            for k1 in sort_min_sec:
+                task_strs.append(sub_task_data_raw[k1])
+
+            task_str = '\n'.join(task_strs)
+            task_data.append(k, task_str)
+        return task_data
 
     def run(self):
         while True:
-            data = []
-            summary = dict(node_l3=[], node_l2=[], node_l1=[], node_l0=[])
-
             self.update_info()
 
-            for name in self.all_nodes:
-                info, suggest_level = self.single_node(name)
-                data.append(info)
-                summary['node_l{}'.format(suggest_level)].append(name)
+            prog_data, summary = self.build_prog_data()
+            task_data = self.build_task_data()
 
-            table, summary_msg = self.build_disp(data, summary)
+            prog_table, summary_msg, task_table = self.build_disp(prog_data, summary, task_data)
 
             os.system('clear')
-            print(table)
+            print(prog_table)
             print(summary_msg)
-            # print(tasks_table)
+            print(task_table)
             time.sleep(10)
 
 
