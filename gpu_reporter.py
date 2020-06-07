@@ -6,6 +6,7 @@ import paramiko
 import threading
 from termcolor import colored
 from tabulate import tabulate
+from collections import defaultdict
 from utils import RemotesLoader
 
 
@@ -14,19 +15,21 @@ class Reporter():
     def __init__(self):
         self.gpus_results = {}
         self.tasks_results = {}
+        self.gpus_by_us = defaultdict(list)
         self.ssh_handlers = {}
 
         self.disp_thre = dict(used=0.2, power=60)
         self.all_cmds = dict(
             gpus='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
-            tasks='cat ~/.watch_dog/{}_*'
+            tasks='cat ~/.watch_dog/task_info'
         )
-        self.mark = '|'
 
         hostname = socket.gethostname()
         loader = RemotesLoader(hostname)
         self.connect_dict = loader.get_connect_dict()
         self.all_nodes = loader.get_all_nodes()
+
+        self.headers = self.init_headers()
 
     def ssh(self, name, connect_args):
         try:
@@ -38,13 +41,14 @@ class Reporter():
             else:
                 ssh = self.ssh_handlers[name]
             self.gpus_results[name] = ssh.exec_command(self.all_cmds['gpus'])[1].readlines()
-            self.tasks_results[name] = ''
-            # print(ssh.exec_command(self.all_cmds['tasks'].format(name))[1].readlines())
-            # _, stdout, _ = ssh.exec_command(cmds['tasks'].format(node_name))
-            # _tasks_results[node_name] = stdout.readlines()
+            try:
+                tasks_results = json.loads(bytes.decode(
+                    ssh.exec_command(self.all_cmds['tasks'])[1].read()))
+                self.tasks_results = tasks_results
+            except:
+                pass
         except:
             self.gpus_results[name] = ''
-            self.tasks_results[name] = ''
         # xx.close()
 
     def get_prog_disp_info(self, memory_used, power):
@@ -78,7 +82,7 @@ class Reporter():
             name_col = dict(color='white', attrs=[])
         return name_col, suggest_level
 
-    def single_gpu(self, gpu_info):
+    def single_gpu(self, gpu_info, gpu_by_us):
         # get ['449', '32510', '55.05'] from '449 MiB, 32510 MiB, 55.05 W'
         gpu_info = [item.split()[0] for item in gpu_info.split(',')]
         for i, item in enumerate(gpu_info):
@@ -89,32 +93,38 @@ class Reporter():
         power = gpu_info[2]
         prog_col, is_free = self.get_prog_disp_info(memory_used, power)
 
+        mark = '|' if not gpu_by_us else '>'
         percent = int(memory_used * 10)
-        gpu_str = colored(self.mark, prog_col, attrs=['bold']) + \
-                  colored(self.mark * percent + ' ' * (9 - percent), prog_col) + \
+        gpu_str = colored(mark, prog_col, attrs=['bold']) + \
+                  colored(mark * percent + ' ' * (9 - percent), prog_col) + \
                   colored('|', attrs=['dark'])
         return gpu_str, is_free
 
-    def single_node(self, node_name, res):
-        # tasks_res = _tasks_results[node_name]
+    def single_node(self, name):
+        gpus_res = self.gpus_results[name]
         gpus_info = []
         name_col = {}
         suggest_level = 0
 
-        if isinstance(res, list) and res:
-            gpu_num, free_gpu_num = len(res), 0
+        if isinstance(gpus_res, list) and gpus_res:
+            gpu_num, free_gpu_num = len(gpus_res), 0
 
-            for gpu_id, gpu_info in enumerate(res):
-                gpu_str, is_free = self.single_gpu(gpu_info)
+            for gpu_id, gpu_info in enumerate(gpus_res):
+                gpu_by_us = gpu_id in self.gpus_by_us[name]
+                gpu_str, is_free = self.single_gpu(gpu_info, gpu_by_us)
                 gpus_info.append(gpu_str)
                 free_gpu_num += is_free
 
             name_col, suggest_level = self.get_name_disp_info(gpu_num, free_gpu_num)
 
-            # if _tasks_results[node_name]:
-            #     col['attrs'].append('underline')
+        return [colored(name, **name_col)] + gpus_info, suggest_level
 
-        return [colored(node_name, **name_col)] + gpus_info, suggest_level
+    def update_gpus_by_us(self):
+        for k, v in self.tasks_results.items():
+            gpus = v['gpus']
+            for gpu in gpus:
+                hostname, device_id = gpu.split(':')
+                self.gpus_by_us[hostname].append(int(device_id))
 
     def update_info(self):
         threads = []
@@ -126,14 +136,16 @@ class Reporter():
         for thr in threads:
             thr.join()
 
+        self.gpus_by_us = defaultdict(list)
+        self.update_gpus_by_us()
+
     def init_headers(self):
         gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
         tasks_headers = ['node', 'tasks_names']
         return gpu_headers, tasks_headers
 
     def build_disp(self, data, summary):
-        headers = self.init_headers()
-        table = tabulate(data, headers=headers[0], tablefmt='rst')
+        table = tabulate(data, headers=self.headers[0], tablefmt='rst')
         summary_msg = colored(
             "All free ({}):\t{}".format(len(summary['node_l3']), '  '.join(summary['node_l3'])),
             'green', attrs=['bold']) + colored(
@@ -153,7 +165,7 @@ class Reporter():
             self.update_info()
 
             for name in self.all_nodes:
-                info, suggest_level = self.single_node(name, self.gpus_results[name])
+                info, suggest_level = self.single_node(name)
                 data.append(info)
                 summary['node_l{}'.format(suggest_level)].append(name)
 

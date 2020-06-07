@@ -1,28 +1,28 @@
 NODES:
-  gpu3:
+  fabu.gpu3.ai:
     ip: 192.168.3.113
     user: liuzili
 
-  gpu4:
+  fabu.gpu4.ai:
     ip: 192.168.3.114
     user: liuzili
 
-  gpu7:
+  fabu.gpu7.ai:
     ip: 192.168.3.117
     user: liuzili
 
-  gpu9:
+  fabu.gpu9.ai:
     ip: 192.168.3.119
     user: liuzili
 
-  gpu11:
+  fabu.gpu11.ai:
     ip: 192.168.3.121
     user: liuzili
 
-  gpu13:
+  fabu.gpu13.ai:
     ip: 192.168.3.123
     user: liuzili
 
-  gpu15:
+  fabu.gpu15.ai:
     ip: 192.168.3.125
     user: liuzili
