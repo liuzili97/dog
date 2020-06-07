@@ -1,3 +1,3 @@
-from .loader import Loader
+from .remotes_loader import RemotesLoader
 
-__all__ = ['Loader']
+__all__ = ['RemotesLoader']

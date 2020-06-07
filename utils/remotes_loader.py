@@ -2,7 +2,7 @@ import yaml
 from collections import OrderedDict
 
 
-class Loader():
+class RemotesLoader():
 
     def __init__(self, hostname):
         self.hostname = hostname
