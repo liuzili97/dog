@@ -1,4 +1,5 @@
-TARGET: /home/liuzili/workspace/mmdetection
+TARGET:
+  mmdetection: /home/liuzili/workspace/mmdetection
 USE_SLURM: False
 TASKS:
   2006_ssl:

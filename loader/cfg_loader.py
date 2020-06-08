@@ -31,8 +31,8 @@ class CFGLoader():
                     dir_and_cfg.append([os.path.join(root_dir, dir_name), cfg[dir_name]])
                 return dir_and_cfg
 
-    def get_target_dir(self):
-        return self.target
+    def get_target_dir(self, name):
+        return self.target[name]
 
     def is_use_slurm(self):
         assert isinstance(self.use_slurm, bool)

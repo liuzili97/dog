@@ -39,14 +39,15 @@ def main():
     loader = CFGLoader(hostname)
 
     args = sys.argv[1:]
-    assert len(args) == 2, args
+    assert len(args) == 3, args
 
-    dir_name, gpu_info = args
+    target_name, dir_name, gpu_info = args
     dir_and_cfgs = loader.get_dir_and_cfgs(dir_name)
-    target_dir = loader.get_target_dir()
+    target_dir = loader.get_target_dir(target_name)
     slurm_mode = loader.is_use_slurm()
     assert dir_and_cfgs, dir_and_cfgs
 
+    print(f"The target name is: {target_name}, we will cd to {target_dir}")
     print("Tasks:")
     gpu_num = gpu_info if slurm_mode else len(gpu_info.split(','))
     for (dirn, cfg) in dir_and_cfgs:

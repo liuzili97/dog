@@ -1,5 +1,6 @@
-TARGET: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/mmdetection
-USE_SLURM: False
+TARGET:
+  mmdetection: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/mmdetection
+USE_SLURM: True
 TASKS:
   2006_ssl:
     r18_moco_imagenet100_0606: configs/ssl/r18_moco_imagenet100.py
