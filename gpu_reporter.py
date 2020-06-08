@@ -144,10 +144,11 @@ class Reporter():
 
     def init_headers(self):
         gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
-        return gpu_headers
+        task_headers = ['day', 'time', 'upda', 'eta', 'name', 'n', 'loss', 'oth']
+        return gpu_headers, task_headers
 
     def build_disp(self, prog_data, summary, task_data):
-        prog_table = tabulate(prog_data, headers=self.headers, tablefmt='rst')
+        prog_table = tabulate(prog_data, headers=self.headers[0], tablefmt='rst')
         summary_msg = colored(
             "All free ({}):\t{}".format(len(summary['node_l3']), '  '.join(summary['node_l3'])),
             'green', attrs=['bold']) + colored(
@@ -157,7 +158,8 @@ class Reporter():
             "\nSome free ({}):\t{}\n".format(len(summary['node_l1']),
                                              '  '.join(summary['node_l1'])),
             'yellow')
-        task_table = tabulate(task_data, tablefmt='grid', showindex=True)
+        task_table = tabulate(task_data, headers=self.headers[1], tablefmt='presto',
+                              stralign='right')
         return prog_table, summary_msg, task_table
 
     def build_prog_data(self):
@@ -176,30 +178,26 @@ class Reporter():
         for k, v in self.tasks_results.items():
             month_day = int(k.split('-')[0].replace('.', ''))
             min_sec = int(k.split('-')[1].replace(':', ''))
-
+            last_update = v.pop('last_update', '-')
             eta = colored(v.pop('eta', 'Done'), 'cyan')
             name = colored(v.pop('name'), 'blue')
-            gpu_num = colored(v.pop('gpu_num', 'Unknow'), 'cyan')
-            loss = colored(v.pop('loss', 'inf'), 'red')
+            gpu_num = colored(v.pop('gpu_num', '-'), 'cyan')
+            loss = colored(v.pop('loss', '-'), 'red')
             _ = v.pop('gpus')
 
-            task_str = f"{min_sec} | [{eta}]"
+            task_list = [min_sec, last_update, eta, name, gpu_num, loss, '']
             if v:
-                v = list(v.values())
-                task_str += f" {v}"
-            task_str += f"  {name} {gpu_num} loss:{loss}"
-            task_data_raw[month_day][min_sec] = task_str
+                task_list[-1] = v.__str__().replace("'", "").replace("{", "").replace(
+                    "}", "").replace(" ", "")
+            task_data_raw[month_day][min_sec] = task_list
 
         sort_month_day = sorted(task_data_raw.keys())
         for k in sort_month_day:
             sub_task_data_raw = task_data_raw[k]
             sort_min_sec = sorted(sub_task_data_raw.keys())
-            task_strs = []
-            for k1 in sort_min_sec:
-                task_strs.append(sub_task_data_raw[k1])
-
-            task_str = '\n'.join(task_strs)
-            task_data.append([f"{k:04d}", task_str])
+            for i, k1 in enumerate(sort_min_sec):
+                day = f"{k:04d}" if i == 0 else ""
+                task_data.append([day] + sub_task_data_raw[k1])
         return task_data
 
     def run(self):

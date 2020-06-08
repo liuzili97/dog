@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 from termcolor import colored
 from loader import CFGLoader
-from utils import _dist_env_set, register_task, update_task_info
+from utils import _dist_env_set, register_task, task_end
 
 
 # from utils import get_free_gpu, get_config
@@ -36,7 +36,7 @@ def do_job(target_dir, config_path, output_dir, gpu_num):
             os.environ['shell'], sh_name,
             config_path, ','.join(list(map(str, list(range(int(gpu_num)))))), output_dir))
 
-    update_task_info('eta', 'Done')
+    task_end()
 
 
 def is_finished(task_tuple, task_id):
