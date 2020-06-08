@@ -1,9 +1,7 @@
-import argparse
 import os
 import sys
 import socket
 import time
-from datetime import datetime
 from termcolor import colored
 from loader import CFGLoader
 from utils import _dist_env_set, register_task, task_end
@@ -113,19 +111,17 @@ def main():
 
 
 def slurm_main(loader, args):
-    cfg_path, gpu_num = args
-    cfg_path = cfg_path[:-3] if cfg_path.endswith('.py') else cfg_path
+    dir_name, gpu_num = args
 
-    cfg_and_dirs = loader.get_cfg_and_dirs(cfg_path)
+    dir_and_cfgs = loader.get_dir_and_cfgs(dir_name)
     target_dir = loader.get_target_dir()
+    assert dir_and_cfgs, dir_and_cfgs
     print("Tasks:")
-    for cfg_and_dir in cfg_and_dirs:
-        cfg, dir = cfg_and_dir
-        print(f"  {colored(cfg, 'blue')} => {colored(dir, 'green')} using {gpu_num} gpus.")
+    for (dirn, cfg) in dir_and_cfgs:
+        print(f"  {colored(cfg, 'blue')} => {colored(dirn, 'green')} using {gpu_num} gpus.")
 
-    for cfg_and_dir in cfg_and_dirs:
-        cfg, dir = cfg_and_dir
-        do_job(target_dir, cfg, dir, gpu_num)
+    for (dirn, cfg) in dir_and_cfgs:
+        do_job(target_dir, cfg, dirn, gpu_num)
 
 
 def non_slurm_main(loader):

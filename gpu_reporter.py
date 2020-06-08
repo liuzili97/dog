@@ -144,7 +144,7 @@ class Reporter():
 
     def init_headers(self):
         gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
-        task_headers = ['day', 'time', 'upda', 'eta', 'name', 'n', 'loss', 'oth']
+        task_headers = ['day', 'time', 'epoch', 'it', 'eta', 'name', 'n', 'upda', 'loss', 'oth']
         return gpu_headers, task_headers
 
     def build_disp(self, prog_data, summary, task_data):
@@ -159,7 +159,7 @@ class Reporter():
                                              '  '.join(summary['node_l1'])),
             'yellow')
         task_table = tabulate(task_data, headers=self.headers[1], tablefmt='presto',
-                              stralign='right')
+                              stralign='right', numalign='right')
         return prog_table, summary_msg, task_table
 
     def build_prog_data(self):
@@ -179,13 +179,24 @@ class Reporter():
             month_day = int(k.split('-')[0].replace('.', ''))
             min_sec = int(k.split('-')[1].replace(':', ''))
             last_update = v.pop('last_update', '-')
-            eta = colored(v.pop('eta', 'Done'), 'cyan')
-            name = colored(v.pop('name'), 'blue')
+            eta = v.pop('eta', 'Done')
+            name = v.pop('name')
+            if eta != 'Done':
+                name = colored(name, 'blue')
+            eta = colored(eta, 'cyan')
             gpu_num = colored(v.pop('gpu_num', '-'), 'cyan')
             loss = colored(v.pop('loss', '-'), 'red')
+            epoch_str = f"{v.pop('epoch', '-')}/{v.pop('max_epochs', '-')}"
+            inner_iter = v.pop('inner_iter', '-')
+            max_inner_iter = v.pop('max_inner_iter', '-')
+            iter_str = '-'
+            if inner_iter != '-' and max_inner_iter != '-':
+                percent = int(int(inner_iter) / int(max_inner_iter) * 100)
+                iter_str = f"{percent}%"
             _ = v.pop('gpus')
 
-            task_list = [min_sec, last_update, eta, name, gpu_num, loss, '']
+            task_list = [colored(min_sec, attrs=['bold']), epoch_str, iter_str,
+                         eta, name, gpu_num, last_update, loss, '']
             if v:
                 task_list[-1] = v.__str__().replace("'", "").replace("{", "").replace(
                     "}", "").replace(" ", "")

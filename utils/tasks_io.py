@@ -60,8 +60,10 @@ def add_device_info():
     hostname = socket.gethostname()
     device_id = torch.cuda.current_device()
     dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['WATCHDOG_KEY']}"
-    if not os.path.isdir(dir_name):
+    try:
         os.makedirs(dir_name)
+    except:
+        pass
     with open(f"{dir_name}/{hostname}:{device_id}", 'w') as f:
         f.write('')
 
@@ -93,8 +95,4 @@ def task_end(**kwargs):
     start_date = task_dict['key']
     now_date = datetime.now().strftime('%m.%d-%H:%M')
     if start_date[:5] == now_date[:5] and int(now_date[6:8]) - int(start_date[6:8]) < 5:
-        task_dict.pop(key)
-        task_info = json.dumps(task_dict, indent=4)
-        with open(f"{os.environ['HOME']}/.dog/{key}", 'w') as f:
-            f.write(task_info)
-
+        os.system(f"rm {os.environ['HOME']}/.dog/{key}")
