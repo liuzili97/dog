@@ -1,5 +1,4 @@
 import time
-import json
 import os
 import socket
 import paramiko

@@ -6,11 +6,15 @@ from collections import OrderedDict
 class CFGLoader():
 
     def __init__(self, hostname):
-        hostname_prefix = hostname[:4]
-        with open(f'cfg/{hostname_prefix}.yml') as f:
+        if hostname.startswith('node'):
+            hostname_alias = 'node'
+        elif hostname.endswith('fabu.ai'):
+            hostname_alias = 'fabu'
+        with open(f'cfg/{hostname_alias}.yml') as f:
             cfg = yaml.safe_load(f)
 
         self.target = cfg['TARGET']
+        self.use_slurm = cfg['USE_SLURM']
         self.task_cfg = cfg['TASKS']
         self.gpu_cfg = cfg.get('DEVICES', {})
 
@@ -29,6 +33,10 @@ class CFGLoader():
 
     def get_target_dir(self):
         return self.target
+
+    def is_use_slurm(self):
+        assert isinstance(self.use_slurm, bool)
+        return self.use_slurm
 
     def get_connect_dict(self):
         connect_dict = OrderedDict()
