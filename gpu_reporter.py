@@ -7,7 +7,8 @@ import threading
 from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
-from utils import RemotesLoader
+from loader import RemoteLoader
+from utils import cat_tasks_str_to_dict
 
 
 class Reporter():
@@ -21,11 +22,11 @@ class Reporter():
         self.disp_thre = dict(used=0.2, power=60)
         self.all_cmds = dict(
             gpus='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
-            tasks='cat ~/.watch_dog/task_info'
+            tasks='cat ~/.dog/*'
         )
 
         hostname = socket.gethostname()
-        loader = RemotesLoader(hostname)
+        loader = RemoteLoader(hostname)
         self.connect_dict = loader.get_connect_dict()
         self.all_nodes = loader.get_all_nodes()
 
@@ -42,9 +43,8 @@ class Reporter():
                 ssh = self.ssh_handlers[name]
             self.gpus_results[name] = ssh.exec_command(self.all_cmds['gpus'])[1].readlines()
             try:
-                tasks_results = json.loads(bytes.decode(
-                    ssh.exec_command(self.all_cmds['tasks'])[1].read()))
-                self.tasks_results = tasks_results
+                self.tasks_results = bytes.decode(
+                    ssh.exec_command(self.all_cmds['tasks'])[1].read())
             except:
                 pass
         except:
@@ -121,10 +121,11 @@ class Reporter():
 
     def update_gpus_by_us(self):
         for k, v in self.tasks_results.items():
-            gpus = v['gpus']
-            for gpu in gpus:
-                hostname, device_id = gpu.split(':')
-                self.gpus_by_us[hostname].append(int(device_id))
+            if v['eta'] != 'Done':
+                gpus = v['gpus']
+                for gpu in gpus:
+                    hostname, device_id = gpu.split(':')
+                    self.gpus_by_us[hostname].append(int(device_id))
 
     def update_info(self):
         threads = []
@@ -135,6 +136,8 @@ class Reporter():
             thr.start()
         for thr in threads:
             thr.join()
+
+        self.tasks_results = cat_tasks_str_to_dict(self.tasks_results)
 
         self.gpus_by_us = defaultdict(list)
         self.update_gpus_by_us()
@@ -172,11 +175,20 @@ class Reporter():
         task_data_raw = defaultdict(dict)
         for k, v in self.tasks_results.items():
             month_day = int(k.split('-')[0].replace('.', ''))
-            min_sec = int(k.split('-')[1].replace('.', ''))
+            min_sec = int(k.split('-')[1].replace(':', ''))
 
-            eta = colored(v.pop('eta'), 'cyan')
+            eta = colored(v.pop('eta', 'Done'), 'cyan')
             name = colored(v.pop('name'), 'blue')
-            task_data_raw[month_day][min_sec] = f"{eta} {name} {v.values()}"
+            gpu_num = colored(v.pop('gpu_num', 'Unknow'), 'cyan')
+            loss = colored(v.pop('loss', 'inf'), 'red')
+            _ = v.pop('gpus')
+
+            task_str = f"{min_sec} | [{eta}]"
+            if v:
+                v = list(v.values())
+                task_str += f" {v}"
+            task_str += f"  {name} {gpu_num} loss:{loss}"
+            task_data_raw[month_day][min_sec] = task_str
 
         sort_month_day = sorted(task_data_raw.keys())
         for k in sort_month_day:
@@ -187,7 +199,7 @@ class Reporter():
                 task_strs.append(sub_task_data_raw[k1])
 
             task_str = '\n'.join(task_strs)
-            task_data.append(k, task_str)
+            task_data.append([f"{k:04d}", task_str])
         return task_data
 
     def run(self):

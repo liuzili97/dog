@@ -2,11 +2,10 @@ import yaml
 from collections import OrderedDict
 
 
-class RemotesLoader():
+class RemoteLoader():
 
     def __init__(self, hostname):
-        self.hostname = hostname
-        with open(f'configs/remotes/{hostname}.yml') as f:
+        with open(f'remote/{hostname}.yml') as f:
             gpus_cfg = yaml.safe_load(f)
 
         self.nodes_dict = gpus_cfg['NODES']

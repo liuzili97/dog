@@ -1,0 +1,78 @@
+TASKS:
+  2006_ssl:
+    configs/ssl/r18_moco_imagenet100: r18_moco_imagenet100_0606
+
+
+DEVICES:
+  vector-gpu:
+    tasks:
+      - CMC18_IMAGENET100
+    watch_gpus: [0]
+    wait_minutes: 0
+    workers_per_gpu: 2
+
+  fabu.gpu3.ai:
+    tasks:
+      - TTFV318_L2_N_MOCO100_NOFROZEN_1X
+    watch_gpus: [2, 3]
+    wait_minutes: 1
+    memory_thre: 0.85
+
+  fabu.gpu4.ai:
+    tasks:
+      - TTFV334_L2_N_1X
+    watch_gpus: [0, 1, 2, 3]
+    wait_minutes: 1
+    memory_thre: 0.9
+
+  fabu.gpu7.ai:
+    tasks:
+      - CMC18_IMAGENET100
+    watch_gpus: [4]
+    wait_minutes: 1
+    memory_thre: 0.1
+    workers_per_gpu: 4
+
+  fabu.gpu9.ai:
+    tasks:
+      - TTFV334_L2_N_MOCO_NOFROZEN_1X
+    watch_gpus: [2, 3, 6, 7]
+    wait_minutes: 0.5
+    memory_thre: 0.75
+
+  fabu.gpu11.ai:
+    tasks:
+      - TTFL53_1224_1x
+    watch_gpus: [0, 1, 2, 3]
+    wait_minutes: 1
+    memory_thre: 0.96
+    workers_per_gpu: 1
+
+  fabu.gpu12.ai:
+    tasks:
+    watch_gpus: [4, 5, 6, 7]
+    wait_minutes: 2
+    memory_thre: 0.96
+    workers_per_gpu: 2
+
+  fabu.gpu13.ai:
+    tasks:
+    watch_gpus: [0, 7]
+    wait_minutes: 1
+    memory_thre: 0.8
+
+  fabu.gpu14.ai:
+    tasks:
+      - E_CXT18_FOV
+    watch_gpus: [0, 1, 2, 3]
+    wait_minutes: 0
+    memory_thre: 0.9
+    workers_per_gpu: 2
+
+  fabu.gpu15.ai:
+    tasks:
+        - LINCLS_SSL18_IMAGENET100
+    watch_gpus: [3]
+    wait_minutes: 1
+    memory_thre: 0.5
+    workers_per_gpu: 16

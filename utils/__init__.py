@@ -1,3 +1,5 @@
-from .remotes_loader import RemotesLoader
+from .gpu_monitor import get_free_gpu
+from .tasks_io import register_task, add_device_info, update_task_info, cat_tasks_str_to_dict
 
-__all__ = ['RemotesLoader']
+__all__ = ['get_free_gpu', 'register_task', 'add_device_info',
+           'update_task_info', 'cat_tasks_str_to_dict']
