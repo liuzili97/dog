@@ -1,9 +1,13 @@
 TARGET: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/mmdetection
+USE_SLURM: False
 TASKS:
   2006_ssl:
-    configs/ssl/r18_moco_imagenet100: r18_moco_imagenet100_0606
+    r18_moco_imagenet100_0606: configs/ssl/r18_moco_imagenet100.py
     merge: [
-      configs/ssl/r18_moco_imagenet100,
-      configs/ssl/r18_moco_imagenet100
+      r18_moco_imagenet100_0606,
+      r18_moco_imagenet100_0606
     ]
-    configs/ssl/lincls/lincls_r18_moco_imagenet100: lincls_r18_moco_imagenet100_0608
+    lincls_r18_moco_imagenet100_0608: configs/ssl/lincls/lincls_r18_moco_imagenet100.py
+    r50_cmc_imagenet100_0608-c: configs/ssl/r50_cmc_imagenet100.py
+    r18_cmc_imagenet_0608-c: configs/ssl/r18_cmc_imagenet.py
+    r50_cmc_imagenet_0608-c: configs/ssl/r50_cmc_imagenet.py

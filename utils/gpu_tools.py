@@ -1,12 +1,5 @@
 import os
 
-import numpy as np
-
-
-def get_gpu_info(keyword):
-    os.system('nvidia-smi -q -d Memory |grep -A4 GPU|grep {} >tmp_gpu'.format(keyword.title()))
-    return np.array([int(x.split()[2]) for x in open('tmp_gpu', 'r').readlines()])
-
 
 def parse(line, qargs):
     numberic_args = ['memory.free', 'memory.total', 'power.draw', 'power.limit']

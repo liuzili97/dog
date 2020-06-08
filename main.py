@@ -28,7 +28,7 @@ def do_job(target_dir, config_path, output_dir, gpu_info):
     sh_name = shell_name(config_path)
     os.system(
         "./scripts/{}_{}.sh {} {} {}".format(
-            os.environ['shell'], sh_name,
+            os.environ['DOG_SHELL'], sh_name,
             config_path, gpu_info, output_dir))
 
     task_end()

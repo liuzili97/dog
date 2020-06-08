@@ -23,13 +23,13 @@ def set_slurm_env(hostname):
         os.environ[k] = str(v)
 
 
-# init watch-dog file
-watch_dog_dir = f"{os.environ['HOME']}/.dog"
-if not os.path.isdir(watch_dog_dir):
-    os.makedirs(watch_dog_dir)
+# init dog file
+dog_dir = f"{os.environ['HOME']}/.dog"
+if not os.path.isdir(dog_dir):
+    os.makedirs(dog_dir)
 
 if hostname.startswith('node'):
     set_slurm_env(hostname)
-    os.environ['shell'] = 'slurm'
+    os.environ['DOG_SHELL'] = 'slurm'
 else:
-    os.environ['shell'] = 'dist'
+    os.environ['DOG_SHELL'] = 'dist'

@@ -26,7 +26,7 @@ def update(is_read=True, is_write=True):
         def new_func(*args, **kwargs):
             if is_read:
                 if 'task_dict' not in kwargs or 'key' not in kwargs:
-                    key = os.environ['WATCHDOG_KEY']
+                    key = os.environ['DOG_KEY']
                     task_info = os.popen(f"cat {os.environ['HOME']}/.dog/{key}").read()
                     task_dict = json.loads(task_info)
                     kwargs['task_dict'] = task_dict
@@ -48,10 +48,10 @@ def update(is_read=True, is_write=True):
 
 @update(is_read=False)
 def register_task(task_name):
-    # called by watch-dog
+    # called by dog
     key = datetime.now().strftime('%m.%d-%H:%M')
     task_dict = dict(key=key, name=task_name, gpus=[], eta='Starting')
-    os.environ['WATCHDOG_KEY'] = key
+    os.environ['DOG_KEY'] = key
     return task_dict, key
 
 
@@ -59,7 +59,7 @@ def add_device_info():
     # called in distributed part
     hostname = socket.gethostname()
     device_id = torch.cuda.current_device()
-    dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['WATCHDOG_KEY']}"
+    dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['DOG_KEY']}"
     try:
         os.makedirs(dir_name)
     except:
@@ -73,7 +73,7 @@ def update_task_info(info_dict, **kwargs):
     task_dict = kwargs['task_dict']
     key = kwargs['key']
 
-    dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['WATCHDOG_KEY']}"
+    dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['DOG_KEY']}"
     if os.path.isdir(dir_name):
         for _, _, files in os.walk(dir_name):
             task_dict['gpus'] = files
