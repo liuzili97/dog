@@ -7,7 +7,7 @@ from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
 from loader import RemoteLoader
-from utils import cat_tasks_str_to_dict
+from dog_utils import cat_tasks_str_to_dict
 
 
 class Reporter():
@@ -182,8 +182,9 @@ class Reporter():
             name = v.pop('name')
             if eta != 'Done':
                 name = colored(name, 'blue')
-            eta = colored(eta, 'cyan')
-            gpu_num = colored(v.pop('gpu_num', '-'), 'cyan')
+                last_update = colored(last_update, 'cyan')
+                eta = colored(eta, 'cyan')
+            gpu_num = v.pop('gpu_num', '-')
             loss = colored(v.pop('loss', '-'), 'red')
             epoch_str = f"{v.pop('epoch', '-')}/{v.pop('max_epochs', '-')}"
             inner_iter = v.pop('inner_iter', '-')

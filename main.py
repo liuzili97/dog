@@ -4,7 +4,7 @@ import socket
 import time
 from termcolor import colored
 from loader import CFGLoader
-from utils import _dist_env_set, register_task, task_end, get_free_gpu
+from dog_utils import _dist_env_set, register_task, task_end, get_free_gpu
 
 
 def shell_name(config_path):
