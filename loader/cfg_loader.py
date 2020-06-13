@@ -34,6 +34,9 @@ class CFGLoader():
     def get_target_dir(self, name):
         return self.target[name]
 
+    def get_target_dirs(self):
+        return self.target.values()
+
     def is_use_slurm(self):
         assert isinstance(self.use_slurm, bool)
         return self.use_slurm

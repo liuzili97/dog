@@ -1,5 +1,6 @@
 import json
 import os
+import time
 import socket
 import torch
 from datetime import datetime
@@ -20,6 +21,11 @@ def cat_tasks_str_to_dict(tasks_info):
     return tasks_results
 
 
+def load_dog_file(key):
+    task_info = os.popen(f"cat {os.environ['HOME']}/.dog/{key}").read()
+    return json.loads(task_info)
+
+
 def update(is_read=True, is_write=True):
     def update_wrapper(old_func):
         @functools.wraps(old_func)
@@ -27,8 +33,7 @@ def update(is_read=True, is_write=True):
             if is_read:
                 if 'task_dict' not in kwargs or 'key' not in kwargs:
                     key = os.environ['DOG_KEY']
-                    task_info = os.popen(f"cat {os.environ['HOME']}/.dog/{key}").read()
-                    task_dict = json.loads(task_info)
+                    task_dict = load_dog_file(key)
                     kwargs['task_dict'] = task_dict
                     kwargs['key'] = key
 
@@ -94,5 +99,10 @@ def task_end(**kwargs):
     update_task_info(dict(eta='Done'), **kwargs)
     start_date = task_dict['key']
     now_date = datetime.now().strftime('%m.%d-%H:%M')
-    if start_date[:5] == now_date[:5] and int(now_date[6:8]) - int(start_date[6:8]) < 5:
+
+    start_stamp = time.mktime(time.strptime(start_date, '%m.%d-%H:%M'))
+    now_stamp = time.mktime(time.strptime(now_date, '%m.%d-%H:%M'))
+
+    if (now_stamp - start_stamp) / 60 < 5:
+        print(f"{start_date} -- {now_date}, less than 5 min")
         os.system(f"rm {os.environ['HOME']}/.dog/{key}")
