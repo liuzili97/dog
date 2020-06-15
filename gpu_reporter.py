@@ -7,7 +7,7 @@ from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
 from loader import RemoteLoader
-from dog_utils import cat_tasks_str_to_dict
+from dog_utils import _dist_env_set, cat_tasks_str_to_dict
 
 
 class Reporter():
@@ -21,7 +21,7 @@ class Reporter():
         self.disp_thre = dict(used=0.2, power=60)
         self.all_cmds = dict(
             gpus='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
-            tasks='cat ~/.dog/*'
+            tasks=f"cat ~/{os.environ['DOG_DIRNAME']}/*"
         )
 
         hostname = socket.gethostname()

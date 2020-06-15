@@ -5,9 +5,9 @@ from termcolor import colored
 from tabulate import tabulate
 
 from loader import CFGLoader
-from dog_utils import load_dog_file
+from dog_utils import _dist_env_set, load_dog_file
 
-dog_dir = '{}/.dog'.format(os.environ['HOME'])
+dog_dir = os.path.join(os.environ['HOME'], os.environ['DOG_DIRNAME'])
 
 
 def show_find_res(target_dirs, keyword):

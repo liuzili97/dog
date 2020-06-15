@@ -2,10 +2,10 @@ import json
 import os
 import time
 import socket
-import torch
 from datetime import datetime
 import functools
 import shutil
+from dog_utils import _dist_env_set
 
 
 def cat_tasks_str_to_dict(tasks_info):
@@ -22,12 +22,12 @@ def cat_tasks_str_to_dict(tasks_info):
 
 
 def load_dog_file(key):
-    task_info = os.popen(f"cat {os.environ['HOME']}/.dog/{key}").read()
+    task_info = os.popen(f"cat {os.environ['HOME']}/{os.environ['DOG_DIRNAME']}/{key}").read()
     return json.loads(task_info)
 
 
 def get_task_eta(task_name):
-    for root, _, files in os.walk(f"{os.environ['HOME']}/.dog"):
+    for root, _, files in os.walk(f"{os.environ['HOME']}/{os.environ['DOG_DIRNAME']}"):
         for file in files:
             task_dict = load_dog_file(file)
             if task_dict['name'] == task_name:
@@ -51,7 +51,7 @@ def update(is_read=True, is_write=True):
             if is_write:
                 task_dict, key = output
                 task_info = json.dumps(task_dict, indent=4)
-                with open(f"{os.environ['HOME']}/.dog/{key}", 'w') as f:
+                with open(f"{os.environ['HOME']}/{os.environ['DOG_DIRNAME']}/{key}", 'w') as f:
                     f.write(task_info)
             return output
 
@@ -71,9 +71,10 @@ def register_task(task_name):
 
 def add_device_info():
     # called in distributed part
+    import torch
     hostname = socket.gethostname()
     device_id = torch.cuda.current_device()
-    dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['DOG_KEY']}"
+    dir_name = f"{os.environ['HOME']}/{os.environ['DOG_DIRNAME']}/.{os.environ['DOG_KEY']}"
     try:
         os.makedirs(dir_name)
     except:
@@ -87,7 +88,7 @@ def update_task_info(info_dict, **kwargs):
     task_dict = kwargs['task_dict']
     key = kwargs['key']
 
-    dir_name = f"{os.environ['HOME']}/.dog/.{os.environ['DOG_KEY']}"
+    dir_name = f"{os.environ['HOME']}/{os.environ['DOG_DIRNAME']}/.{os.environ['DOG_KEY']}"
     if os.path.isdir(dir_name):
         for _, _, files in os.walk(dir_name):
             task_dict['gpus'] = files
@@ -114,4 +115,4 @@ def task_end(**kwargs):
 
     if (now_stamp - start_stamp) / 60 < 5:
         print(f"{start_date} -- {now_date}, less than 5 min")
-        os.system(f"rm {os.environ['HOME']}/.dog/{key}")
+        os.system(f"rm {os.environ['HOME']}/{os.environ['DOG_DIRNAME']}/{key}")

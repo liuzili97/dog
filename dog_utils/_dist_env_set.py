@@ -1,5 +1,6 @@
 import os
 import socket
+import yaml
 
 hostname = socket.gethostname()
 
@@ -23,11 +24,19 @@ def set_slurm_env(hostname):
         os.environ[k] = str(v)
 
 
-# init dog file
-dog_dir = f"{os.environ['HOME']}/.dog"
-if not os.path.isdir(dog_dir):
-    os.makedirs(dog_dir)
+def init_dog_dir():
+    with open(f'setting.yml') as f:
+        cfg = yaml.safe_load(f)
+    dog_dirname = cfg['DOG_DIRNAME']
+    os.environ['DOG_DIRNAME'] = dog_dirname
 
+    # init dog file
+    dog_dir = f"{os.environ['HOME']}/{dog_dirname}"
+    if not os.path.isdir(dog_dir):
+        os.makedirs(dog_dir)
+
+
+init_dog_dir()
 if hostname.startswith('node'):
     set_slurm_env(hostname)
     os.environ['DOG_SHELL'] = 'slurm'
