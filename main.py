@@ -64,7 +64,6 @@ def wait_last_task(last_target_name):
         time.sleep(30)
 
 
-
 def main():
     hostname = socket.gethostname()
     loader = CFGLoader(hostname)

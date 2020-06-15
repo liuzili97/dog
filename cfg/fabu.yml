@@ -1,6 +1,0 @@
-USE_SLURM: False
-TARGET:
-  mmdetection: /home/liuzili/workspace/mmdetection
-TASKS:
-  2006_ssl:
-    r18_moco_imagenet100_0606: configs/ssl/r18_moco_imagenet100.py
