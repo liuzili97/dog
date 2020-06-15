@@ -1,14 +1,32 @@
+USE_SLURM: True
 TARGET:
   mmdetection: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/mmdetection
-USE_SLURM: True
 TASKS:
   2006_ssl:
     r18_moco_imagenet100_0606: configs/ssl/r18_moco_imagenet100.py
-    merge: [
-      r18_moco_imagenet100_0606,
-      r18_moco_imagenet100_0606
-    ]
     lincls_r18_moco_imagenet100_0608: configs/ssl/lincls/lincls_r18_moco_imagenet100.py
     r50_cmc_imagenet100_0608-c: configs/ssl/r50_cmc_imagenet100.py
     r18_cmc_imagenet_0608-c: configs/ssl/r18_cmc_imagenet.py
     r50_cmc_imagenet_0608-c: configs/ssl/r50_cmc_imagenet.py
+    merge: [
+      r18_moco_imagenet100_0606,
+      lincls_r18_moco_imagenet100_0608
+    ]
+    lincls_r50_cmc_imagenet100: configs/ssl/lincls/lincls_r50_cmc_imagenet100.py
+    lincls_r50_cmc_imagenet: configs/ssl/lincls/lincls_r50_cmc_imagenet.py
+
+    lincls_r18_cmc_moco_imagenet100: configs/ssl/lincls/lincls_r18_cmc_moco_imagenet100.py
+
+    r18_cmc_moco_imagenet100_65536: configs/ssl/r18_cmc_moco_imagenet100_65536.py
+    r18_cmc_moco_imagenet100_0999: configs/ssl/r18_cmc_moco_imagenet100_0999.py
+    r18_cmc_imagenet: configs/ssl/lincls/lincls_r18_cmc_imagenet.py
+
+    r18_mocoV2_imagenet100: configs/ssl/r18_mocoV2_imagenet100.py
+    lincls_r18_mocoV2_imagenet100: configs/ssl/lincls/lincls_r18_mocoV2_imagenet100.py
+    r18_mocoV2_imagenet: configs/ssl/r18_mocoV2_imagenet.py
+    r50_mocoV2_imagenet100: configs/ssl/r50_mocoV2_imagenet100.py
+    lincls_r50_mocoV2_imagenet100: configs/ssl/lincls/lincls_r50_mocoV2_imagenet100.py
+
+    r18_cmc_moco_imagenet100: configs/ssl/r18_cmc_moco_imagenet100.py
+    r50_cmc_moco_imagenet100: configs/ssl/r50_cmc_moco_imagenet100.py
+    lincls_r50_cmc_moco_imagenet100: configs/ssl/lincls/lincls_r50_cmc_moco_imagenet100.py

@@ -26,6 +26,15 @@ def load_dog_file(key):
     return json.loads(task_info)
 
 
+def get_task_eta(task_name):
+    for root, _, files in os.walk(f"{os.environ['HOME']}/.dog"):
+        for file in files:
+            task_dict = load_dog_file(file)
+            if task_dict['name'] == task_name:
+                return task_dict['eta']
+    return 'Done'
+
+
 def update(is_read=True, is_write=True):
     def update_wrapper(old_func):
         @functools.wraps(old_func)
