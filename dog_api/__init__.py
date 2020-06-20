@@ -5,7 +5,7 @@ from .util import update_args, lr_autoscale
 from .log_buffer import LogBuffer
 from .env import (
     init_dog_dir, set_dog_shell, set_env, set_dog_key, init_dist, set_dog_base,
-    init_dist_slurm, is_dog_launched, dog_launched
+    init_dist_slurm, is_dog_launched, dog_launched, set_target_env
 )
 from .summary import (
     add_summary, set_writer, reset_global_step, update_global_step, set_epoch,
@@ -30,5 +30,5 @@ __all__ = [
     'set_dog_base', 'init_dist_slurm', 'add_coco_eval_summary', 'lr_autoscale', 'get_iter_left',
     'set_gpu_num', 'set_batch_per_gpu', 'dog_init', 'dog_before_epoch', 'dog_after_train_epoch',
     'dog_after_val_epoch', 'dog_before_train_iter', 'dog_after_train_iter', 'is_dog_launched',
-    'dog_launched', 'every_n_inner_iters'
+    'dog_launched', 'every_n_inner_iters', 'set_target_env'
 ]

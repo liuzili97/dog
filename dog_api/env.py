@@ -41,6 +41,12 @@ def set_dog_key(key):
     os.environ['DOG_DEVICEDIR'] = os.path.join(os.environ['DOG_DIR'], f".{key}")
 
 
+def set_target_env(entry_path, entry_key_dir):
+    # set in main
+    os.environ['ENTRY_PATH'] = entry_path
+    os.environ['ENTRY_KEY_DIR'] = entry_key_dir
+
+
 def is_dog_launched():
     return 'DOG_KEY' in os.environ
 

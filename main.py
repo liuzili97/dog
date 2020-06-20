@@ -1,6 +1,5 @@
 import os
 import sys
-import socket
 import time
 from termcolor import colored
 
@@ -27,12 +26,10 @@ def do_job(target_dir, config_path, output_dir, gpu_info):
     short_dir = output_dir.split('/')[-1].split('-')[0]
     register_task(short_dir, gpu_info)
 
+    dog_dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(target_dir)
-    sh_name = shell_name(config_path)
-    os.system(
-        "./scripts/{}_{}.sh {} {} {}".format(
-            os.environ['DOG_SHELL'], sh_name,
-            config_path, gpu_info, output_dir))
+    os.system(f"bash {dog_dir}/scripts/{os.environ['DOG_SHELL']}_train.sh "
+              f"{config_path} {gpu_info} {output_dir}")
 
     task_end()
 
@@ -84,7 +81,8 @@ class InfoLoader():
         return self.task_loader.get_dir_and_cfgs(dir_name)
 
     def get_target_dir(self, target_name):
-        return self.target_loader.get_target_dir(target_name)
+        self.target_loader.set_target_name(target_name)
+        return self.target_loader.get_target_dir()
 
 
 def main():

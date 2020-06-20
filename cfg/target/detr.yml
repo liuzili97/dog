@@ -2,4 +2,6 @@ DIR:
   tc6000: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/detr
   vector-gpu: /home/liuzili/workspace/detr
 
-
+ENTRY:
+  path: main.py
+  key_dir: output_dir
