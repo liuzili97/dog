@@ -1,0 +1,127 @@
+USE_SLURM: True
+NODES:
+  node1:
+    ip: node1
+    partition: w2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node2:
+    ip: node2
+    partition: w2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node3:
+    ip: node3
+    partition: w2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node4:
+    ip: node4
+    partition: w2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node5:
+    ip: node5
+    partition: w2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node6:
+    ip: node6
+    partition: w2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node7:
+    ip: node7
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node8:
+    ip: node8
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node9:
+    ip: node9
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node10:
+    ip: node10
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node11:
+    ip: node11
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node12:
+    ip: node12
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node13:
+    ip: node13
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node14:
+    ip: node14
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node15:
+    ip: node15
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node16:
+    ip: node16
+    partition: eng2080ti
+    gpus_per_node: 4
+    cpus_per_gpu: 4
+
+  node17:
+    ip: node17
+    partition: v100
+    gpus_per_node: 8
+    cpus_per_gpu: 4
+
+  node18:
+    ip: node18
+    partition: v100
+    gpus_per_node: 8
+    cpus_per_gpu: 4
+
+  node19:
+    ip: node19
+    partition: v100
+    gpus_per_node: 8
+    cpus_per_gpu: 4
+
+  node20:
+    ip: node20
+    partition: v100
+    gpus_per_node: 8
+    cpus_per_gpu: 4
+
+  node21:
+    ip: node21
+    partition: v100
+    gpus_per_node: 8
+    cpus_per_gpu: 4

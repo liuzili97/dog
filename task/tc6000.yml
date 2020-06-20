@@ -1,6 +1,3 @@
-USE_SLURM: True
-TARGET:
-  mmdetection: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/mmdetection
 TASKS:
   2006_ssl:
     r18_moco_imagenet100_0606: configs/ssl/r18_moco_imagenet100.py
@@ -29,4 +26,10 @@ TASKS:
 
     r18_cmc_moco_imagenet100: configs/ssl/r18_cmc_moco_imagenet100.py
     r50_cmc_moco_imagenet100: configs/ssl/r50_cmc_moco_imagenet100.py
-    lincls_r50_cmc_moco_imagenet100: configs/ssl/lincls/lincls_r50_cmc_moco_imagenet100.py
+    test: configs/ssl/lincls/lincls_r50_cmc_moco_imagenet100.py
+
+  work_dirs/2006_detr:
+    r50_detr_300e: configs/default.py
+    r18_detr_300e: configs/detr_r18.py
+    r18_detr_300e_w2080ti: configs/detr_r18.py
+

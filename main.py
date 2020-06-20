@@ -3,10 +3,13 @@ import sys
 import socket
 import time
 from termcolor import colored
-from loader import CFGLoader
-from dog_utils import _dist_env_set, register_task, task_end, get_free_gpu, get_task_eta
+
+from loader import MasterLoader, TaskLoader, TargetLoader
+from dog_api import task_end
+from util import get_free_gpu, register_task, get_task_eta
 
 
+# TODO remove
 def shell_name(config_path):
     keywords = ['MoCo', 'CMC', 'LinCLS']
     with open(config_path, 'r') as f:
@@ -22,7 +25,7 @@ def do_job(target_dir, config_path, output_dir, gpu_info):
     print("Executing shell...")
 
     short_dir = output_dir.split('/')[-1].split('-')[0]
-    register_task(short_dir)
+    register_task(short_dir, gpu_info)
 
     os.chdir(target_dir)
     sh_name = shell_name(config_path)
@@ -58,23 +61,45 @@ def wait_last_task(last_target_name):
             eta = get_task_eta(last_target_name)
             if eta == 'Done':
                 break
-            print(f"Waiting for {last_target_name} to end, eta: {eta}.")
+            print(f"Waiting for {last_target_name} to finish, eta: {eta}.")
         except:
             pass
         time.sleep(30)
 
 
+class InfoLoader():
+
+    def __init__(self, master_name):
+        self.master_loader = MasterLoader(master_name)
+        self.task_loader = TaskLoader(master_name)
+        self.target_loader = TargetLoader(master_name)
+
+    def is_use_slurm(self):
+        return self.master_loader.is_use_slurm()
+
+    def set_slurm_env(self):
+        return self.master_loader.set_slurm_env()
+
+    def get_dir_and_cfgs(self, dir_name):
+        return self.task_loader.get_dir_and_cfgs(dir_name)
+
+    def get_target_dir(self, target_name):
+        return self.target_loader.get_target_dir(target_name)
+
+
 def main():
-    hostname = socket.gethostname()
-    loader = CFGLoader(hostname)
-
     args = sys.argv[1:]
-    assert len(args) in [3, 4], args
+    assert len(args) in [4, 5], args
 
-    target_name, dir_name, gpu_info = args[:3]
-    dir_and_cfgs = loader.get_dir_and_cfgs(dir_name)
-    target_dir = loader.get_target_dir(target_name)
-    slurm_mode = loader.is_use_slurm()
+    master_name, target_name, dir_name, gpu_info = args[:4]
+
+    info_loader = InfoLoader(master_name)
+
+    slurm_mode = info_loader.is_use_slurm()
+    dir_and_cfgs = info_loader.get_dir_and_cfgs(dir_name)
+    target_dir = info_loader.get_target_dir(target_name)
+    if slurm_mode:
+        info_loader.set_slurm_env()
     assert dir_and_cfgs, dir_and_cfgs
 
     print(f"The target name is: {target_name}, we will cd to {target_dir}")
@@ -82,8 +107,8 @@ def main():
     for (dirn, cfg) in dir_and_cfgs:
         print(f"  {colored(cfg, 'blue')} => {colored(dirn, 'green')} using {gpu_info} gpus.")
 
-    if len(args) == 4:
-        wait_last_task(args[3])
+    if len(args) == 5:
+        wait_last_task(args[4])
 
     start_tasks(dir_and_cfgs, slurm_mode, target_dir, gpu_info)
 

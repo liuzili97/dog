@@ -1,4 +1,5 @@
-from .remote_loader import RemoteLoader
-from .cfg_loader import CFGLoader
+from .master_loader import MasterLoader, is_master_right
+from .task_loader import TaskLoader
+from .target_loader import TargetLoader
 
-__all__ = ['RemoteLoader', 'CFGLoader']
+__all__ = ['MasterLoader', 'TaskLoader', 'TargetLoader', 'is_master_right']

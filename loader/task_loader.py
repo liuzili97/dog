@@ -2,19 +2,19 @@ import os
 import yaml
 from collections import OrderedDict
 
+from . import is_master_right
 
-class CFGLoader():
 
-    def __init__(self, hostname):
-        if hostname.startswith('node'):
-            hostname_alias = 'node'
-        elif hostname.endswith('fabu.ai'):
-            hostname_alias = 'fabu'
-        with open(f'cfg/{hostname_alias}.yml') as f:
+class TaskLoader():
+    """
+    only init on node-host
+    """
+    def __init__(self, master_name):
+        is_master_right(master_name)
+
+        with open(f'task/{master_name}.yml') as f:
             cfg = yaml.safe_load(f)
 
-        self.target = cfg['TARGET']
-        self.use_slurm = cfg['USE_SLURM']
         self.task_cfg = cfg['TASKS']
         self.gpu_cfg = cfg.get('DEVICES', {})
 
@@ -30,16 +30,6 @@ class CFGLoader():
                 else:
                     dir_and_cfg.append([os.path.join(root_dir, dir_name), cfg[dir_name]])
                 return dir_and_cfg
-
-    def get_target_dir(self, name):
-        return self.target[name]
-
-    def get_target_dirs(self):
-        return self.target.values()
-
-    def is_use_slurm(self):
-        assert isinstance(self.use_slurm, bool)
-        return self.use_slurm
 
     def get_connect_dict(self):
         connect_dict = OrderedDict()

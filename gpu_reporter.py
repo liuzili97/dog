@@ -1,13 +1,14 @@
 import time
 import os
 import socket
+import json
 import paramiko
 import threading
 from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
-from loader import RemoteLoader
-from dog_utils import _dist_env_set, cat_tasks_str_to_dict
+
+from loader import MasterLoader
 
 
 class Reporter():
@@ -25,9 +26,9 @@ class Reporter():
         )
 
         hostname = socket.gethostname()
-        loader = RemoteLoader(hostname)
-        self.connect_dict = loader.get_connect_dict()
-        self.all_nodes = loader.get_all_nodes()
+        master_loader = MasterLoader(hostname)
+        self.connect_dict = master_loader.get_connect_dict()
+        self.all_nodes = master_loader.get_all_nodes()
 
         self.headers = self.init_headers()
 
@@ -188,10 +189,13 @@ class Reporter():
             loss = colored(v.pop('loss', '-'), 'red')
             epoch_str = f"{v.pop('epoch', '-')}/{v.pop('max_epochs', '-')}"
             inner_iter = v.pop('inner_iter', '-')
-            max_inner_iter = v.pop('max_inner_iter', '-')
+            # TODO remove
+            max_inner_iters = v.pop('max_inner_iter', '-')
+            if max_inner_iters == '-':
+                max_inner_iters = v.pop('max_inner_iters', '-')
             iter_str = '-'
-            if inner_iter != '-' and max_inner_iter != '-':
-                percent = int(int(inner_iter) / int(max_inner_iter) * 100)
+            if inner_iter != '-' and max_inner_iters != '-':
+                percent = int(int(inner_iter) / int(max_inner_iters) * 100)
                 iter_str = f"{percent}%"
             _ = v.pop('gpus')
 
@@ -225,6 +229,19 @@ class Reporter():
             print(summary_msg)
             print(task_table)
             time.sleep(10)
+
+
+def cat_tasks_str_to_dict(tasks_info):
+    # self.tasks_results is a str at this moment
+    tasks_results = {}
+    if tasks_info:
+        split_cat_str = tasks_info.split('}')
+        split_cat_str = [s + '}' for s in split_cat_str][:-1]
+        tasks_list = [json.loads(s) for s in split_cat_str]
+        for task_res in tasks_list:
+            key = task_res.pop('key')
+            tasks_results[key] = task_res
+    return tasks_results
 
 
 if __name__ == '__main__':

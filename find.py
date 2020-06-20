@@ -1,11 +1,10 @@
 import os
 import sys
-import socket
 from termcolor import colored
 from tabulate import tabulate
 
-from loader import CFGLoader
-from dog_utils import _dist_env_set, load_dog_file
+from loader import TargetLoader
+from dog_api import load_dog_file
 
 dog_dir = os.path.join(os.environ['HOME'], os.environ['DOG_DIRNAME'])
 
@@ -37,14 +36,16 @@ def remove_dog_file(keyword):
 
 
 def main():
-    hostname = socket.gethostname()
-    loader = CFGLoader(hostname)
+    args = sys.argv[1:]
+    assert args == 1
+    master_name = args[:1]
+    target_loader = TargetLoader(master_name)
 
     args = sys.argv[1:]
     assert len(args) == 1, args
     keyword = args[0]
 
-    target_dirs = loader.get_target_dirs()
+    target_dirs = target_loader.get_target_dirs()
 
     show_find_res(target_dirs, keyword)
     remove_dog_file(keyword)
