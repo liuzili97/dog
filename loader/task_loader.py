@@ -1,6 +1,7 @@
 import os
 import yaml
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
+from termcolor import colored
 
 from . import is_master_right
 
@@ -17,6 +18,19 @@ class TaskLoader():
 
         self.task_cfg = cfg['TASKS']
         self.gpu_cfg = cfg.get('DEVICES', {})
+        assert self.check_no_repeat()
+
+    def check_no_repeat(self):
+        flag = True
+        counter = defaultdict(int)
+        for v in self.task_cfg.values():
+            for k in v.keys():
+                counter[k] += 1
+        for k, v in counter.items():
+            if v > 1:
+                print(colored(f"{k} appears {v} times!"), 'red')
+                flag = False
+        return flag
 
     def get_dir_and_cfgs(self, dir_name):
         dir_and_cfg = []  # [[dir1, cfg1], [dir2, cfg2]]

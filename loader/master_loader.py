@@ -1,9 +1,6 @@
-import os
 import yaml
 import socket
 from collections import OrderedDict
-
-from dog_api import set_dog_shell, set_env
 
 
 class MasterLoader():
@@ -19,9 +16,6 @@ class MasterLoader():
         return list(self.nodes_dict.keys())
 
     def is_use_slurm(self):
-        assert isinstance(self.use_slurm, bool)
-        # TODO trick
-        set_dog_shell(self.use_slurm)
         return self.use_slurm
 
     def get_connect_dict(self):
@@ -35,18 +29,16 @@ class MasterLoader():
             )
         return connect_dict
 
-    def set_slurm_env(self):
+    def get_slurm_env(self):
         assert self.use_slurm
         node_name = socket.gethostname()
         assert node_name in self.get_all_nodes()
 
         node_dict = self.nodes_dict[node_name]
-        env_setting = dict(
+        return dict(
             PARTITION=node_dict['partition'],
             GPUS_PER_NODE=node_dict['gpus_per_node'],
             CPUS_PER_TASK=node_dict['cpus_per_gpu'])
-
-        set_env(env_setting)
 
 
 def is_master_right(master_name):

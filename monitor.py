@@ -8,7 +8,7 @@ from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
 
-from loader import MasterLoader
+from loader import MasterLoader, SettingLoader
 
 
 class Reporter():
@@ -20,13 +20,15 @@ class Reporter():
         self.ssh_handlers = {}
 
         self.disp_thre = dict(used=0.2, power=60)
-        self.all_cmds = dict(
-            gpus='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
-            tasks=f"cat ~/{os.environ['DOG_DIRNAME']}/*"
-        )
 
         hostname = socket.gethostname()
         master_loader = MasterLoader(hostname)
+        setting_loader = SettingLoader()
+
+        self.all_cmds = dict(
+            gpus='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
+            tasks=f"cat ~/{setting_loader.get_dirname()}/*"
+        )
         self.connect_dict = master_loader.get_connect_dict()
         self.all_nodes = master_loader.get_all_nodes()
 

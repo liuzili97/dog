@@ -4,9 +4,7 @@ from termcolor import colored
 from tabulate import tabulate
 
 from loader import TargetLoader
-from dog_api import load_dog_file
-
-dog_dir = os.path.join(os.environ['HOME'], os.environ['DOG_DIRNAME'])
+from dog_api import dog
 
 
 def show_find_res(target_dirs, keyword):
@@ -28,11 +26,10 @@ def show_find_res(target_dirs, keyword):
 
 
 def remove_dog_file(keyword):
-    for root, _, files in os.walk(dog_dir):
-        for file in files:
-            task_dict = load_dog_file(file)
-            if keyword in task_dict['name'] and task_dict['eta'] == 'Done':
-                os.system('rm {}'.format(os.path.join(root, file)))
+    summaries = dog.summary_dog.load_summary_files()
+    for k, v in summaries.items():
+        if keyword in v['name'] and v['eta'] == 'Done':
+            os.system(f"rm {k}")
 
 
 def main():
