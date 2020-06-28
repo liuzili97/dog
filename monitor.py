@@ -9,7 +9,7 @@ from tabulate import tabulate
 from collections import defaultdict
 
 from loader import MasterLoader, SettingLoader
-from dog_api import get_slurm_scontrol_show
+from dog_api import get_slurm_scontrol_show, get_slurm_squeue
 
 
 class Reporter():
@@ -98,9 +98,9 @@ class Reporter():
         prog_col, is_free = self.get_prog_disp_info(memory_used, power)
 
         mark = '|' if not gpu_by_us else '>'
-        percent = int(memory_used * 10)
+        percent = int(memory_used * 10 / 2)
         gpu_str = colored(mark, prog_col, attrs=['bold']) + \
-                  colored(mark * percent + ' ' * (9 - percent), prog_col) + \
+                  colored(mark * percent + ' ' * (5 - 1 - percent), prog_col) + \
                   colored('|', attrs=['dark'])
         return gpu_str, is_free
 
@@ -124,6 +124,9 @@ class Reporter():
                 free_gpu_num += is_free
 
             name_col, suggest_level = self.get_name_disp_info(gpu_num, free_gpu_num)
+
+        for _ in range(8 - len(gpus_info)):
+            gpus_info.append('')
 
         return [colored(name, **name_col)] + gpus_info, suggest_level
 
@@ -153,7 +156,7 @@ class Reporter():
     def init_headers(self):
         if self.use_slurm:
             gpu_headers = ['parti', 'node', 'gpu', 'cpu', 'mem'] + \
-                          ['GPU{}'.format(i) for i in range(8)]
+                          ['GPU{}'.format(i) for i in range(8)] + ['users']
         else:
             gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
         task_headers = ['day', 'time', 'epoch', 'it', 'eta', 'name', 'n', 'upda', 'loss', 'oth']
@@ -232,6 +235,7 @@ class Reporter():
             return prog_data
 
         new_prog_data = []
+        nodes_users = get_slurm_squeue(self.all_nodes)
         for name, prog_info in zip(self.all_nodes, prog_data):
             slurm_info = get_slurm_scontrol_show(name)
             prog_info.insert(1, f"{slurm_info['alloc_mem'] / 1000:.00f}/"
@@ -242,6 +246,7 @@ class Reporter():
             prog_info.insert(1, colored(f"{slurm_info['alloc_gpu']}/"
                                         f"{slurm_info['all_gpu']}", **name_col))
             prog_info.insert(0, f"{slurm_info['partitions']}")
+            prog_info.append(','.join(nodes_users[name]))
             new_prog_data.append(prog_info)
         return new_prog_data
 
