@@ -3,6 +3,7 @@ import sys
 import time
 from termcolor import colored
 
+import dog_api.api as api
 from loader import MasterLoader, TaskLoader, TargetLoader, SettingLoader
 from dog_api import get_free_gpu
 
@@ -19,30 +20,29 @@ def shell_name(config_path):
     return 'train'
 
 
-def do_job(target_dir, config_path, output_dir, gpu_info, shell='slurm'):
+def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm'):
     print("Executing shell...")
 
     short_dir = output_dir.split('/')[-1].split('-')[0]
     api.dog.summary_dog.register_task(short_dir, gpu_info)
 
-    dog_dir = os.environ['DOG_BASEDIR']
     os.chdir(target_dir)
-    os.system(f"bash {dog_dir}/scripts/{shell}_train.sh "
+    os.system(f"bash {base_dir}/scripts/{shell}_train.sh "
               f"{config_path} {gpu_info} {output_dir}")
 
     api.dog.summary_dog.finish_task()
 
 
-def start_tasks(dir_and_cfgs, use_slurm, target_dir, gpu_info):
+def start_tasks(dir_and_cfgs, use_slurm, base_dir, target_dir, gpu_info):
     for (dirn, cfg) in dir_and_cfgs:
         if use_slurm:
-            do_job(target_dir, cfg, dirn, gpu_info, shell='slurm')
+            do_job(base_dir, target_dir, cfg, dirn, gpu_info, shell='slurm')
         else:
             while True:
                 gpu_free_id, _ = get_free_gpu(thre=0.9)
                 gpu_list = gpu_info.split(',')
                 if set(gpu_list).issubset(set(gpu_free_id)):
-                    do_job(target_dir, cfg, dirn, gpu_list, shell='dist')
+                    do_job(base_dir, target_dir, cfg, dirn, gpu_list, shell='dist')
                 else:
                     wait_for = sorted(list(set(gpu_list).difference(
                         set(gpu_list).intersection(gpu_free_id))))
@@ -80,6 +80,9 @@ class InfoProc():
     def get_target_dir(self, target_name):
         return self.target_loader.get_target_dir(target_name)
 
+    def get_base_dir(self):
+        return self.setting_loader.get_basedir()
+
     def set_target_env(self, target_name):
         os.environ['ENTRY_PATH'] = self.target_loader.get_entry_path(target_name)
         os.environ['ENTRY_KEY_DIR'] = self.target_loader.get_entry_key_dir(target_name)
@@ -101,6 +104,7 @@ def main():
     use_slurm = info_proc.is_use_slurm()
     dir_and_cfgs = info_proc.get_dir_and_cfgs(dir_name)
     target_dir = info_proc.get_target_dir(target_name)
+    base_dir = info_proc.get_base_dir()
     # set
     info_proc.set_target_env(target_name)
     if use_slurm:
@@ -115,10 +119,8 @@ def main():
     if len(args) == 5:
         wait_last_task(args[4])
 
-    start_tasks(dir_and_cfgs, use_slurm, target_dir, gpu_info)
+    start_tasks(dir_and_cfgs, use_slurm, base_dir, target_dir, gpu_info)
 
 
 if __name__ == '__main__':
-    os.environ['DOG_BASEDIR'] = os.path.abspath(os.path.dirname(__file__))
-    import dog_api.api as api
     main()

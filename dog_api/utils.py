@@ -5,7 +5,8 @@ from termcolor import colored
 
 import torch
 
-__all__ = ['describe_model', 'update_args', 'lr_autoscale', 'occumpy_mem', 'get_free_gpu']
+__all__ = ['describe_model', 'update_args', 'lr_autoscale',
+           'occumpy_mem', 'get_free_gpu']
 
 
 def describe_model(model):
@@ -64,7 +65,7 @@ def lr_autoscale(lr, base_total_bs, bs_per_gpu):
 
 
 def occumpy_mem():
-    total, used = _check_mem(torch.cuda.current_device())
+    total, used = check_mem(torch.cuda.current_device())
     max_mem = int(total * 0.95)
     block_mem = max_mem - used
     x = torch.cuda.FloatTensor(256, 1024, block_mem)
@@ -85,7 +86,7 @@ def get_free_gpu(thre=0.9):
     return gpu_free_id, gpu_num
 
 
-def _check_mem(cuda_device):
+def check_mem(cuda_device):
     devices_info = os.popen(
         '"/usr/bin/nvidia-smi" --query-gpu=memory.total,'
         'memory.used --format=csv,nounits,noheader').read().strip().split("\n")

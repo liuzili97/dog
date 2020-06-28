@@ -38,19 +38,19 @@ NODES:
 
   node7:
     ip: node7
-    partition: eng2080ti
+    partition: w2080ti
     gpus_per_node: 4
     cpus_per_gpu: 4
 
   node8:
     ip: node8
-    partition: eng2080ti
+    partition: w2080ti
     gpus_per_node: 4
     cpus_per_gpu: 4
 
   node9:
     ip: node9
-    partition: eng2080ti
+    partition: w2080ti
     gpus_per_node: 4
     cpus_per_gpu: 4
 

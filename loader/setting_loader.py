@@ -2,10 +2,23 @@ import os
 import yaml
 
 
+def get_dog_basedir():
+    paths = os.environ['PYTHONPATH'].split(':')
+    dog_basedir = []
+    for p in paths:
+        if p.split('/')[-1] == 'dog':
+            dog_basedir.append(p)
+    assert len(dog_basedir) > 0, "Please add the path of 'dog' to $PYTHONPATH"
+    if len(dog_basedir) > 1:
+        assert len(set(dog_basedir)) == 1, f"Find multiple dogs {set(dog_basedir)}"
+    return dog_basedir[0]
+
+
 class SettingLoader():
 
     def __init__(self):
-        with open(f"{os.environ['DOG_BASEDIR']}/cfg/setting.yml") as f:
+        basedir = get_dog_basedir()
+        with open(f"{basedir}/cfg/setting.yml") as f:
             cfg = yaml.safe_load(f)
 
         self.dirname = cfg['DIRNAME']
@@ -19,3 +32,6 @@ class SettingLoader():
 
     def get_dir(self):
         return os.path.join(os.environ['HOME'], self.dirname)
+
+    def get_basedir(self):
+        return get_dog_basedir()

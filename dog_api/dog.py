@@ -99,7 +99,9 @@ class SummaryDog(BaseDog):
 
     def finish_task(self):
         # called in main
+        self.summary_dict = self.load_summary_file()
         self.add_summary(eta='Done')
+        self.write_out()
         del os.environ['DOG_LAUNCHED']
         self.rm_cache()
 
