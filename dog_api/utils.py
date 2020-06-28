@@ -163,11 +163,8 @@ def get_slurm_squeue(all_nodes):
             node_ids = re.compile("(.*)\[(.*)\]").search(node_name)
             if node_ids:
                 node_prefix, node_ids = node_ids[1], node_ids[2]
-                if ',' in node_ids:
-                    node_names = [node_prefix + i for i in node_ids.split(',')]
-                elif '-' in node_ids:
-                    start, end = node_ids.split('-')
-                    node_names = [node_prefix + str(i) for i in range(int(start), int(end) + 1)]
+                node_ids = get_node_ids(node_ids)
+                node_names = [node_prefix + i for i in node_ids]
                 for s_node_name in node_names:
                     nodes_users[s_node_name].add(user)
     for k, v in nodes_users.items():
@@ -177,3 +174,15 @@ def get_slurm_squeue(all_nodes):
                 users[i] = colored(u, attrs=['bold'])
         nodes_users[k] = users
     return nodes_users
+
+
+def get_node_ids(node_str):
+    res = []
+    node_ids = [node_id for node_id in node_str.split(',')]
+    for i, node_id in enumerate(node_ids):
+        if '-' in node_id:
+            start, end = node_id.split('-')
+            res.extend([str(i) for i in range(int(start), int(end) + 1)])
+        else:
+            res.append(node_id)
+    return res
