@@ -148,7 +148,7 @@ class Reporter():
 
     def init_headers(self):
         if self.use_slurm:
-            gpu_headers = ['node', 'parti', 'gpu', 'cpu', 'mem'] + \
+            gpu_headers = ['parti', 'node', 'gpu', 'cpu', 'mem'] + \
                           ['GPU{}'.format(i) for i in range(8)]
         else:
             gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
@@ -233,8 +233,11 @@ class Reporter():
             prog_info.insert(1, f"{slurm_info['alloc_mem'] / 1000:.00f}/"
                                 f"{slurm_info['all_mem'] / 1000:.00f}G")
             prog_info.insert(1, f"{slurm_info['alloc_cpu']}/{slurm_info['all_cpu']}")
-            prog_info.insert(1, f"{slurm_info['alloc_gpu']}/{slurm_info['all_gpu']}")
-            prog_info.insert(1, f"{slurm_info['partitions']}")
+            name_col, _ = self.get_name_disp_info(slurm_info['all_gpu'],
+                                                  slurm_info['all_gpu'] - slurm_info['alloc_gpu'])
+            prog_info.insert(1, colored(f"{slurm_info['alloc_gpu']}/"
+                                        f"{slurm_info['all_gpu']}", **name_col))
+            prog_info.insert(0, f"{slurm_info['partitions']}")
             new_prog_data.append(prog_info)
         return new_prog_data
 
