@@ -1,4 +1,5 @@
 import os
+import re
 import importlib
 from tabulate import tabulate
 from termcolor import colored
@@ -6,7 +7,7 @@ from termcolor import colored
 import torch
 
 __all__ = ['describe_model', 'update_args', 'lr_autoscale',
-           'occumpy_mem', 'get_free_gpu']
+           'occumpy_mem', 'get_free_gpu', 'get_slurm_scontrol_show']
 
 
 def describe_model(model):
@@ -101,3 +102,42 @@ def _parse(line, qargs):
     process = lambda k, v: ((int(to_numberic(v)) if power_manage_enable(v) else 1)
                             if k in numberic_args else v.strip())
     return {k: process(k, v) for k, v in zip(qargs, line.strip().split(','))}
+
+
+def get_slurm_scontrol_show(node_name):
+    slurm_info = dict(
+        all_cpu=0, all_mem=0, all_gpu=0,
+        alloc_cpu=0, alloc_mem=0, alloc_gpu=0,
+        partitions=''
+    )
+    data = os.popen(f'scontrol show node {node_name}').read()
+    all_tres = re.compile('CfgTRES=(.*)').search(data)
+    alloc_tres = re.compile('AllocTRES=(.*)').search(data)
+    partitions = re.compile('Partitions=(.*)').search(data)
+    if all_tres:
+        all_tres = all_tres[1].replace(',', '\n')
+        all_cpu = re.compile('cpu=(.*)').search(all_tres)
+        all_mem = re.compile('mem=(.*)M').search(all_tres)
+        all_gpu = re.compile('gres/gpu=(.*)').search(all_tres)
+        if all_cpu:
+            slurm_info['all_cpu'] = int(all_cpu[1])
+        if all_mem:
+            slurm_info['all_mem'] = int(all_mem[1])
+        if all_gpu:
+            slurm_info['all_gpu'] = int(all_gpu[1])
+
+    if alloc_tres:
+        alloc_tres = alloc_tres[1].replace(',', '\n')
+        alloc_cpu = re.compile('cpu=(.*)').search(alloc_tres)
+        alloc_mem = re.compile('mem=(.*)M').search(alloc_tres)
+        alloc_gpu = re.compile('gres/gpu=(.*)').search(alloc_tres)
+        if alloc_cpu:
+            slurm_info['alloc_cpu'] = int(alloc_cpu[1])
+        if alloc_mem:
+            slurm_info['alloc_mem'] = int(alloc_mem[1])
+        if alloc_gpu:
+            slurm_info['alloc_gpu'] = int(alloc_gpu[1])
+
+    if partitions:
+        slurm_info['partitions'] = partitions[1]
+    return slurm_info

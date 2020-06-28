@@ -9,6 +9,7 @@ from tabulate import tabulate
 from collections import defaultdict
 
 from loader import MasterLoader, SettingLoader
+from dog_api import get_slurm_scontrol_show
 
 
 class Reporter():
@@ -29,6 +30,7 @@ class Reporter():
             gpus='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
             tasks=f"cat ~/{setting_loader.get_dirname()}/*"
         )
+        self.use_slurm = master_loader.is_use_slurm()
         self.connect_dict = master_loader.get_connect_dict()
         self.all_nodes = master_loader.get_all_nodes()
 
@@ -145,12 +147,16 @@ class Reporter():
         self.update_gpus_by_us()
 
     def init_headers(self):
-        gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
+        if self.use_slurm:
+            gpu_headers = ['node', 'parti', 'gpu', 'cpu', 'mem'] + \
+                          ['GPU{}'.format(i) for i in range(8)]
+        else:
+            gpu_headers = ['node'] + ['GPU{}'.format(i) for i in range(8)]
         task_headers = ['day', 'time', 'epoch', 'it', 'eta', 'name', 'n', 'upda', 'loss', 'oth']
         return gpu_headers, task_headers
 
     def build_disp(self, prog_data, summary, task_data):
-        prog_table = tabulate(prog_data, headers=self.headers[0], tablefmt='rst')
+        prog_table = tabulate(prog_data, headers=self.headers[0], tablefmt='rst', stralign='right')
         summary_msg = colored(
             "All free ({}):\t{}".format(len(summary['node_l3']), '  '.join(summary['node_l3'])),
             'green', attrs=['bold']) + colored(
@@ -217,11 +223,27 @@ class Reporter():
                 task_data.append([day] + sub_task_data_raw[k1])
         return task_data
 
+    def add_slurm_info(self, prog_data):
+        if not self.use_slurm:
+            return prog_data
+
+        new_prog_data = []
+        for name, prog_info in zip(self.all_nodes, prog_data):
+            slurm_info = get_slurm_scontrol_show(name)
+            prog_info.insert(1, f"{slurm_info['alloc_mem'] / 1000:.00f}/"
+                                f"{slurm_info['all_mem'] / 1000:.00f}G")
+            prog_info.insert(1, f"{slurm_info['alloc_cpu']}/{slurm_info['all_cpu']}")
+            prog_info.insert(1, f"{slurm_info['alloc_gpu']}/{slurm_info['all_gpu']}")
+            prog_info.insert(1, f"{slurm_info['partitions']}")
+            new_prog_data.append(prog_info)
+        return new_prog_data
+
     def run(self):
         while True:
             self.update_info()
 
             prog_data, summary = self.build_prog_data()
+            prog_data = self.add_slurm_info(prog_data)
             task_data = self.build_task_data()
 
             prog_table, summary_msg, task_table = self.build_disp(prog_data, summary, task_data)
