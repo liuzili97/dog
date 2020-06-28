@@ -20,7 +20,7 @@ class Reporter():
         self.gpus_by_us = defaultdict(list)
         self.ssh_handlers = {}
 
-        self.disp_thre = dict(used=0.2, power=60)
+        self.disp_thre = dict(used=0.2, power=90)
 
         hostname = socket.gethostname()
         master_loader = MasterLoader(hostname)
@@ -98,10 +98,12 @@ class Reporter():
         prog_col, is_free = self.get_prog_disp_info(memory_used, power)
 
         mark = '|' if not gpu_by_us else '>'
-        percent = int(memory_used * 10 / 2)
+        max_prog_num = 8
+        percent = int(memory_used * max_prog_num)
         gpu_str = colored(mark, prog_col, attrs=['bold']) + \
-                  colored(mark * percent + ' ' * (5 - 1 - percent), prog_col) + \
-                  colored('|', attrs=['dark'])
+                  colored(mark * percent + ' ' * (max_prog_num - percent - 2), prog_col)
+        if percent < max_prog_num - 1:
+            gpu_str += colored('|', attrs=['dark'])
         return gpu_str, is_free
 
     def single_node(self, name):

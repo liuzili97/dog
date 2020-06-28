@@ -171,5 +171,9 @@ def get_slurm_squeue(all_nodes):
                 for s_node_name in node_names:
                     nodes_users[s_node_name].add(user)
     for k, v in nodes_users.items():
-        nodes_users[k] = sorted(list(v))
+        users = sorted(list(v))
+        for i, u in enumerate(users):
+            if os.environ['USER'].startswith(u):
+                users[i] = colored(u, attrs=['bold'])
+        nodes_users[k] = users
     return nodes_users
