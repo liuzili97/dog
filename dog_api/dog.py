@@ -12,7 +12,7 @@ from termcolor import colored
 from torch.utils.tensorboard import SummaryWriter
 
 from .dist_utils import master_only
-from .utils import occumpy_mem
+from .utils import occupy_mem
 from loader import SettingLoader
 
 
@@ -113,7 +113,7 @@ class SummaryDog(BaseDog):
 
         self.init_device_info()
         time.sleep(2)  # wait for all workers to save device files
-        occumpy_mem()
+        occupy_mem()
 
     @dog_launched
     @master_only
@@ -157,6 +157,7 @@ class SummaryDog(BaseDog):
 
     def rm_cache(self):
         # called by dog
+        print(self.summary_dict)
         shutil.rmtree(self.summary_device_dir)
 
         key = self.summary_dict['key']

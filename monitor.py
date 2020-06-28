@@ -114,7 +114,11 @@ class Reporter():
             gpu_num, free_gpu_num = len(gpus_res), 0
 
             for gpu_id, gpu_info in enumerate(gpus_res):
-                gpu_by_us = gpu_id in self.gpus_by_us[name]
+                if self.use_slurm:
+                    # TODO gpu_id in self.gpus_by_us always starts from 0
+                    gpu_by_us = len(self.gpus_by_us[name]) > 0
+                else:
+                    gpu_by_us = gpu_id in self.gpus_by_us[name]
                 gpu_str, is_free = self.single_gpu(gpu_info, gpu_by_us)
                 gpus_info.append(gpu_str)
                 free_gpu_num += is_free

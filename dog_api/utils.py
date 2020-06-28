@@ -1,13 +1,14 @@
 import os
 import re
 import importlib
+import socket
 from tabulate import tabulate
 from termcolor import colored
 
 import torch
 
 __all__ = ['describe_model', 'update_args', 'lr_autoscale',
-           'occumpy_mem', 'get_free_gpu', 'get_slurm_scontrol_show']
+           'occupy_mem', 'get_free_gpu', 'get_slurm_scontrol_show']
 
 
 def describe_model(model):
@@ -65,10 +66,11 @@ def lr_autoscale(lr, base_total_bs, bs_per_gpu):
     return lr / base_total_bs * torch.distributed.get_world_size() * bs_per_gpu
 
 
-def occumpy_mem():
-    total, used = check_mem(torch.cuda.current_device())
-    max_mem = int(total * 0.95)
-    block_mem = max_mem - used
+def occupy_mem():
+    this_device = torch.cuda.current_device()
+    print(colored(f"Occupying {socket.gethostname()}:{this_device}", 'red'))
+    _, free = check_mem(this_device)
+    block_mem = int(free * 0.95)
     x = torch.cuda.FloatTensor(256, 1024, block_mem)
     del x
 
@@ -90,9 +92,9 @@ def get_free_gpu(thre=0.9):
 def check_mem(cuda_device):
     devices_info = os.popen(
         '"/usr/bin/nvidia-smi" --query-gpu=memory.total,'
-        'memory.used --format=csv,nounits,noheader').read().strip().split("\n")
-    total, used = devices_info[int(cuda_device)].split(',')
-    return int(total), int(used)
+        'memory.free --format=csv,nounits,noheader').read().strip().split("\n")
+    total, free = devices_info[int(cuda_device)].split(',')
+    return int(total), int(free)
 
 
 def _parse(line, qargs):
