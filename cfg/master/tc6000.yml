@@ -1,4 +1,3 @@
-USE_SLURM: True
 NODES:
   node1:
     ip: node1

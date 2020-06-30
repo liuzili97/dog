@@ -34,13 +34,11 @@ def remove_dog_file(keyword):
 
 def main():
     args = sys.argv[1:]
-    assert args == 1
     master_name = args[:1]
     target_loader = TargetLoader(master_name)
 
-    args = sys.argv[1:]
-    assert len(args) == 1, args
-    keyword = args[0]
+    assert len(args) == 2, args
+    keyword = args[1]
 
     target_dirs = target_loader.get_target_dirs()
 

@@ -12,7 +12,7 @@ from termcolor import colored
 from torch.utils.tensorboard import SummaryWriter
 
 from .dist_utils import master_only
-from .utils import occupy_mem
+from .utils import occupy_mem, is_use_slurm
 from loader import SettingLoader
 
 
@@ -74,7 +74,6 @@ class SummaryDog(BaseDog):
             os.makedirs(self.summary_dir)
 
         self.summary_file = None
-        self.summary_device_dir = None
         self.summary_dict = dict()
 
     def register_task(self, task_name, gpu_info):
@@ -82,18 +81,12 @@ class SummaryDog(BaseDog):
         gpu_num = len(gpu_info) if isinstance(gpu_info, list) else int(gpu_info)
         summary_key = datetime.now().strftime('%m.%d-%H:%M')
         self.summary_file = os.path.join(self.summary_dir, summary_key)
-        self.summary_device_dir = os.path.join(self.summary_dir, f".{summary_key}")
-
-        if not os.path.isdir(self.summary_device_dir):
-            os.makedirs(self.summary_device_dir)
-
         self.summary_dict = dict(key=summary_key, name=task_name,
-                                 eta='Starting', gpu_num=gpu_num, gpus=[])
+                                 eta='Starting', gpu_num=gpu_num)
 
         # since register_task is not executed in workers
         # we need to store the vars and restore it
         os.environ['DOG_SUMMARY_FILE'] = self.summary_file
-        os.environ['DOG_SUMMARY_DEVICE_DIR'] = self.summary_device_dir
         os.environ['DOG_LAUNCHED'] = 'True'
         self.write_out()
 
@@ -109,18 +102,15 @@ class SummaryDog(BaseDog):
     def init(self):
         # restore vars for workers since they will not execute register_task
         self.summary_file = os.environ['DOG_SUMMARY_FILE']
-        self.summary_device_dir = os.environ['DOG_SUMMARY_DEVICE_DIR']
-
-        self.init_device_info()
-        time.sleep(2)  # wait for all workers to save device files
         occupy_mem()
 
     @dog_launched
     @master_only
     def before_run(self, max_epochs, max_inner_iters):
         self.summary_dict = self.load_summary_file()
+        if is_use_slurm():
+            self.add_summary(name=f"{self.summary_dict['name']} {os.environ['SLURM_JOB_ID']}")
         self.add_summary(max_epochs=max_epochs, max_inner_iters=max_inner_iters)
-        self.add_device_info()
         self.write_out()
 
     @dog_launched
@@ -158,7 +148,6 @@ class SummaryDog(BaseDog):
     def rm_cache(self):
         # called by dog
         print(self.summary_dict)
-        shutil.rmtree(self.summary_device_dir)
 
         key = self.summary_dict['key']
         start_stamp = time.mktime(time.strptime(key, '%m.%d-%H:%M'))
@@ -166,25 +155,6 @@ class SummaryDog(BaseDog):
             datetime.now().strftime('%m.%d-%H:%M'), '%m.%d-%H:%M'))
         if (now_stamp - start_stamp) / 60 < 5:
             os.system(f"rm {self.summary_file}")
-
-    @dog_launched
-    def init_device_info(self):
-        # called in distributed part
-        import torch
-        device_id = torch.cuda.current_device()
-        with open(os.path.join(self.summary_device_dir,
-                               f"{socket.gethostname()}:{device_id}"), 'w') as f:
-            f.write('')
-
-    @dog_launched
-    @master_only
-    def add_device_info(self):
-        # called before run and after init_device_info
-        for _, _, files in os.walk(self.summary_device_dir):
-            if len(files) < self.summary_dict['gpu_num']:
-                print(colored(f"Number of added devices({len(files)}) "
-                              f"is less than expected({self.summary_dict['gpu_num']})!"))
-            self.add_summary(gpus=files)
 
     @dog_launched
     @master_only

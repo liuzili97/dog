@@ -106,6 +106,10 @@ def _parse(line, qargs):
     return {k: process(k, v) for k, v in zip(qargs, line.strip().split(','))}
 
 
+def is_use_slurm():
+    return len(os.popen('sinfo').read()) > 0
+
+
 def get_slurm_scontrol_show(node_name):
     slurm_info = dict(
         all_cpu=0, all_mem=0, all_gpu=0,
@@ -167,12 +171,6 @@ def get_slurm_squeue(all_nodes):
                 node_names = [node_prefix + i for i in node_ids]
                 for s_node_name in node_names:
                     nodes_users[s_node_name].add(user)
-    for k, v in nodes_users.items():
-        users = sorted(list(v))
-        for i, u in enumerate(users):
-            if os.environ['USER'].startswith(u):
-                users[i] = colored(u, attrs=['bold'])
-        nodes_users[k] = users
     return nodes_users
 
 

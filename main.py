@@ -5,7 +5,7 @@ from termcolor import colored
 
 import dog_api.api as api
 from loader import MasterLoader, TaskLoader, TargetLoader, SettingLoader
-from dog_api import get_free_gpu
+from dog_api import get_free_gpu, is_use_slurm
 
 
 # TODO remove
@@ -33,9 +33,9 @@ def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm
     api.dog.summary_dog.finish_task()
 
 
-def start_tasks(dir_and_cfgs, use_slurm, base_dir, target_dir, gpu_info):
+def start_tasks(dir_and_cfgs, base_dir, target_dir, gpu_info):
     for (dirn, cfg) in dir_and_cfgs:
-        if use_slurm:
+        if is_use_slurm():
             do_job(base_dir, target_dir, cfg, dirn, gpu_info, shell='slurm')
         else:
             while True:
@@ -71,9 +71,6 @@ class InfoProc():
         self.target_loader = TargetLoader(master_name)
         self.setting_loader = SettingLoader()
 
-    def is_use_slurm(self):
-        return self.master_loader.is_use_slurm()
-
     def get_dir_and_cfgs(self, dir_name):
         return self.task_loader.get_dir_and_cfgs(dir_name)
 
@@ -101,13 +98,12 @@ def main():
 
     info_proc = InfoProc(master_name)
     # read
-    use_slurm = info_proc.is_use_slurm()
     dir_and_cfgs = info_proc.get_dir_and_cfgs(dir_name)
     target_dir = info_proc.get_target_dir(target_name)
     base_dir = info_proc.get_base_dir()
     # set
     info_proc.set_target_env(target_name)
-    if use_slurm:
+    if is_use_slurm():
         info_proc.set_slurm_env()
     assert dir_and_cfgs, dir_and_cfgs
 
@@ -119,7 +115,7 @@ def main():
     if len(args) == 5:
         wait_last_task(args[4])
 
-    start_tasks(dir_and_cfgs, use_slurm, base_dir, target_dir, gpu_info)
+    start_tasks(dir_and_cfgs, base_dir, target_dir, gpu_info)
 
 
 if __name__ == '__main__':

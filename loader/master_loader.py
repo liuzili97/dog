@@ -2,6 +2,8 @@ import yaml
 import socket
 from collections import OrderedDict
 
+from dog_api import is_use_slurm
+
 
 class MasterLoader():
 
@@ -9,14 +11,10 @@ class MasterLoader():
         with open(f'cfg/master/{master_name}.yml') as f:
             master_cfg = yaml.safe_load(f)
 
-        self.use_slurm = master_cfg['USE_SLURM']
         self.nodes_dict = master_cfg['NODES']
 
     def get_all_nodes(self):
         return list(self.nodes_dict.keys())
-
-    def is_use_slurm(self):
-        return self.use_slurm
 
     def get_connect_dict(self):
         connect_dict = OrderedDict()
@@ -30,7 +28,7 @@ class MasterLoader():
         return connect_dict
 
     def get_slurm_env(self):
-        assert self.use_slurm
+        assert is_use_slurm()
         node_name = socket.gethostname()
         assert node_name in self.get_all_nodes()
 

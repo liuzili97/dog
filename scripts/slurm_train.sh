@@ -9,10 +9,11 @@ SRUN_ARGS=${SRUN_ARGS:-""}
 PY_ARGS=${PY_ARGS:-"--$ENTRY_KEY_DIR=$3"}
 
 srun -p ${PARTITION} \
+    -w node18 \
     --job-name=${JOB_NAME} \
-    --gres=gpu:${GPUS_PER_NODE} \
+    --gres=gpu:4 \
     --ntasks=${GPUS} \
-    --ntasks-per-node=${GPUS_PER_NODE} \
+    --ntasks-per-node=4 \
     --cpus-per-task=${CPUS_PER_TASK} \
     --kill-on-bad-exit=1 \
     ${SRUN_ARGS} \
