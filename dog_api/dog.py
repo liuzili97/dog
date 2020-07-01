@@ -109,7 +109,7 @@ class SummaryDog(BaseDog):
     def before_run(self, max_epochs, max_inner_iters):
         self.summary_dict = self.load_summary_file()
         if is_use_slurm():
-            self.add_summary(name=f"{self.summary_dict['name']} {os.environ['SLURM_JOB_ID']}")
+            self.add_summary(name=f"{self.summary_dict['name']} ({os.environ['SLURM_JOB_ID']})")
         self.add_summary(max_epochs=max_epochs, max_inner_iters=max_inner_iters)
         self.write_out()
 

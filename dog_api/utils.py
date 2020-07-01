@@ -2,6 +2,7 @@ import os
 import re
 import importlib
 import socket
+import time
 from tabulate import tabulate
 from termcolor import colored
 
@@ -184,3 +185,20 @@ def get_node_ids(node_str):
         else:
             res.append(node_id)
     return res
+
+
+def inference_speed(model, data_loader, device):
+    buffer = []
+    for i, data_batch in enumerate(data_loader):
+        torch.cuda.synchronize()
+        start = time.perf_counter()
+        with torch.no_grad():
+            samples = data_batch[0].to(device)
+            model(samples)
+        torch.cuda.synchronize()
+        end = time.perf_counter()
+        print(colored(f"{end - start:.3f} s/iter, {1. / (end - start):.1f} iters/s", 'green'))
+        buffer.append(1. / (end - start))
+        if i % 50 == 0:
+            print(colored(f"AVG: {sum(buffer) / 50:.1f} iters/s", 'red'))
+            buffer = []

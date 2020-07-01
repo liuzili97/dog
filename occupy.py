@@ -15,6 +15,8 @@ def occupy_mem(device_id):
 if __name__ == '__main__':
     assert len(sys.argv) == 2
     device_ids = sys.argv[1].split(',')
-    for did in device_ids:
-        occupy_mem(did)
-    time.sleep(600)
+    while True:
+        for did in device_ids:
+            occupy_mem(did)
+        time.sleep(600)
+        torch.cuda.empty_cache()
