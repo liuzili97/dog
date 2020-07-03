@@ -1,4 +1,5 @@
 import os
+import re
 from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
@@ -25,9 +26,9 @@ class GPUMonitor(BaseMonitor):
         if is_use_slurm():
             return ['parti', 'node', 'gpu', 'cpu', 'mem'] + \
                    ['GPU{}'.format(i) for i in range(8)] + ['users']
-        return ['node'] + ['GPU{}'.format(i) for i in range(8)]
+        return ['node'] + ['GPU{}'.format(i) for i in range(8)] + ['users']
 
-    def update_info(self, name, ssh, is_first_node):
+    def update_info(self, name, ssh, is_first_thread):
         try:
             self.gpus_results[name] = ssh.exec_command(self.cmds['smi'])[1].readlines()
         except:
@@ -48,6 +49,8 @@ class GPUMonitor(BaseMonitor):
 
         if is_use_slurm():
             prog_data = self.add_slurm_info(all_nodes, prog_data)
+        else:
+            prog_data = self.add_user_info(all_nodes, prog_data)
         return prog_data, summary
 
     def is_valid(self, res):
@@ -73,8 +76,11 @@ class GPUMonitor(BaseMonitor):
                         gpus_by_us.append(gpu_id)
                     gpu_users_mem = stat_info.strip().split('|')[-1].split()
                     for user_mem in gpu_users_mem:
-                        user = user_mem.split('(')[0]
-                        users_gpus[user].append(str(gpu_id))
+                        res = re.compile('(.*)\((.*)M\)').search(user_mem)
+                        if res:
+                            user, mem = res[1], int(res[2])
+                        if mem > 32:  # more than 32 MB
+                            users_gpus[user].append(str(gpu_id))
                 self.nodes_users_gpus[name] = users_gpus
 
             for gpu_id, gpu_info in enumerate(gpus_res):
@@ -163,17 +169,44 @@ class GPUMonitor(BaseMonitor):
             new_prog_data.append(prog_info)
         return new_prog_data
 
-    def add_user_gpus(self, node_users, users_gpus, all_gpu_num):
+    def add_user_info(self, all_nodes, prog_data):
+        new_prog_data = []
+        for name, prog_info in zip(all_nodes, prog_data):
+            node_users = self.add_user_gpus([], self.nodes_users_gpus.get(name, None))
+            node_users = self.add_bold_for_me(node_users)
+
+            prog_info.append(colored('| ', attrs=['bold']).join(node_users))
+            new_prog_data.append(prog_info)
+        return new_prog_data
+
+    def add_user_gpus(self, node_users, users_gpus, all_gpu_num=None):
+
+        def _add_gpu_list(user, gpu_li):
+            if isinstance(all_gpu_num, int) and len(set(gpu_li)) == all_gpu_num:
+                return user + "(all)"
+            return user + f"({','.join(gpu_li)})"
+
         new_node_users = []
         for user in node_users:
             if users_gpus:
                 for full_user, gpu_list in users_gpus.items():
                     if full_user.startswith(user):
-                        if len(set(gpu_list)) == all_gpu_num:
-                            user += "(all)"
-                        else:
-                            user += f"({','.join(gpu_list)})"
+                        user = _add_gpu_list(user, gpu_list)
+                        break
             new_node_users.append(user)
+
+        if users_gpus:
+            for full_user, gpu_list in users_gpus.items():
+                match = False
+                for user in node_users:
+                    if full_user.startswith(user):
+                        match = True
+                        break
+                if not match:
+                    full_user = _add_gpu_list(full_user, gpu_list)
+                    col = 'red' if is_use_slurm() else 'white'
+                    new_node_users.append(colored(full_user, col))
+
         return new_node_users
 
     def add_bold_for_me(self, users):

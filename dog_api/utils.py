@@ -64,7 +64,11 @@ def update_args(args):
 
 
 def lr_autoscale(lr, base_total_bs, bs_per_gpu):
-    return lr / base_total_bs * torch.distributed.get_world_size() * bs_per_gpu
+    try:
+        lr = lr / base_total_bs * torch.distributed.get_world_size() * bs_per_gpu
+    except:
+        print("lr rescale failed!")
+    return lr
 
 
 def occupy_mem():

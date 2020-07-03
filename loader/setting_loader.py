@@ -10,7 +10,12 @@ def get_dog_basedir():
             dog_basedir.append(p)
     assert len(dog_basedir) > 0, "Please add the path of 'dog' to $PYTHONPATH"
     if len(dog_basedir) > 1:
-        assert len(set(dog_basedir)) == 1, f"Find multiple dogs {set(dog_basedir)}"
+        valid_dog_basedir = []
+        for basedir in dog_basedir:
+            if os.path.isdir(basedir):
+                valid_dog_basedir.append(basedir)
+        assert len(set(valid_dog_basedir)) == 1, f"Find multiple dogs {set(valid_dog_basedir)}"
+        dog_basedir = valid_dog_basedir
     return dog_basedir[0]
 
 

@@ -79,7 +79,7 @@ class SummaryDog(BaseDog):
     def register_task(self, task_name, gpu_info):
         # called in main
         gpu_num = len(gpu_info) if isinstance(gpu_info, list) else int(gpu_info)
-        summary_key = datetime.now().strftime('%m.%d-%H:%M')
+        summary_key = datetime.now().strftime('%m.%d-%H:%M:%S')
         self.summary_file = os.path.join(self.summary_dir, summary_key)
         self.summary_dict = dict(key=summary_key, name=task_name,
                                  eta='Starting', gpu_num=gpu_num)
@@ -150,9 +150,9 @@ class SummaryDog(BaseDog):
         print(self.summary_dict)
 
         key = self.summary_dict['key']
-        start_stamp = time.mktime(time.strptime(key, '%m.%d-%H:%M'))
+        start_stamp = time.mktime(time.strptime(key, '%m.%d-%H:%M:%S'))
         now_stamp = time.mktime(time.strptime(
-            datetime.now().strftime('%m.%d-%H:%M'), '%m.%d-%H:%M'))
+            datetime.now().strftime('%m.%d-%H:%M:%S'), '%m.%d-%H:%M:%S'))
         if (now_stamp - start_stamp) / 60 < 5:
             os.system(f"rm {self.summary_file}")
 

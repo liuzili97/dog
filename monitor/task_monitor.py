@@ -22,8 +22,8 @@ class TaskMonitor(BaseMonitor):
     def init_headers(self):
         return ['day', 'time', 'epoch', 'it', 'eta', 'name', 'n', 'upda', 'loss', 'oth']
 
-    def update_info(self, name, func, is_first_node):
-        if not is_first_node:
+    def update_info(self, name, func, is_first_thread):
+        if not is_first_thread:
             return
         tasks_info = os.popen(self.cmds['tasks']).read()
         self.tasks_results = {}
@@ -52,18 +52,12 @@ class TaskMonitor(BaseMonitor):
             loss = colored(v.pop('loss', '-'), 'red')
             epoch_str = f"{v.pop('epoch', '-')}/{v.pop('max_epochs', '-')}"
             inner_iter = v.pop('inner_iter', '-')
-            # TODO remove
-            max_inner_iters = v.pop('max_inner_iter', '-')
-            if max_inner_iters == '-':
-                max_inner_iters = v.pop('max_inner_iters', '-')
+            max_inner_iters = v.pop('max_inner_iters', '-')
             iter_str = '-'
             if inner_iter != '-' and max_inner_iters != '-':
                 percent = int(int(inner_iter) / int(max_inner_iters) * 100)
                 iter_str = f"{percent}%"
-            if 'gpus' in v:
-                _ = v.pop('gpus')  # TODO remove
-
-            task_list = [colored(f"{min_sec:04d}", attrs=['bold']), epoch_str, iter_str,
+            task_list = [colored(f"{min_sec // 100:04d}", attrs=['bold']), epoch_str, iter_str,
                          eta, name, gpu_num, last_update, loss, '']
             if v:
                 task_list[-1] = v.__str__().replace("'", "").replace("{", "").replace(

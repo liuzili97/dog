@@ -20,7 +20,7 @@ class Monitor():
         self.monitors = [GPUMonitor(), TaskMonitor()]
 
     def ssh_func(self, name, connect_args):
-        is_first_node = name == self.all_nodes[0]
+        is_first_thread = name == self.all_nodes[0]
         if name not in self.ssh_handlers:
             ssh = paramiko.SSHClient()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -33,7 +33,7 @@ class Monitor():
             ssh = self.ssh_handlers[name]
 
         for m in self.monitors:
-            m.update_info(name, ssh, is_first_node)
+            m.update_info(name, ssh, is_first_thread)
 
     def update_info(self):
         threads = []
