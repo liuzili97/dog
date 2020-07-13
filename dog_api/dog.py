@@ -2,8 +2,6 @@ import os
 import json
 import functools
 import time
-import socket
-import shutil
 import numpy as np
 from datetime import datetime
 from collections import OrderedDict
@@ -34,7 +32,11 @@ class BaseDog:
     def __init__(self):
         setting_loader = SettingLoader()
         self.write_interval = setting_loader.get_write_interval()
-        self.summary_dirname = setting_loader.get_dirname()
+        self.summary_dir = os.path.join(setting_loader.get_basedir(),
+                                        setting_loader.get_dirname())
+
+        if not os.path.isdir(self.summary_dir):
+            os.makedirs(self.summary_dir)
 
     def init(self):
         pass
@@ -68,11 +70,6 @@ class SummaryDog(BaseDog):
     # run on node. init when a task is launched by the dog
     def __init__(self):
         super(SummaryDog, self).__init__()
-        self.summary_dir = os.path.join(os.environ['HOME'], self.summary_dirname)
-
-        if not os.path.isdir(self.summary_dir):
-            os.makedirs(self.summary_dir)
-
         self.summary_file = None
         self.summary_dict = dict()
 
@@ -124,7 +121,7 @@ class SummaryDog(BaseDog):
     def after_val_epoch(self, coco_eval_bbox=None):
         if coco_eval_bbox:
             self.add_coco_eval_summary(coco_eval_bbox)
-            self.write_out()
+        self.write_out()
 
     @dog_launched
     @master_only
@@ -234,7 +231,7 @@ class BoardDog(BaseDog):
     def after_val_epoch(self, coco_eval_bbox=None):
         if coco_eval_bbox:
             self.add_coco_eval_summary(coco_eval_bbox)
-            self.write_out()
+        self.write_out()
         self.smooth_board.clear_output()
 
     @dog_launched

@@ -35,8 +35,5 @@ class SettingLoader():
     def get_write_interval(self):
         return self.write_interval
 
-    def get_dir(self):
-        return os.path.join(os.environ['HOME'], self.dirname)
-
     def get_basedir(self):
         return get_dog_basedir()

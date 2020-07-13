@@ -201,7 +201,7 @@ def inference_speed(model, data_loader, device):
             model(samples)
         torch.cuda.synchronize()
         end = time.perf_counter()
-        print(colored(f"{end - start:.3f} s/iter, {1. / (end - start):.1f} iters/s", 'green'))
+        print(colored(f"{end - start:.4f} s/iter, {1. / (end - start):.1f} iters/s", 'green'))
         buffer.append(1. / (end - start))
         if i % 50 == 0:
             print(colored(f"AVG: {sum(buffer) / 50:.1f} iters/s", 'red'))
