@@ -28,7 +28,7 @@ class TaskLoader():
                 counter[k] += 1
         for k, v in counter.items():
             if v > 1:
-                print(colored(f"{k} appears {v} times!"), 'red')
+                print(colored(f"{k} appears {v} times!", 'red'))
                 flag = False
         return flag
 

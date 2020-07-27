@@ -25,6 +25,9 @@ class TargetLoader():
     def get_entry_key_dir(self, target_name):
         return self.target_cfgs[target_name]['ENTRY']['key_dir']
 
+    def get_entry_extra_args(self, target_name):
+        return self.target_cfgs[target_name]['ENTRY']['extra_args']
+
     def get_target_dirs(self):
         return [self.target_cfgs[k]['DIR'][self.master_name]
                 for k in self.target_cfgs]

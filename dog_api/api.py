@@ -1,3 +1,3 @@
-from .dog import FullDog
+from .dog import Dog
 
-dog = FullDog()
+dog = Dog()

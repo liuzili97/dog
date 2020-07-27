@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import functools
 import time
@@ -7,6 +8,7 @@ from datetime import datetime
 from collections import OrderedDict
 from termcolor import colored
 
+import torch.distributed as dist
 from torch.utils.tensorboard import SummaryWriter
 
 from .dist_utils import master_only
@@ -17,8 +19,11 @@ from loader import SettingLoader
 def dog_launched(old_func):
     @functools.wraps(old_func)
     def new_func(*args, **kwargs):
-        if os.environ.get('DOG_LAUNCHED', 'False') != 'True':
-            print(colored("NOT LAUNCHED", 'red'))
+        env = os.environ.get('DOG_LAUNCHED', 'False')
+        if env != 'True':
+            if env != 'FalseVerify':
+                print(colored("NOT LAUNCHED", 'red'))
+                os.environ['DOG_LAUNCHED'] = 'FalseVerify'
             return
 
         output = old_func(*args, **kwargs)
@@ -37,11 +42,12 @@ class BaseDog:
 
         if not os.path.isdir(self.summary_dir):
             os.makedirs(self.summary_dir)
+        self.output_dir = None
 
-    def init(self):
-        pass
+    def init(self, output_dir):
+        self.output_dir = output_dir
 
-    def before_run(self):
+    def before_run(self, max_epochs, max_inner_iters, batch_per_gpu, gpu_num):
         pass
 
     def before_train_epoch(self, epoch):
@@ -73,13 +79,11 @@ class SummaryDog(BaseDog):
         self.summary_file = None
         self.summary_dict = dict()
 
-    def register_task(self, task_name, gpu_info):
+    def register_task(self, task_name):
         # called in main
-        gpu_num = len(gpu_info) if isinstance(gpu_info, list) else int(gpu_info)
         summary_key = datetime.now().strftime('%m.%d-%H:%M:%S')
         self.summary_file = os.path.join(self.summary_dir, summary_key)
-        self.summary_dict = dict(key=summary_key, name=task_name,
-                                 eta='Starting', gpu_num=gpu_num)
+        self.summary_dict = dict(key=summary_key, name=task_name, eta='Starting')
 
         # since register_task is not executed in workers
         # we need to store the vars and restore it
@@ -96,18 +100,19 @@ class SummaryDog(BaseDog):
         self.rm_cache()
 
     @dog_launched
-    def init(self):
+    def init(self, output_dir):
+        self.output_dir = output_dir
         # restore vars for workers since they will not execute register_task
         self.summary_file = os.environ['DOG_SUMMARY_FILE']
-        occupy_mem()
 
     @dog_launched
     @master_only
-    def before_run(self, max_epochs, max_inner_iters):
+    def before_run(self, max_epochs, max_inner_iters, batch_per_gpu, gpu_num):
         self.summary_dict = self.load_summary_file()
         if is_use_slurm():
             self.add_summary(name=f"{self.summary_dict['name']} ({os.environ['SLURM_JOB_ID']})")
-        self.add_summary(max_epochs=max_epochs, max_inner_iters=max_inner_iters)
+        self.add_summary(max_epochs=max_epochs, max_inner_iters=max_inner_iters,
+                         gpu_num=gpu_num, eta='Running')
         self.write_out()
 
     @dog_launched
@@ -205,8 +210,8 @@ class BoardDog(BaseDog):
 
     @dog_launched
     @master_only
-    def before_run(self, max_epochs, max_inner_iters, output_dir, batch_per_gpu, gpu_num):
-        self.writer = SummaryWriter(output_dir)
+    def before_run(self, max_epochs, max_inner_iters, batch_per_gpu, gpu_num):
+        self.writer = SummaryWriter(self.output_dir)
         self.max_epochs = max_epochs
         self.max_inner_iters = max_inner_iters
         self.batch_per_gpu = batch_per_gpu
@@ -306,53 +311,95 @@ class BoardDog(BaseDog):
             self.writer.add_scalar(k, v, self.get_global_step())
 
 
-class FullDog(BaseDog):
+class Dog(BaseDog):
 
     def __init__(self):
         super(BaseDog, self).__init__()
         self.summary_dog = SummaryDog()
         self.board_dog = BoardDog()
+        self.dogs = dict(summary_dog=self.summary_dog, board_dog=self.board_dog)
+        self.output_dir = None
+        self.keep_n_pth = None
 
     @dog_launched
-    def init(self):
-        self.summary_dog.init()
+    def init(self,
+             output_dir,
+             keep_one_pth=False,
+             use_dogs=('summary_dog', 'board_dog'),
+             occ_mem=True):
+        self.output_dir = output_dir
+        self.keep_one_pth = keep_one_pth
+        dogs = []
+        for name in use_dogs:
+            assert name in self.dogs, f"{name} not in {self.dogs.keys()}"
+            dogs.append(self.dogs[name])
+        self.dogs = dogs
+
+        for dog in self.dogs:
+            dog.init(output_dir)
+        if occ_mem:
+            occupy_mem()
 
     @dog_launched
     @master_only
-    def before_run(self, max_epochs, max_inner_iters, output_dir, batch_per_gpu):
-        self.summary_dog.before_run(max_epochs, max_inner_iters)
-        gpu_num = self.summary_dog.summary_dict['gpu_num']
-        self.board_dog.before_run(max_epochs, max_inner_iters, output_dir, batch_per_gpu,
-                                  gpu_num)
+    def before_run(self, max_epochs, max_inner_iters, batch_per_gpu):
+        gpu_num = 1
+        if dist.is_available() and dist.is_initialized():
+            gpu_num = dist.get_world_size()
+
+        for dog in self.dogs:
+            dog.before_run(max_epochs, max_inner_iters, batch_per_gpu, gpu_num)
 
     @dog_launched
     @master_only
     def before_train_epoch(self, epoch):
-        self.summary_dog.before_train_epoch(epoch)
-        self.board_dog.before_train_epoch(epoch)
+        for dog in self.dogs:
+            dog.before_train_epoch(epoch)
 
     @dog_launched
     @master_only
     def after_train_epoch(self):
-        self.board_dog.after_train_epoch()
+        for dog in self.dogs:
+            dog.after_train_epoch()
+
+        if self.keep_one_pth:
+            all_pth = []
+            for root, _, files in os.walk(self.output_dir):
+                for file in files:
+                    if file.endswith('.pth') and not file.startswith('latest.'):
+                        all_pth.append(os.path.join(root, file))
+            if len(all_pth) > 1:
+                all_pth_num = []
+                for pth in all_pth:
+                    filename = os.path.basename(pth)
+                    pth_num = [float(num) for num in re.findall(r"\d+\.?\d*", filename)]
+                    if len(pth_num) > 0:
+                        all_pth_num.append(pth_num[0])
+                    else:
+                        print(f"Cannot find number in {filename} of {pth}.")
+                        return
+                max_num = max(all_pth_num)
+                for (num, pth) in zip(all_pth_num, all_pth):
+                    if num != max_num:
+                        os.system(f"rm {pth}")
 
     @dog_launched
     @master_only
     def after_val_epoch(self, coco_eval_bbox=None):
-        self.summary_dog.after_val_epoch(coco_eval_bbox=coco_eval_bbox)
-        self.board_dog.after_val_epoch(coco_eval_bbox=coco_eval_bbox)
+        for dog in self.dogs:
+            dog.after_val_epoch(coco_eval_bbox=coco_eval_bbox)
 
     @dog_launched
     @master_only
     def before_train_iter(self, inner_iter):
-        self.summary_dog.before_train_iter(inner_iter)
-        self.board_dog.before_train_iter(inner_iter)
+        for dog in self.dogs:
+            dog.before_train_iter(inner_iter)
 
     @dog_launched
     @master_only
     def after_train_iter(self):
-        self.summary_dog.after_train_iter()
-        self.board_dog.after_train_iter()
+        for dog in self.dogs:
+            dog.after_train_iter()
 
 
 class LogBuffer(object):

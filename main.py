@@ -24,7 +24,7 @@ def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm
     print("Executing shell...")
 
     short_dir = output_dir.split('/')[-1].split('-')[0]
-    api.dog.summary_dog.register_task(short_dir, gpu_info)
+    api.dog.summary_dog.register_task(short_dir)
 
     os.chdir(target_dir)
     os.system(f"bash {base_dir}/scripts/{shell}_train.sh "
@@ -83,6 +83,7 @@ class InfoProc():
     def set_target_env(self, target_name):
         os.environ['ENTRY_PATH'] = self.target_loader.get_entry_path(target_name)
         os.environ['ENTRY_KEY_DIR'] = self.target_loader.get_entry_key_dir(target_name)
+        os.environ['PY_ARGS'] = self.target_loader.get_entry_extra_args(target_name)
 
     def set_slurm_env(self):
         slurm_env = self.master_loader.get_slurm_env()

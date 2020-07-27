@@ -5,14 +5,18 @@ import socket
 import time
 from tabulate import tabulate
 from termcolor import colored
+from datetime import datetime
 
 import torch
+import torch.distributed as dist
 
 __all__ = ['describe_model', 'update_args', 'lr_autoscale',
-           'occupy_mem', 'get_free_gpu', 'get_slurm_scontrol_show']
+           'occupy_mem', 'get_free_gpu', 'get_slurm_scontrol_show', 'update_work_dir']
 
 
 def describe_model(model):
+    if dist.is_available() and dist.is_initialized() and dist.get_rank() != 0:
+        return
     headers = ['name', 'shape', '#elements', '(M)', '(MB)', 'trainable', 'dtype']
 
     data = []
@@ -61,6 +65,10 @@ def update_args(args):
 
     if 'LOCAL_RANK' not in os.environ:
         os.environ['LOCAL_RANK'] = str(args.local_rank)
+
+
+def update_work_dir(work_dir):
+    return os.path.join(work_dir, datetime.now().strftime('%m%d-%H%M'))
 
 
 def lr_autoscale(lr, base_total_bs, bs_per_gpu):
