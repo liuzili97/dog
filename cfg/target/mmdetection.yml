@@ -3,6 +3,6 @@ DIR:
   vector-gpu: /home/liuzili/workspace/mmdetection
 
 ENTRY:
-  path: tools/train_ssl.py
-  key_dir: output_dir
-  extra_args: ''
+  path: tools/train.py
+  key_dir: dir
+  extra_args: '--launcher pytorch --validate --autoscale-lr'

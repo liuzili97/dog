@@ -9,7 +9,10 @@ from collections import OrderedDict
 from termcolor import colored
 
 import torch.distributed as dist
-from torch.utils.tensorboard import SummaryWriter
+try:
+    from torch.utils.tensorboard import SummaryWriter
+except:
+    pass
 
 from .dist_utils import master_only
 from .utils import occupy_mem, is_use_slurm
@@ -81,7 +84,7 @@ class SummaryDog(BaseDog):
 
     def register_task(self, task_name):
         # called in main
-        summary_key = datetime.now().strftime('%m.%d-%H:%M:%S')
+        summary_key = datetime.now().strftime('%m.%d-%H.%M.%S')
         self.summary_file = os.path.join(self.summary_dir, summary_key)
         self.summary_dict = dict(key=summary_key, name=task_name, eta='Starting')
 
@@ -152,9 +155,9 @@ class SummaryDog(BaseDog):
         print(self.summary_dict)
 
         key = self.summary_dict['key']
-        start_stamp = time.mktime(time.strptime(key, '%m.%d-%H:%M:%S'))
+        start_stamp = time.mktime(time.strptime(key, '%m.%d-%H.%M.%S'))
         now_stamp = time.mktime(time.strptime(
-            datetime.now().strftime('%m.%d-%H:%M:%S'), '%m.%d-%H:%M:%S'))
+            datetime.now().strftime('%m.%d-%H.%M.%S'), '%m.%d-%H.%M.%S'))
         if (now_stamp - start_stamp) / 60 < 5:
             os.system(f"rm {self.summary_file}")
 
@@ -176,7 +179,7 @@ class SummaryDog(BaseDog):
     @master_only
     def write_out(self):
         self.summary_dict['last_update'] = datetime.now().strftime('%d-%H%M')
-        with open(self.summary_file, 'w') as f:
+        with open(self.summary_file, 'w+') as f:
             f.write(json.dumps(self.summary_dict, indent=4))
 
     @dog_launched

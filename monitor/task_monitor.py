@@ -40,7 +40,7 @@ class TaskMonitor(BaseMonitor):
         task_data_raw = defaultdict(dict)
         for k, v in self.tasks_results.items():
             month_day = int(k.split('-')[0].replace('.', ''))
-            min_sec = int(k.split('-')[1].replace(':', ''))
+            min_sec = int(k.split('-')[1].replace('.', ''))
             last_update = v.pop('last_update', '-')
             eta = v.pop('eta', 'Done')
             name = v.pop('name')
