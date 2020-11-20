@@ -35,11 +35,12 @@ def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm
 
 def start_tasks(dir_and_cfgs, base_dir, target_dir, gpu_info):
     for (dirn, cfg) in dir_and_cfgs:
-        if is_use_slurm():
+        must_use_slurm = True
+        if is_use_slurm() and must_use_slurm:
             do_job(base_dir, target_dir, cfg, dirn, gpu_info, shell='slurm')
         else:
             while True:
-                gpu_free_id, _ = get_free_gpu(thre=0.9)
+                gpu_free_id, _ = get_free_gpu(thre=0.2)
                 gpu_list = gpu_info.split(',')
                 if set(gpu_list).issubset(set(gpu_free_id)):
                     do_job(base_dir, target_dir, cfg, dirn, ','.join(gpu_list), shell='dist')

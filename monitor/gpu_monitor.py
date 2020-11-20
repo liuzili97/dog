@@ -69,7 +69,7 @@ class GPUMonitor(BaseMonitor):
 
             if self.is_valid(stat_res):
                 stat_res = stat_res[1:]
-                assert len(stat_res) == gpu_num, f"{stat_res} <=> {gpu_num}"
+                # assert len(stat_res) == gpu_num, f"{stat_res} <=> {gpu_num}"
                 users_gpus = defaultdict(list)
                 for gpu_id, stat_info in enumerate(stat_res):
                     if os.environ['USER'] in stat_info:
@@ -98,13 +98,18 @@ class GPUMonitor(BaseMonitor):
 
     def single_gpu(self, gpu_info, gpu_by_us):
         # get ['449', '32510', '55.05'] from '449 MiB, 32510 MiB, 55.05 W'
-        gpu_info = [item.split()[0] for item in gpu_info.split(',')]
-        for i, item in enumerate(gpu_info):
-            # return [Not Supported] for some gpus
-            gpu_info[i] = float(item) if 'No' not in item else 0.
+        if len(gpu_info.split(',')) == 3:
+            gpu_info = [item.split()[0] for item in gpu_info.split(',')]
+            for i, item in enumerate(gpu_info):
+                # return [Not Supported] for some gpus
+                gpu_info[i] = float(item) if 'No' not in item and 'Unable' not in item else 0.
 
-        memory_used = gpu_info[0] / gpu_info[1]
-        power = gpu_info[2]
+            memory_used = gpu_info[0] / gpu_info[1]
+            power = gpu_info[2]
+        else:
+            print(gpu_info)
+            memory_used = 0
+            power = 0
         prog_col, is_free = self.get_prog_disp_info(memory_used, power)
 
         mark = '|' if not gpu_by_us else '>'

@@ -113,7 +113,8 @@ class SummaryDog(BaseDog):
     def before_run(self, max_epochs, max_inner_iters, batch_per_gpu, gpu_num):
         self.summary_dict = self.load_summary_file()
         if is_use_slurm():
-            self.add_summary(name=f"{self.summary_dict['name']} ({os.environ['SLURM_JOB_ID']})")
+            self.add_summary(name=f"{self.summary_dict['name']} "
+                                  f"({os.environ.get('SLURM_JOB_ID', 0)})")
         self.add_summary(max_epochs=max_epochs, max_inner_iters=max_inner_iters,
                          gpu_num=gpu_num, eta='Running')
         self.write_out()
@@ -341,7 +342,8 @@ class Dog(BaseDog):
         for dog in self.dogs:
             dog.init(output_dir)
         if occ_mem:
-            occupy_mem()
+            # occupy_mem()
+            pass
 
     @dog_launched
     @master_only

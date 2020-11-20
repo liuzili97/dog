@@ -1,0 +1,9 @@
+DIR:
+  tc6000: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/mmdetection3d
+  vector-gpu: /work
+  cad-41: /work
+
+ENTRY:
+  path: tools/train.py
+  key_dir: work-dir
+  extra_args: ''
