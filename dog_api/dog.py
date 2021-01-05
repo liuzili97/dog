@@ -41,7 +41,7 @@ class BaseDog:
         setting_loader = SettingLoader()
         self.write_interval = setting_loader.get_write_interval()
         self.summary_dir = os.path.join(setting_loader.get_basedir(),
-                                        setting_loader.get_dirname())
+                                        setting_loader.get_task_dirname())
 
         if not os.path.isdir(self.summary_dir):
             os.makedirs(self.summary_dir)

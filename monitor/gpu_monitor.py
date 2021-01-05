@@ -1,10 +1,12 @@
 import os
 import re
+import time
 from termcolor import colored
 from tabulate import tabulate
 from collections import defaultdict
 
 from .base import BaseMonitor
+from loader import SettingLoader
 from dog_api import get_slurm_scontrol_show, get_slurm_squeue, is_use_slurm
 
 
@@ -14,12 +16,16 @@ class GPUMonitor(BaseMonitor):
         self.gpus_results, self.stat_results = {}, {}
         self.nodes_users_gpus = dict()
 
+        self.max_gpu_num = 8
+        self.max_prog_num = 8
         self.disp_thre = dict(used=0.2, power=90)
         self.cmds = dict(
             smi='nvidia-smi --query-gpu=memory.used,memory.total,power.draw --format=csv,noheader',
             stat='${HOME}/gpustat'
         )
 
+        setting_loader = SettingLoader()
+        self.report_dirname = setting_loader.get_report_dirname()
         self.headers = self.init_headers()
 
     def init_headers(self):
@@ -29,13 +35,26 @@ class GPUMonitor(BaseMonitor):
         return ['node'] + ['GPU{}'.format(i) for i in range(8)] + ['users']
 
     def update_info(self, name, ssh, is_first_thread):
-        try:
-            self.gpus_results[name] = ssh.exec_command(self.cmds['smi'])[1].readlines()
-        except:
+        if ssh is not None:
+            try:
+                self.gpus_results[name] = ssh.exec_command(self.cmds['smi'])[1].readlines()
+            except:
+                self.gpus_results[name] = ''
+            try:
+                self.stat_results[name] = ssh.exec_command(self.cmds['stat'])[1].readlines()
+            except:
+                self.stat_results[name] = ''
+        else:
+            if os.path.isfile(os.path.join(self.report_dirname, name)):
+                with open(os.path.join(self.report_dirname, name), 'r') as f:
+                    info = f.read()
+                    time_str, smi_res, stat_res = info.split('\n\n')
+                    if time.time() - time.mktime(time.strptime(time_str,"%Y-%m-%d %H:%M:%S")) < 60:
+                        self.gpus_results[name] = smi_res.split('\n')
+                        self.stat_results[name] = stat_res.split('\n')
+                        return
+
             self.gpus_results[name] = ''
-        try:
-            self.stat_results[name] = ssh.exec_command(self.cmds['stat'])[1].readlines()
-        except:
             self.stat_results[name] = ''
 
     def build_data(self, all_nodes):
@@ -89,6 +108,12 @@ class GPUMonitor(BaseMonitor):
                 gpus_info.append(gpu_str)
                 free_gpu_num += is_free
 
+            if len(gpus_res) < self.max_gpu_num:
+                for _ in range(self.max_gpu_num - len(gpus_res)):
+                    gpu_str = colored('|' + ' ' * (self.max_prog_num - 2) + '|',
+                                      attrs=['concealed'])
+                    gpus_info.append(gpu_str)
+
             name_col, suggest_level = self.get_name_disp_info(gpu_num, free_gpu_num)
 
         for _ in range(8 - len(gpus_info)):
@@ -113,11 +138,10 @@ class GPUMonitor(BaseMonitor):
         prog_col, is_free = self.get_prog_disp_info(memory_used, power)
 
         mark = '|' if not gpu_by_us else '>'
-        max_prog_num = 8
-        percent = int(memory_used * max_prog_num)
+        percent = int(memory_used * self.max_prog_num)
         gpu_str = colored(mark, prog_col, attrs=['bold']) + \
-                  colored(mark * percent + ' ' * (max_prog_num - percent - 2), prog_col)
-        if percent < max_prog_num - 1:
+                  colored(mark * percent + ' ' * (self.max_prog_num - percent - 2), prog_col)
+        if percent < self.max_prog_num - 1:
             gpu_str += colored('|', attrs=['dark'])
         return gpu_str, is_free
 

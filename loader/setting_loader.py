@@ -26,11 +26,21 @@ class SettingLoader():
         with open(f"{basedir}/cfg/setting.yml") as f:
             cfg = yaml.safe_load(f)
 
-        self.dirname = cfg['DIRNAME']
+        self.task_dirname = cfg['TASK_DIRNAME']
+        self.report_dirname = cfg['REPORT_DIRNAME']
         self.write_interval = cfg['WRITE_INTERVAL']
 
-    def get_dirname(self):
-        return self.dirname
+        if not os.path.isdir(self.task_dirname):
+            os.makedirs(self.task_dirname)
+
+        if not os.path.isdir(self.report_dirname):
+            os.makedirs(self.report_dirname)
+
+    def get_task_dirname(self):
+        return self.task_dirname
+
+    def get_report_dirname(self):
+        return self.report_dirname
 
     def get_write_interval(self):
         return self.write_interval

@@ -15,7 +15,7 @@ class TaskMonitor(BaseMonitor):
 
         self.tasks_results = {}
         self.cmds = dict(
-            tasks=f"cat ./{setting_loader.get_dirname()}/*"
+            tasks=f"cat ./{setting_loader.get_task_dirname()}/*"
         )
         self.headers = self.init_headers()
 
