@@ -33,11 +33,23 @@ def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm
     api.dog.summary_dog.finish_task()
 
 
-def start_tasks(dir_and_cfgs, base_dir, target_dir, gpu_info):
+def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info):
     for (dirn, cfg) in dir_and_cfgs:
-        must_use_slurm = True
-        if is_use_slurm() and must_use_slurm:
-            do_job(base_dir, target_dir, cfg, dirn, gpu_info, shell='slurm')
+        if is_use_slurm() and gpu_info[0] == '/' and gpu_info[-1] == '/':
+            gpu_info = gpu_info[1:-1].split(',')
+            assert len(gpu_info) >= 2
+            gpu_per_node, node_names = int(gpu_info[0]), gpu_info[1:]
+            info_proc.set_slurm_env(node_names[0])
+            assert gpu_per_node != 0
+            gres_0_gpu = False
+            if gpu_per_node < 0:
+                gres_0_gpu = True
+                gpu_per_node = -gpu_per_node
+
+            os.environ['NODE_NAMES'] = ','.join(node_names)
+            os.environ['NTASKS'] = str(gpu_per_node * len(node_names))
+            do_job(base_dir, target_dir, cfg, dirn,
+                   0 if gres_0_gpu else gpu_per_node, shell='slurm')
         else:
             while True:
                 gpu_free_id, _ = get_free_gpu(thre=0.2)
@@ -87,8 +99,8 @@ class InfoProc():
         os.environ['ENTRY_KEY_DIR'] = self.target_loader.get_entry_key_dir(target_name)
         os.environ['PY_ARGS'] = self.target_loader.get_entry_extra_args(target_name)
 
-    def set_slurm_env(self):
-        slurm_env = self.master_loader.get_slurm_env()
+    def set_slurm_env(self, hostname):
+        slurm_env = self.master_loader.get_slurm_env(hostname)
         for k, v in slurm_env.items():
             os.environ[k] = str(v)
 
@@ -97,6 +109,8 @@ def main():
     args = sys.argv[1:]
     assert len(args) in [4, 5], args
 
+    # for dist training, gpu_info: 2,3 or 0,1,2,3 or 0
+    # for slurm training, gpu_info: /2, node9/ or /-4, node19, node20/
     master_name, target_name, dir_name, gpu_info = args[:4]
 
     info_proc = InfoProc(master_name)
@@ -106,19 +120,17 @@ def main():
     base_dir = info_proc.get_base_dir()
     # set
     info_proc.set_target_env(target_name)
-    if is_use_slurm():
-        info_proc.set_slurm_env()
     assert dir_and_cfgs, dir_and_cfgs
 
     print(f"The target name is: {target_name}, we will cd to {target_dir}")
     print("Tasks:")
     for (dirn, cfg) in dir_and_cfgs:
-        print(f"  {colored(cfg, 'blue')} => {colored(dirn, 'green')} using {gpu_info} gpus.")
+        print(f"  {colored(cfg, 'blue')} => {colored(dirn, 'green')} using gpu: {gpu_info}.")
 
     if len(args) == 5:
         wait_last_task(args[4])
 
-    start_tasks(dir_and_cfgs, base_dir, target_dir, gpu_info)
+    start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info)
 
 
 if __name__ == '__main__':

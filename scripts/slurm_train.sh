@@ -3,23 +3,21 @@
 set -x
 
 CONFIG=$1
-GPUS=$2
+GRES_GPU_NUM=$2
 WORK_DIR=$3
 SRUN_ARGS=${SRUN_ARGS:-""}
 PY_ARGS=${PY_ARGS:-""}
 
-GPUS_PER_NODE=${GPUS_PER_NODE}
-GRES_GPU_NUM=${GPUS}
-# GRES_GPU_NUM=0
-CPUS_PER_TASK=${CPUS_PER_TASK}
-# CPUS_PER_TASK=2
+# CPUS_PER_TASK=${CPUS_PER_TASK}
+CPUS_PER_TASK=4
 
 srun -p ${PARTITION} \
+    -w ${NODE_NAMES} \
     --job-name=${JOB_NAME} \
     --gres=gpu:${GRES_GPU_NUM} \
-    --ntasks=${GPUS} \
+    --ntasks=${NTASKS} \
     --ntasks-per-node=${GPUS_PER_NODE} \
     --cpus-per-task=${CPUS_PER_TASK} \
     --kill-on-bad-exit=1 \
     ${SRUN_ARGS} \
-    python -u ${ENTRY_PATH} $1 --${ENTRY_KEY_DIR}=$3 ${PY_ARGS} --port=$((RANDOM + 10000)) --launcher=slurm
+    python -u ${ENTRY_PATH} $1 --${ENTRY_KEY_DIR}=$3 ${PY_ARGS} --port=$((RANDOM + 10000)) --launcher=slurm --seed 123 --deterministic

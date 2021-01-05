@@ -3,16 +3,12 @@ import yaml
 from collections import OrderedDict, defaultdict
 from termcolor import colored
 
-from . import is_master_right
-
 
 class TaskLoader():
     """
     only init on node-host
     """
     def __init__(self, master_name):
-        is_master_right(master_name)
-
         with open(f'task/{master_name}.yml') as f:
             cfg = yaml.safe_load(f)
 

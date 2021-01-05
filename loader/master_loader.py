@@ -27,9 +27,8 @@ class MasterLoader():
             )
         return connect_dict
 
-    def get_slurm_env(self):
+    def get_slurm_env(self, node_name):
         assert is_use_slurm()
-        node_name = socket.gethostname()
         assert node_name in self.get_all_nodes()
 
         node_dict = self.nodes_dict[node_name]
@@ -37,10 +36,3 @@ class MasterLoader():
             PARTITION=node_dict['partition'],
             GPUS_PER_NODE=node_dict['gpus_per_node'],
             CPUS_PER_TASK=node_dict['cpus_per_gpu'])
-
-
-def is_master_right(master_name):
-    master_loader = MasterLoader(master_name)
-    hostname = socket.gethostname()
-    all_nodes = master_loader.get_all_nodes()
-    assert hostname in all_nodes, f"{hostname} not in {all_nodes}."
