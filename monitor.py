@@ -10,14 +10,14 @@ from loader import MasterLoader
 
 class Monitor():
 
-    def __init__(self):
+    def __init__(self, monitors):
         self.ssh_handlers = {}
 
         master_loader = MasterLoader(socket.gethostname())
         self.connect_dict = master_loader.get_connect_dict()
         self.all_nodes = master_loader.get_all_nodes()
 
-        self.monitors = [GPUMonitor(), TaskMonitor()]
+        self.monitors = monitors
 
     def ssh_func(self, name, connect_args):
         is_first_thread = name == self.all_nodes[0]
@@ -60,5 +60,16 @@ class Monitor():
 
 
 if __name__ == '__main__':
-    monitor = Monitor()
+    inp = sys.argv[1:]
+    if len(inp) == 1:
+        if inp[0] == 'g':
+            monitors = [GPUMonitor()]
+        elif inp[0] == 't':
+            monitors = [TaskMonitor()]
+        else:
+            raise NotImplementedError
+    else:
+        monitors = [GPUMonitor(), TaskMonitor()]
+
+    monitor = Monitor(monitors)
     monitor.run()

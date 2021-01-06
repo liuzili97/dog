@@ -30,10 +30,10 @@ class SettingLoader():
         self.report_dirname = cfg['REPORT_DIRNAME']
         self.write_interval = cfg['WRITE_INTERVAL']
 
-        if not os.path.isdir(self.task_dirname):
+        if not os.path.exists(self.task_dirname):
             os.makedirs(self.task_dirname)
 
-        if not os.path.isdir(self.report_dirname):
+        if not os.path.exists(self.report_dirname):
             os.makedirs(self.report_dirname)
 
     def get_task_dirname(self):
