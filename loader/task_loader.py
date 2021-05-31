@@ -9,7 +9,7 @@ class TaskLoader():
     only init on node-host
     """
     def __init__(self, master_name):
-        with open(f'task/{master_name}.yml') as f:
+        with open(f'cfg/task.yml') as f:
             cfg = yaml.safe_load(f)
 
         self.task_cfg = cfg['TASKS']

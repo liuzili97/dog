@@ -79,12 +79,20 @@ def lr_autoscale(lr, base_total_bs, bs_per_gpu):
     return lr
 
 
-def occupy_mem():
-    this_device = torch.cuda.current_device()
+def occupy_mem(device_id=None):
+    if device_id is None:
+        this_device = torch.cuda.current_device()
+        visible_devices = os.environ.get('CUDA_VISIBLE_DEVICES', '0').split(',')
+        this_device = visible_devices[int(this_device)]
+    else:
+        this_device = device_id
     print(colored(f"Occupying {socket.gethostname()}:{this_device}", 'red'))
     _, free = check_mem(this_device)
-    block_mem = int(free * 0.95)
-    x = torch.cuda.FloatTensor(256, 1024, block_mem)
+    block_mem = int(free * 0.9)
+    if device_id is not None:
+        x = torch.cuda.FloatTensor(256, 1024, block_mem, device=int(device_id))
+    else:
+        x = torch.cuda.FloatTensor(256, 1024, block_mem)
     del x
 
 

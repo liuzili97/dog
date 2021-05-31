@@ -1,0 +1,47 @@
+TASKS:
+  work_dirs/2104_spv2:
+    spv2: configs/sparsepointv2/sparsepointv2_d9lr_wd1e2_cornerd25.py
+    spv2_fixroi: configs/sparsepointv2/sparsepointv2_fixroi_d9lr_wd1e2_cornerd25.py
+    spv2_fixroi_shift: configs/sparsepointv2/sparsepointv2_fixroi_halfpi_d9lr_wd1e2_cornerd25.py
+    spv2_fixroi_pinoshift: configs/sparsepointv2/sparsepointv2_fixroi_halfpinoshi_d9lr_wd1e2_cornerd25.py
+    spv2_sunrgbd_noshift: configs/sparsepointv2/sparsepointv2_sunrgbd_d3lr_wd1e2_cornerd125_gpu4.py
+    spv2_sunrgbd_fixshift: configs/sparsepointv2/sparsepointv2_sunrgbd_fixshift_d3lr_wd1e2_cornerd125_gpu4.py
+    spv2_nored: configs/sparsepointv2/sparsepointv2_nored_d9lr_wd1e2_cornerd25.py
+    spv3: configs/sparsepointv3/sparsepointv3_d9lr_wd1e2_cornerd25.py
+    spv3_noinitbox: configs/sparsepointv3/sparsepointv3_noinitbox_d9lr_wd1e2_cornerd25.py
+    spv3_noinitbox_h1: configs/sparsepointv3/sparsepointv3_noinitbox_h1_d9lr_wd1e2_cornerd25.py
+    spv3_h1: configs/sparsepointv3/sparsepointv3_h1_d9lr_wd1e2_cornerd25.py
+    spv3_h1_expand: configs/sparsepointv3/sparsepointv3_h1_expand_d9lr_wd1e2_cornerd25.py
+    spv3_h1_expand2: configs/sparsepointv3/sparsepointv3_h1_expand2_d9lr_wd1e2_cornerd25.py
+    spv3_h1_uniquesam: configs/sparsepointv3/sparsepointv3_h1_uniquesam_d9lr_wd1e2_cornerd25.py
+    spv3_h1_uniquesam_expand: configs/sparsepointv3/sparsepointv3_h1_uniquesam_expand_d9lr_wd1e2_cornerd25.py
+    spv3_uniquesam: configs/sparsepointv3/sparsepointv3_uniquesam_d9lr_wd1e2_cornerd25.py
+    spv3_uniquesam_expand: configs/sparsepointv3/sparsepointv3_uniquesam_expand_d9lr_wd1e2_cornerd25.py
+    spv3_h3_uniquesam: configs/sparsepointv3/sparsepointv3_h3_uniquesam_d9lr_wd1e2_cornerd25.py
+    spv3_h3_uniquesam_expand: configs/sparsepointv3/sparsepointv3_h3_uniquesam_expand_d9lr_wd1e2_cornerd25.py
+    spv3_h2_uniquesam: configs/sparsepointv3/sparsepointv3_h2_uniquesam_d9lr_wd1e2_cornerd25.py
+    spv3_h4_uniquesam: configs/sparsepointv3/sparsepointv3_h4_uniquesam_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg: configs/sparsepointv3/sparsepointv3_h3_agg_d9lr_wd1e2_cornerd25.py
+    spv3_h2_agg: configs/sparsepointv3/sparsepointv3_h2_agg_d9lr_wd1e2_cornerd25.py
+    spv3_h2_agg_0loss: configs/sparsepointv3/sparsepointv3_h3_agg_0loss_d9lr_wd1e2_cornerd25.py
+    spv3_h4_agg: configs/sparsepointv3/sparsepointv3_h4_agg_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg_objloss: configs/sparsepointv3/sparsepointv3_h3_agg_objloss_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg_semloss: configs/sparsepointv3/sparsepointv3_h3_agg_semloss_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg_semobjloss: configs/sparsepointv3/sparsepointv3_h3_agg_objsemloss_d9lr_wd1e2_cornerd25.py
+    spv3_h2_agg_semloss: configs/sparsepointv3/sparsepointv3_h2_agg_semloss_d9lr_wd1e2_cornerd25.py
+    h2_sem: [spv3_h2_agg_semobjloss, spv3_h2_agg_semobjloss]
+    spv3_h4_agg_semobjloss: configs/sparsepointv3/sparsepointv3_h4_agg_semloss_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg256: configs/sparsepointv3/sparsepointv3_h3_agg256_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg512: configs/sparsepointv3/sparsepointv3_h3_agg512_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg1024: configs/sparsepointv3/sparsepointv3_h3_agg1024_d9lr_wd1e2_cornerd25.py
+    h4_sem: [spv3_h3_agg256, spv3_h4_agg_semobjloss]
+    aggx: [spv3_h3_agg512, spv3_h3_agg1024]
+    spv3_h3_agg192: configs/sparsepointv3/sparsepointv3_h3_agg192_d9lr_wd1e2_cornerd25.py
+    h3_agg192: [spv3_h3_agg192, spv3_h3_agg192]
+    spv3_h6_agg_semobjloss: configs/sparsepointv3/sparsepointv3_h6_agg_objsemloss_d9lr_wd1e2_cornerd25.py
+    h6: [spv3_h6_agg_semobjloss, spv3_h6_agg_semobjloss]
+    spv3_h3_agg_enlarge1d2: configs/sparsepointv3/sparsepointv3_h3_agg_enlarge1d2_d9lr_wd1e2_cornerd25.py
+    spv3_h3_agg_enlarge1d5: configs/sparsepointv3/sparsepointv3_h3_agg_enlarge1d5_d9lr_wd1e2_cornerd25.py
+    enlarge: [spv3_h3_agg_enlarge1d2, spv3_h3_agg_enlarge1d5]
+
+

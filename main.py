@@ -4,6 +4,7 @@ import time
 from termcolor import colored
 
 import dog_api.api as api
+from dog_api.utils import occupy_mem
 from loader import MasterLoader, TaskLoader, TargetLoader, SettingLoader
 from dog_api import get_free_gpu, is_use_slurm
 
@@ -52,10 +53,13 @@ def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info):
                    0 if gres_0_gpu else gpu_per_node, shell='slurm')
         else:
             while True:
-                gpu_free_id, _ = get_free_gpu(thre=0.2)
+                gpu_free_id, _ = get_free_gpu(thre=0.9)
                 gpu_list = gpu_info.split(',')
                 if set(gpu_list).issubset(set(gpu_free_id)):
                     do_job(base_dir, target_dir, cfg, dirn, ','.join(gpu_list), shell='dist')
+                    time.sleep(2)
+                    print("Cleaning Memory")
+                    clean_memory(gpu_list)
                     break
                 else:
                     wait_for = sorted(list(set(gpu_list).difference(
@@ -63,6 +67,19 @@ def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info):
                     print(f"Waiting for gpus: {wait_for}")
                 time.sleep(10)
         time.sleep(5)
+
+
+def clean_memory(gpu_list):
+    stat_res = os.popen('${HOME}/gpustat -p').readlines()
+    if isinstance(stat_res, list) and len(stat_res) > 0:
+        stat_res = stat_res[1:]
+        # assert len(stat_res) == gpu_num, f"{stat_res} <=> {gpu_num}"
+        for gpu_id in gpu_list:
+            stat_info = stat_res[int(gpu_id)]
+            gpu_users_mem = stat_info.strip().split('|')[-1].split()
+            for user_mem in gpu_users_mem:
+                pid = user_mem.split('/')[1].split('(')[0]
+                os.system(f'kill -9 {pid}')
 
 
 def wait_last_task(last_target_name):

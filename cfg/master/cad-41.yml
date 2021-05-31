@@ -19,17 +19,17 @@ NODES:
     ip: 10.76.0.146
     user: liuzili
 
-  cad-gpu-48:
-    ip: 10.76.1.48
-    user: liuzili
-
-  cad-gpu-49:
-    ip: 10.76.1.49
-    user: liuzili
-
-#  cad-gpu-50:
-#    ip: 10.76.1.50
+#  cad-gpu-48:
+#    ip: 10.76.1.48
 #    user: liuzili
+
+#  cad-gpu-49:
+#    ip: 10.76.1.49
+#    user: liuzili
+
+  cad-gpu-50:
+    ip: 10.76.1.50
+    user: liuzili
 
   cad-gpu-62:
     ip: 10.76.1.62
