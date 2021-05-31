@@ -1,0 +1,64 @@
+TASKS:
+  work_dirs/2010:
+    votenet_scannet: configs/votenet/votenet_8x8_scannet-3d-18class.py
+    votenet_scannet_2lr: configs/votenet/votenet_8x8_scannet-3d-18class_2lr.py
+    votenet_scannet_4lr: configs/votenet/votenet_8x8_scannet-3d-18class_4lr.py
+    votenet_scannet_tf: configs/votenet/votenet_8x8_scannet-3d-18class_tf.py
+    votenet_scannet_tf_slim: configs/votenet/votenet_8x8_scannet-3d-18class_tf_slim.py
+    votenet_scannet_tf_very_slim: configs/votenet/votenet_8x8_scannet-3d-18class_tf_very_slim.py
+    votenet_scannet_tf_extra_slim: configs/votenet/votenet_8x8_scannet-3d-18class_tf_extre_slim.py
+    votenet_scannet_tf_ultra_slim: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim.py
+    votenet_scannet_tf_ultra_slim_2lr: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim_2lr.py
+    votenet_scannet_tf_ultra_slim_4lr: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim_4lr.py
+    votenet_scannet_tf_ultra_slim_2lr_queryrandom: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim_2lr_queryrandom.py
+    votenet_scannet_tf_ultra_slim_queryrandom: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim_queryrandom.py
+    votenet_scannet_tf_ultra_slim_2lr_local1: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim_2lr_local1.py
+    votenet_scannet_tf_ultra_slim_2lr_local1d5: configs/votenet/votenet_8x8_scannet-3d-18class_tf_ultra_slim_2lr_local1d5.py
+
+    tfnet_scannet_d192_e3d6_d2lr_local1d2_nowd_thred7_7: configs/tfnet/tfnet_8x8_scannet-3d-18class_d192_e3d6_d2lr_local1d2_nowd_thred7_d7.py
+    tfnet_scannet_d192_d2lr_local1d2_nowd_thred7_7: configs/tfnet/tfnet_8x8_scannet-3d-18class_d192_d2lr_local1d2_nowd_thred7_d7.py
+    tfnet_scannet_slim_d2lr_local1d2_nowd_thred7_d7: configs/tfnet/tfnet_8x8_scannet-3d-18class_slim_d2lr_local1d2_nowd_thred7_d7.py
+    tfnet_scannet_d288_e3d6_d2lr_local1d2_nowd_thred7_1: configs/tfnet/tfnet_8x8_scannet-3d-18class_d288_e3d6_d2lr_local1d2_nowd_thred7_1.py
+    tfnet_scannet_b1_vote: configs/tfnet/tfnet_8x8_scannet-3d-18class_b1_vote.py
+
+    tfnet_scannet_d288_d2lr_local1d2_memlocald7_nowd_thred7_d7: configs/tfnet/tfnet_8x8_scannet-3d-18class_d288_d2lr_local1d2_memlocal1d2_nowd_thred7_d7.py
+    tfnet_scannet_slim_d2lr_local1d2_memlocald1_nowd_thred7_d7: configs/tfnet/tfnet_8x8_scannet-3d-18class_slim_d2lr_local1d2_memlocald1_nowd_thred7_d7.py
+    tfnet_scannet_d192_d2lr_local1d2_memlocald3_nowd_thred7_d7: configs/tfnet/tfnet_8x8_scannet-3d-18class_d192_d2lr_local1d2_memlocald3_nowd_thred7_d7.py
+    tfnet_scannet_d192_d2lr_local1d2_memlocald7_nowd_thred7_d7: configs/tfnet/tfnet_8x8_scannet-3d-18class_d192_d2lr_local1d2_memlocald7_nowd_thred7_d7.py
+
+    tfnet_scannet_b2_allinb: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_allinb.py
+    tfnet_scannet_b2_tgtlocald3: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tgtlocald3.py
+    tfnet_scannet_b2_tgtlocal2d4: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tgtlocal2d4.py
+    tfnet_scannet_b2_tgtlocald1: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tgtlocald1.py
+    tfnet_scannet_b2_tgtlocald2: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tgtlocald2.py
+    tfnet_scannet_b2_d288: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_d288.py
+    tfnet_scannet_b2_tfgasinb003_obj2: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tfgasinb003_obj2.py
+    tfnet_scannet_b2_tfgasinb003_beta1d5: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tfgasinb003_beta1d5.py
+    tfnet_scannet_b2_tfgasinb003_obj3: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tfgasinb003_obj2.py
+    tfnet_scannet_b2_tfgasinb003_obj5: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tfgasinb003_obj5.py
+
+    tfnet_scannet_b2_sa1: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1.py
+    tfnet_scannet_b2_sa1_sm32: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_sm32.py
+    tfnet_scannet_b2_sa1_sm96: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_sm96.py
+    # all modify to b3
+    tfnet_scannet_b3_sa1_d3lr: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_d3lr.py
+    tfnet_scannet_b3_sa1_e3d6: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_e3d6.py
+    tfnet_scannet_b2_tfgasinb003_obj10_betad2_wpb: configs/tfnet/tfnet_8x8_scannet-3d-18class_b2_tfgasinb003_obj10_betad2_wpb.py
+    tfnet_scannet_b3_sa1_p4096_sm96_radid3: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_p4096_sm96_radid3.py
+    tfnet_scannet_b3_sa1_sm96_64_128_256: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_sm96_64_128_256.py
+    tfnet_scannet_b3_sa1_sm96_local1d4: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_sm96_local1d4.py
+    tfnet_scannet_b3_sa1_local1: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_local1.py
+    tfnet_scannet_b3_sa1_locald5_wpb_d360_d4lr: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_locald5_wpb_d360_d4lr.py
+    tfnet_scannet_b3_sa1_locald5_wpb_e6d6: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_locald5_wpb_e6d6.py
+    tfnet_scannet_b3_sa1_locald5_wpb_memlocald2: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_locald5_wpb_memlocald2.py
+    tfnet_scannet_b3_sa1_locald5_wpb_tgtlocald3: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_locald5_wpb_tgtlocald3.py
+    tfnet_scannet_b3_sa1_locald6_wpb: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_locald6_wpb.py
+    tfnet_scannet_b3_sa1_tfm_d5lr: configs/tfnet/tfnet_8x8_scannet-3d-18class_b3_sa1_tfm_d5lr.py
+    tfnet_scannet_b4_tfm: configs/tfnet/tfnet_8x8_scannet-3d-18class_b4_tfm.py
+    tfnet_scannet_b5: configs/tfnet/tfnet_8x8_scannet-3d-18class_b5.py
+
+  work_dirs/2012_votenet:
+    tfnv2net_scannet_e4d4_agge4d4_d288_1024_vote_256_uniquev2_313_313_fix: configs/tfnv2net/tfnv2net_8x8_scannet-3d-18class_e4d4_agge4d4_d288_1024_vote_256_uniquev2_313_313_fix.py
+    a: configs/sparsepoint/sparsenet_scannet.py
+    spv2: configs/sparsepointv2/sparsepointv2_d9lr_wd1e2_cornerd25.py
+    spv3: configs/sparsepointv3/sparsepointv3_d9lr_wd1e2_cornerd25.py
