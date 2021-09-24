@@ -1,0 +1,9 @@
+DIR:
+  tc6000: /public/home/yuchangbingroup/feiyuejiao/fei2_workspace/SMOKE
+
+ENTRY:
+  path: tools/plain_train_net.py
+  key_dir: work-dir
+  extra_args: ''
+
+SHELL: smoke
