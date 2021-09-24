@@ -24,8 +24,12 @@ def shell_name(config_path):
 def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm'):
     print("Executing shell...")
 
-    short_dir = output_dir.split('/')[-1].split('-')[0]
+    # we use config name as output-dir
+    short_dir = config_path.split('/')[-1].split('.')[0]
     api.dog.summary_dog.register_task(short_dir)
+    output_dir = list(output_dir.split('/'))
+    output_dir[-1] = short_dir
+    output_dir = '/'.join(output_dir)
 
     os.chdir(target_dir)
     os.system(f"bash {base_dir}/scripts/{shell}_train.sh "
@@ -34,7 +38,7 @@ def do_job(base_dir, target_dir, config_path, output_dir, gpu_info, shell='slurm
     api.dog.summary_dog.finish_task()
 
 
-def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info):
+def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info, custom_shell):
     for (dirn, cfg) in dir_and_cfgs:
         if is_use_slurm() and gpu_info[0] == '/' and gpu_info[-1] == '/':
             gpu_info = gpu_info[1:-1].split(',')
@@ -56,7 +60,7 @@ def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info):
                 gpu_free_id, _ = get_free_gpu(thre=0.9)
                 gpu_list = gpu_info.split(',')
                 if set(gpu_list).issubset(set(gpu_free_id)):
-                    do_job(base_dir, target_dir, cfg, dirn, ','.join(gpu_list), shell='dist')
+                    do_job(base_dir, target_dir, cfg, dirn, ','.join(gpu_list), shell=custom_shell)
                     time.sleep(2)
                     print("Cleaning Memory")
                     clean_memory(gpu_list)
@@ -108,6 +112,9 @@ class InfoProc():
     def get_target_dir(self, target_name):
         return self.target_loader.get_target_dir(target_name)
 
+    def get_custom_shell(self, target_name):
+        return self.target_loader.get_custom_shell(target_name)
+
     def get_base_dir(self):
         return self.setting_loader.get_basedir()
 
@@ -132,8 +139,14 @@ def main():
 
     info_proc = InfoProc(master_name)
     # read
+    repeat_times = 1
+    if len(dir_name) > 2 and dir_name[-2] == '/' and dir_name[-1].isdigit():
+        repeat_times = int(dir_name[-1])
+        dir_name = dir_name[:-2]
     dir_and_cfgs = info_proc.get_dir_and_cfgs(dir_name)
+    dir_and_cfgs = dir_and_cfgs * repeat_times
     target_dir = info_proc.get_target_dir(target_name)
+    custom_shell = info_proc.get_custom_shell(target_name)
     base_dir = info_proc.get_base_dir()
     # set
     info_proc.set_target_env(target_name)
@@ -147,7 +160,7 @@ def main():
     if len(args) == 5:
         wait_last_task(args[4])
 
-    start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info)
+    start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info, custom_shell)
 
 
 if __name__ == '__main__':

@@ -87,6 +87,6 @@ def stat_logs(log_files):
 
 if __name__ == '__main__':
     while True:
-        log_files = search_log('../work_dirs', recent_days=20)
+        log_files = search_log('../work_dirs', recent_days=60)
         stat_logs(log_files)
         time.sleep(30)

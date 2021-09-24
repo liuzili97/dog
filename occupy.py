@@ -7,7 +7,7 @@ from dog_api import check_mem
 
 def occupy_mem(device_id):
     _, free = check_mem(device_id)
-    block_mem = int(free * 0.8)
+    block_mem = int(free * 0.9)
     x = torch.cuda.FloatTensor(256, 1024, block_mem, device=int(device_id))
     del x
 

@@ -31,3 +31,6 @@ class TargetLoader():
     def get_target_dirs(self):
         return [self.target_cfgs[k]['DIR'][self.master_name]
                 for k in self.target_cfgs]
+
+    def get_custom_shell(self, target_name):
+        return self.target_cfgs[target_name].get('SHELL', 'dist')
