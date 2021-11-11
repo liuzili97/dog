@@ -57,7 +57,7 @@ def stat_logs(log_files):
         time_modify_str = time.strftime('%d-%H%M', time.localtime(time_modify))
         table_line = [colored(hour_min_str, attrs=['bold']), task_name, f"{max_25_str}",
                       f"{max_50_str}", metrics['mAP_50'].shape[0], time_modify_str]
-        if metrics['mAP_50'].shape[0] < 36:
+        if metrics['mAP_50'].shape[0] < 48:
             color = 'blue'
             if (time.time() - time_modify) > 2 * 60:
                 color = 'red'
@@ -87,6 +87,6 @@ def stat_logs(log_files):
 
 if __name__ == '__main__':
     while True:
-        log_files = search_log('../work_dirs', recent_days=60)
+        log_files = search_log('../work_dirs', recent_days=20)
         stat_logs(log_files)
         time.sleep(30)

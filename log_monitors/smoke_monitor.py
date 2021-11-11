@@ -25,7 +25,7 @@ def search_log(base_dir, recent_days=2):
     return log_files
 
 
-def stat_logs(log_files):
+def stat_logs(log_files, max_epoch, wait_min):
     table = []
     data_raw = defaultdict(list)
     for log_file in log_files:
@@ -80,9 +80,9 @@ def stat_logs(log_files):
             table_line = [colored(hour_min_str, attrs=['bold']), task_name, max_bev_easy_str,
                           max_bev_mid_str, max_bev_hard_str, max_3d_easy_str, max_3d_mid_str,
                           max_3d_hard_str, metrics['3d_hard'].shape[0], time_modify_str]
-            if metrics['3d_hard'].shape[0] < 5:
+            if metrics['3d_hard'].shape[0] < max_epoch:
                 color = 'blue'
-                if (time.time() - time_modify) > 2 * 60:
+                if (time.time() - time_modify) > wait_min * 60:
                     color = 'red'
                 new_table_line = []
                 for i, word in enumerate(table_line):
@@ -113,7 +113,9 @@ def stat_logs(log_files):
 
 
 if __name__ == '__main__':
+    max_epoch = 100
+    wait_min = 20
     while True:
-        log_files = search_log('../SMOKE/work_dirs', recent_days=60)
-        stat_logs(log_files)
+        log_files = search_log('../MonoFlex/work_dirs', recent_days=60)
+        stat_logs(log_files, max_epoch, wait_min)
         time.sleep(30)
