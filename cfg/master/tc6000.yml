@@ -3,97 +3,97 @@ NODES:
     ip: node1
     partition: w2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node2:
     ip: node2
     partition: w2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node3:
     ip: node3
     partition: w2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node4:
     ip: node4
     partition: w2080ti_1d
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node5:
     ip: node5
     partition: w2080ti_1d
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 4
 
   node6:
     ip: node6
     partition: w2080ti_1d
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node7:
     ip: node7
     partition: w2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node8:
     ip: node8
     partition: w2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node9:
     ip: node9
     partition: w2080ti_1w
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node10:
     ip: node10
     partition: eng2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node11:
     ip: node11
     partition: eng2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node12:
     ip: node12
     partition: eng2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node13:
     ip: node13
     partition: eng2080ti
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node14:
     ip: node14
     partition: w2080ti_1w
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node15:
     ip: node15
     partition: w2080ti_1w
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node16:
     ip: node16
     partition: w2080ti_1w
     gpus_per_node: 4
-    cpus_per_gpu: 5
+    cpus_per_gpu: 6
 
   node17:
     ip: node17

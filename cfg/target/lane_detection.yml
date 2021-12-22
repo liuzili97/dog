@@ -1,0 +1,9 @@
+DIR:
+  gpu: /home/liuzili/workspace/lane_detection
+
+ENTRY:
+  path: train.py
+  key_dir: work-dir
+  extra_args: ''
+
+SHELL: lane
