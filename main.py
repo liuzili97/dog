@@ -68,7 +68,7 @@ def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info, custom_
                 else:
                     wait_for = sorted(list(set(gpu_list).difference(
                         set(gpu_list).intersection(gpu_free_id))))
-                    print(f"Waiting for gpus: {wait_for}")
+                    print(f"Waiting for gpus: {wait_for}\r", end="")
                 time.sleep(10)
         time.sleep(5)
 
