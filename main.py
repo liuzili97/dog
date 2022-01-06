@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import socket
 from termcolor import colored
 
 import dog_api.api as api
@@ -54,10 +55,14 @@ def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info, custom_
             os.environ['NODE_NAMES'] = ','.join(node_names)
             os.environ['NTASKS'] = str(gpu_per_node * len(node_names))
             do_job(base_dir, target_dir, cfg, dirn,
-                   0 if gres_0_gpu else gpu_per_node, shell='slurm')
+                   0 if gres_0_gpu else gpu_per_node, shell=custom_shell)
         else:
             while True:
-                gpu_free_id, _ = get_free_gpu(thre=0.9)
+                if socket.gethostname().startswith('gpu'):
+                    thre = 0.8
+                else:
+                    thre = 0.8
+                gpu_free_id, _ = get_free_gpu(thre=thre)
                 gpu_list = gpu_info.split(',')
                 if set(gpu_list).issubset(set(gpu_free_id)):
                     do_job(base_dir, target_dir, cfg, dirn, ','.join(gpu_list), shell=custom_shell)

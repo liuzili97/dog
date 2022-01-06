@@ -67,6 +67,8 @@ def stat_logs(log_files, max_epoch, wait_min):
                           max_miou_str, max_mf1_str, metrics['miou'].shape[0], time_modify_str]
             if (time.time() - time_modify) > wait_min * 60:
                 color = 'blue'
+            else:
+                color = 'white'
             new_table_line = []
             for i, word in enumerate(table_line):
                 if i > 0:

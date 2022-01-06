@@ -5,7 +5,7 @@ import socket
 import paramiko
 import threading
 
-from monitor import GPUMonitor, TaskMonitor
+from monitor import GPUMonitor, SLURMMonitor, TaskMonitor
 from loader import MasterLoader
 
 
@@ -65,6 +65,8 @@ if __name__ == '__main__':
     if len(inp) == 1:
         if inp[0] == 'g':
             monitors = [GPUMonitor()]
+        elif inp[0] == 's':
+            monitors = [SLURMMonitor()]
         elif inp[0] == 't':
             monitors = [TaskMonitor()]
         else:

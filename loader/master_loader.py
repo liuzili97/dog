@@ -29,10 +29,10 @@ class MasterLoader():
 
     def get_slurm_env(self, node_name):
         assert is_use_slurm()
-        assert node_name in self.get_all_nodes()
+        assert node_name in self.get_all_nodes(), f"{node_name} not in {self.get_all_nodes()}"
 
         node_dict = self.nodes_dict[node_name]
         return dict(
             PARTITION=node_dict['partition'],
             GPUS_PER_NODE=node_dict['gpus_per_node'],
-            CPUS_PER_TASK=node_dict['cpus_per_gpu'])
+            CPUS_PER_TASK=node_dict.get('cpus_per_gpu', 4))

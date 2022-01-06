@@ -1,2 +1,17 @@
 NODES:
 
+  gpu3:
+    ip: 192.168.3.113
+    user: liuzili
+
+  gpu4:
+    ip: 192.168.3.114
+    user: liuzili
+
+  gpu7:
+    ip: 192.168.3.117
+    user: liuzili
+
+  gpu17:
+    ip: 192.168.3.127
+    user: liuzili

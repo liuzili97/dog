@@ -105,7 +105,9 @@ def get_free_gpu(thre=0.9):
     gpu_free = [False for _ in range(gpu_num)]
     for gpu_info in gpus_info:
         gpu_id = int(gpu_info['index'])
-        gpu_free[gpu_id] = float(gpu_info['memory.free']) / float(gpu_info['memory.total']) > thre
+        gpu_free[gpu_id] = \
+            (float(gpu_info['memory.free']) / float(gpu_info['memory.total']) > thre) or \
+            (float(gpu_info['memory.total']) - float(gpu_info['memory.free']) < 2000)
     gpu_free_id = [str(idx) for idx in range(gpu_num) if gpu_free[idx]]
     return gpu_free_id, gpu_num
 
@@ -191,7 +193,8 @@ def get_slurm_squeue(all_nodes):
                 node_ids = get_node_ids(node_ids)
                 node_names = [node_prefix + i for i in node_ids]
                 for s_node_name in node_names:
-                    nodes_users[s_node_name].add(user)
+                    if s_node_name in nodes_users:
+                        nodes_users[s_node_name].add(user)
     return nodes_users
 
 
@@ -201,7 +204,8 @@ def get_node_ids(node_str):
     for i, node_id in enumerate(node_ids):
         if '-' in node_id:
             start, end = node_id.split('-')
-            res.extend([str(i) for i in range(int(start), int(end) + 1)])
+            begin_zero_len = len(start) - len(str(int(start)))
+            res.extend(['0' * begin_zero_len + str(i) for i in range(int(start), int(end) + 1)])
         else:
             res.append(node_id)
     return res
