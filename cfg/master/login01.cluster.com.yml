@@ -1,0 +1,194 @@
+NODES:
+#  node002:
+#    ip: node002
+#    partition: intel-e5
+#
+#  node003:
+#    ip: node003
+#    partition: intel-e5
+#
+#  node004:
+#    ip: node004
+#    partition: intel-e5
+#
+#  node005:
+#    ip: node005
+#    partition: intel-e5
+#
+#  node006:
+#    ip: node006
+#    partition: intel-e5
+#
+#  node007:
+#    ip: node007
+#    partition: intel-e5
+#
+#  node008:
+#    ip: node008
+#    partition: intel-e5
+#
+#  node009:
+#    ip: node009
+#    partition: intel-e5
+#
+#  node010:
+#    ip: node010
+#    partition: intel-e5
+#
+#  node011:
+#    ip: node011
+#    partition: intel-e5
+#
+#  node012:
+#    ip: node012
+#    partition: intel-e5
+#
+#  node013:
+#    ip: node013
+#    partition: intel-e5
+#
+#  node014:
+#    ip: node014
+#    partition: intel-e5
+#
+#  node015:
+#    ip: node015
+#    partition: intel-e5
+#
+#  node016:
+#    ip: node016
+#    partition: intel-e5
+#
+#  node017:
+#    ip: node017
+#    partition: intel-e5
+#
+#  node018:
+#    ip: node018
+#    partition: intel-e5
+#
+#  node019:
+#    ip: node019
+#    partition: intel-e5
+#
+#  node020:
+#    ip: node020
+#    partition: intel-e5
+#
+#  node022:
+#    ip: node022
+#    partition: intel-e5
+#
+#  node023:
+#    ip: node023
+#    partition: intel-e5
+#
+#  node024:
+#    ip: node024
+#    partition: intel-e5
+#
+#  node025:
+#    ip: node025
+#    partition: intel-e5
+#
+#  node026:
+#    ip: node026
+#    partition: intel-e5
+#
+#  node027:
+#    ip: node027
+#    partition: intel-e5
+#
+#  node028:
+#    ip: node028
+#    partition: intel-e5
+
+#  gvnq01:
+#    ip: gvnq01
+#    partition: v100-quad
+#    gpus_per_node: 4
+
+  gvnq02:
+    ip: gvnq02
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq03:
+    ip: gvnq03
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq04:
+    ip: gvnq04
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq05:
+    ip: gvnq05
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq06:
+    ip: gvnq06
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq07:
+    ip: gvnq07
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq08:
+    ip: gvnq08
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq09:
+    ip: gvnq09
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvnq10:
+    ip: gvnq10
+    partition: v100-quad
+    gpus_per_node: 4
+
+  gvno01:
+    ip: gvno01
+    partition: v100-oct
+    gpus_per_node: 8
+
+  gvno02:
+    ip: gvno02
+    partition: v100-oct
+    gpus_per_node: 8
+
+  gvno03:
+    ip: gvno03
+    partition: v100-oct
+    gpus_per_node: 8
+
+  gvno05:
+    ip: gvno05
+    partition: v100-oct
+    gpus_per_node: 8
+
+  grtq04:
+    ip: grtq04
+    partition: rt-2080ti
+    gpus_per_node: 4
+
+  grtq14:
+    ip: grtq14
+    partition: rt-2080ti
+    gpus_per_node: 4
+
+  grtq15:
+    ip: grtq15
+    partition: rt-2080ti
+    gpus_per_node: 4
+
+  grtq16:
+    ip: grtq16
+    partition: rt-2080ti
+    gpus_per_node: 4

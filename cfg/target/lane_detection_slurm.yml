@@ -1,0 +1,9 @@
+DIR:
+  login01.cluster.com: /home/lanzhenzhongLab/feiyuejiao/fei2_workspace/lane_detection
+
+ENTRY:
+  path: train.py
+  key_dir: work-dir
+  extra_args: ''
+
+SHELL: lane_slurm
