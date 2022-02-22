@@ -193,35 +193,21 @@ TASKS:
     spv4_fpgmlp2048_prenormres_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_fpgmlp2048_prenormres_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_fpgmlp1024_prenormres_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_fpgmlp1024_prenormres_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_gmlp2048_prenormres_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_gmlp2048_prenormres_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y1: [spv4_gmlp2048_prenormres_h3_agg160_gmlp1024, spv4_gmlp2048_prenormres_h3_agg160_gmlp1024]
     spv4_midextatt_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_midextatt_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y2: [spv4_midextatt_res_h3_agg160_gmlp1024, spv4_midextatt_res_h3_agg160_gmlp1024]
     spv4_midextatt512_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_midextatt512_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y3: [spv4_midextatt512_res_h3_agg160_gmlp1024, spv4_midextatt512_res_h3_agg160_gmlp1024]
     spv4_extatt512_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_extatt512_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y4: [spv4_extatt512_res_h3_agg160_gmlp1024, spv4_extatt512_res_h3_agg160_gmlp1024]
     spv4_extatt1024_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_extatt1024_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y5: [spv4_extatt1024_res_h3_agg160_gmlp1024, spv4_extatt1024_res_h3_agg160_gmlp1024]
     spv4_fpextatt512_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_fpextatt512_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y6: [spv4_fpextatt512_h3_agg160_gmlp1024, spv4_fpextatt512_h3_agg160_gmlp1024]
     spv4_fpextatt1024_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_fpextatt1024_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    y7: [spv4_fpextatt1024_h3_agg160_gmlp1024, spv4_fpextatt1024_h3_agg160_gmlp1024]
     spv4_saextatt512_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_saextatt512_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x0: [spv4_saextatt512_h3_agg160_gmlp1024, spv4_saextatt512_h3_agg160_gmlp1024]
     spv4_saextatt512_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_saextatt512_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x1: [spv4_saextatt512_res_h3_agg160_gmlp1024, spv4_saextatt512_res_h3_agg160_gmlp1024]
     spv4_fpgmlp512_prenormreslast_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_fpgmlp512_prenormreslast_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_fpgmlp1024_prenormreslast_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_fpgmlp1024_prenormreslast_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-
-    x2: [spv4_fpgmlp512_prenormreslast_h3_agg160_gmlp1024, spv4_fpgmlp512_prenormreslast_h3_agg160_gmlp1024]
-    x3: [spv4_fpgmlp1024_prenormreslast_h3_agg160_gmlp1024, spv4_fpgmlp1024_prenormreslast_h3_agg160_gmlp1024]
 
     spv4_gmlp2048_skipln_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_gmlp_skipln1_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_gmlp2048_skipln2_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_gmlp_skipln2_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_gmlp2048_prenorm_skipln_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_gmlp_prenorm_skipln1_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_gmlp2048_prenorm_skipln2_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_gmlp_prenorm_skipln2_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x4: [spv4_gmlp2048_skipln_h3_agg160_gmlp1024, spv4_gmlp2048_skipln2_h3_agg160_gmlp1024]
-    x5: [spv4_gmlp2048_prenorm_skipln_h3_agg160_gmlp1024, spv4_gmlp2048_prenorm_skipln2_h3_agg160_gmlp1024]
     spv4_midgmlp_skipln1_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_midgmlp_skipln1_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_midgmlp_skipln2_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_midgmlp_skipln2_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
     spv4_midgmlp_prenorm_skipln1_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_midgmlp_skipln1_prenorm_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
@@ -229,52 +215,1357 @@ TASKS:
     x6: [spv4_midgmlp_skipln1_h3_agg160_gmlp1024, spv4_midgmlp_skipln2_h3_agg160_gmlp1024, spv4_midgmlp_prenorm_skipln1_h3_agg160_gmlp1024, spv4_midgmlp_prenorm_skipln2_h3_agg160_gmlp1024]
     x7: [spv4_midgmlp_skipln2_h3_agg160_gmlp1024, spv4_midgmlp_prenorm_skipln1_h3_agg160_gmlp1024, spv4_midgmlp_prenorm_skipln2_h3_agg160_gmlp1024, spv4_midgmlp_skipln1_h3_agg160_gmlp1024]
     spv4_promlp512_prenormres_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_progmlp512_prenormres_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x9: [spv4_promlp512_prenormres_h3_agg160_gmlp1024, spv4_promlp512_prenormres_h3_agg160_gmlp1024]
     spv4_promlp512_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_progmlp512_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x10: [spv4_promlp512_h3_agg160_gmlp1024, spv4_promlp512_h3_agg160_gmlp1024]
     spv4_proextatt512_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_proextatt512_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x11: [spv4_proextatt512_h3_agg160_gmlp1024, spv4_proextatt512_h3_agg160_gmlp1024]
     spv4_proextatt512_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_proextatt512_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x12: [spv4_proextatt512_res_h3_agg160_gmlp1024, spv4_proextatt512_res_h3_agg160_gmlp1024]
     spv4_pro1mlp512_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_pro1gmlp512_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x13: [spv4_pro1mlp512_h3_agg160_gmlp1024, spv4_pro1mlp512_h3_agg160_gmlp1024]
     spv4_pro1mlp512_prenormres_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_pro1gmlp512_prenormres_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    x14: [spv4_pro1mlp512_prenormres_h3_agg160_gmlp1024, spv4_pro1mlp512_prenormres_h3_agg160_gmlp1024]
     spv4_h3_agg160_gmlp1024_removelastlin: configs/sparsepointv4/sparsepointv4_h3_agg160_gmlp1024_removelastlin_d9lr_wd1e2_cornerd25.py
     spv4_h3_agg160_gmlp1024_prenormres_removelastlin: configs/sparsepointv4/sparsepointv4_h3_agg160_gmlp1024_prenormres_removelastlin_d9lr_wd1e2_cornerd25.py
     spv4_pro1extatt512_res_h3_agg160_gmlp1024: configs/sparsepointv4/sparsepointv4_pro1extatt256_res_h3_agg160_gmlp1024_d9lr_wd1e2_cornerd25.py
-    xx1: [spv4_pro1extatt512_res_h3_agg160_gmlp1024, spv4_pro1extatt512_res_h3_agg160_gmlp1024]
     spv4_h3_agg160: configs/sparsepointv4/sparsepointv4_b1-h3_agg160_d9lr_wd1e2_cornerd25.py
-    xx2: [spv4_h3_agg160, spv4_h3_agg160]
     spv4_b1_removelastlin: configs/sparsepointv4/sparsepointv4_b1_removelastlin.py
-    xx3: [spv4_b1_removelastlin, spv4_b1_removelastlin]
     spv4_b1_gmlp: configs/sparsepointv4/sparsepointv4_b1_gmlp.py
-    xx4: [spv4_b1_gmlp, spv4_b1_gmlp]
     spv4_b1_gmlp_prenormres: configs/sparsepointv4/sparsepointv4_b1_gmlp_prenormres.py
-    xx5: [spv4_b1_gmlp_prenormres, spv4_b1_gmlp_prenormres]
     spv4_b1_removeattres: configs/sparsepointv4/sparsepointv4_b1_removeattres.py
-    xx6: [spv4_b1_removeattres, spv4_b1_removeattres]
     spv4_b1_removeintres: configs/sparsepointv4/sparsepointv4_b1_removeintres.py
-    xx7: [spv4_b1_removeintres, spv4_b1_removeintres]
     spv4_b1_gmlp_prenormres_removeintres: configs/sparsepointv4/sparsepointv4_b1_gmlp_prenormres_removeintres.py
-    xx8: [spv4_b1_gmlp_prenormres_removeintres, spv4_b1_gmlp_prenormres_removeintres]
     spv4_b1_2gmlp_prenormres_removeintres: configs/sparsepointv4/sparsepointv4_b1_2gmlp_prenormres_removeintres.py
-    xx9: [spv4_b1_2gmlp_prenormres_removeintres, spv4_b1_2gmlp_prenormres_removeintres]
     spv4_b1_extatt2048: configs/sparsepointv4/sparsepointv4_b1_extatt2048.py
-    xx10: [spv4_b1_extatt2048, spv4_b1_extatt2048]
-    spv4_b1_gmlp_gatev2_prenormres: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev2_prenormres.py
-    xx11: [spv4_b1_gmlp_gatev2_prenormres, spv4_b1_gmlp_gatev2_prenormres]
+    spv4_b1_gmlp_prenormres_gatev2: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev2_prenormres.py
     spv4_b1_gmlp_gatev3_prenormres: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev3_prenormres.py
-    xx12: [spv4_b1_gmlp_gatev3_prenormres, spv4_b1_gmlp_gatev3_prenormres]
     spv4_b1_exatt2048v2: configs/sparsepointv4/sparsepointv4_b1_extatt2048v2.py
     spv4_b1_exatt2048v3: configs/sparsepointv4/sparsepointv4_b1_extatt2048v3.py
     spv4_b1_exatt2048v3_lastlin: configs/sparsepointv4/sparsepointv4_b1_extatt2048v3_lastlin.py
     spv4_b1_exatt2048v3_prenorm: configs/sparsepointv4/sparsepointv4_b1_extatt2048v3_prenorm.py
     spv4_b1_exatt2048v3_prenorm_lastlin: configs/sparsepointv4/sparsepointv4_b1_extatt2048v3_prenorm_lastlin.py
 
-    spv4_b1_gmlp_gatev3_noact: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev3_noact.py
-    spv4_b1_gmlp_gatev3_nogatenorm: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev3_nogatenorm.py
-    spv4_b1_gmlp_gatev3_noinit: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev3_noinit.py
+    spv4_b1_gmlp_prenormres_gatev3_noact: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev3_noact.py
+    spv4_b1_gmlp_prenormres_gatev3_nogatenorm: configs/sparsepointv4/sparsepointv4_b1_gmlp_prenormres_gatev3_nogatenorm.py
+    spv4_b1_gmlp_prenormres_gatev3_noinit: configs/sparsepointv4/sparsepointv4_b1_gmlp_gatev3_noinit.py
+    spv4_b1_gmlp_gatev3_noinit_noact_nogatenorm spv4_b1_gmlp_prenormres_gatev3_noinit_noact_nogatenorm: configs/sparsepointv4/sparsepointv4_b1_gmlp_prenormres_gatev3_noinit_noact_nogatenorm.py
     spv4_b1_meatt_softmax: configs/sparsepointv4/sparsepointv4_b1_meatt_softmax.py
     spv4_b1_meatt_nosoftmax: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax.py
+    spv4_b1_meatt_nosoftmax_bias: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_bias.py
+    spv4_b1_meatt_nosoftmax_bias_conv1d: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_bias_conv1d.py
+    spv4_b1_meatt_nosoftmax_conv1d: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_conv1d.py
+    spv4_b1_meatt_softmax_act: configs/sparsepointv4/sparsepointv4_b1_meatt_softmax_act.py
+    spv4_b1_meatt_nosoftmax_bias_conv1d_prenormres: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_bias_conv1d_prenormres.py
+    spv4_b1_meatt_nosoftmax_bias_prenormres: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_bias_prenormres.py
+    spv4_b1_meatt_softmax_prenormres: configs/sparsepointv4/sparsepointv4_b1_meatt_softmax_prenormres.py
+    spv4_b1_meatt_nosoftmax_conv1d_prenormres: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_conv1d_prenormres.py
+    spv4_b1_meatt_nosoftmax_prenormres: configs/sparsepointv4/sparsepointv4_b1_meatt_nosoftmax_prenormres.py
+    spv4_b1_exatt2048v4_vup_lastlin: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_lastlin.py
+    spv4_b1_exatt2048v4_vup_lastlin_nosoftmax: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_nosoftmax_lastlin.py
+    spv4_b1_exatt2048v4_vup_l1norm_lastlin: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_l1norm_lastlin.py
+    spv4_b1_exatt2048v4_vup_softmaxd1: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1.py
+    spv4_b1_exatt2048v4_vup_lastlin_softmaxd1_l1normd2: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_l1normd2.py
+    spv4_b1_exatt2048v4_vup_lastlin_softmaxd1_res: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_res.py
+    spv4_b1_exatt2048v4_vup_softmaxd1_noprenorm: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_noprenorm.py
+    spv4_b1_exatt2048v4_vup_softmaxd1_vnorm: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_vnorm.py
+    spv4_b1_exatt2048v4_vup_softmaxd1_vnorm_res: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_vnorm_res.py
+    spv4_b1_exatt2048v4_vup_l1norm_vsoftmax: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_l1norm_vsoftmax.py
+    spv4_b1_exatt2048v4_vup_l1norm_qsoftmax: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_l1norm_qsoftmax.py
+    spv4_b1_exatt2048v4_vup_l1norm_qvsoftmax: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_l1norm_qsoftmax_vsoftmax.py
+    spv4_b1_exatt2048v4_vup_softmaxd1_res: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_res.py
+    spv4_b1_exatt2048v4_vup_l1norm_qvsoftmax_res: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_l1norm_qsoftmax_vsoftmax_res.py
+    spv4_b1_exatt2048v4_vup_l1norm_qsoftmax_res: configs/sparseptmuxointv4/sparsepointv4_b1_extatt2048v4_vup_l1norm_qsoftmax_res.py
+    spv4_b1_exatt2048v4_vup_softmaxd1_vsoftmax: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_vsoftmax.py
+    spv4_b1_exatt2048v4_vup_softmaxd1_vnorm_vsoftmax: configs/sparsepointv4/sparsepointv4_b1_extatt2048v4_vup_softmaxd1_vnorm_vsoftmax.py
+
+    spv4_b1_aft: configs/sparsepointv4/sparsepointv4_b1_aft.py
+    spv4_b1_aft_prenormres: configs/sparsepointv4/sparsepointv4_b1_aft_prenormres.py
+    spv4_b1_aft_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_aft_prenormres_bias.py
+    spv4_b1_aft512: configs/sparsepointv4/sparsepointv4_b1_aft512.py
+    spv4_b1_aft128: configs/sparsepointv4/sparsepointv4_b1_aft128.py
+    spv4_b1_aft128_nolastlin: configs/sparsepointv4/sparsepointv4_b1_aft128_nolastlin.py
+    brnet: configs/brnet/brnet_8x1_scannet-3d-18class.py
+
+    spv4_b1_aft512_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_aft512_prenormres_bias.py
+    spv4_b1_aft2048_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_aft2048_prenormres_bias.py
+    spv4_b1_aft128_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_aft128_prenormres_bias.py
+    xxa: [spv4_b1_aft128, spv4_b1_aft128]
+    xxb: [spv4_b1_aft128_nolastlin, spv4_b1_aft128_nolastlin]
+    spv4_b1_aft_prenormres_bias_relu: configs/sparsepointv4/sparsepointv4_b1_aft_prenormres_bias_relu.py
+    # TODO rename
+    spv4_b1_aft_prenormkvres: configs/sparsepointv4/sparsepointv4_b1_aft_prenormkvres_bias.py
+    spv4_b1_2aft: configs/sparsepointv4/sparsepointv4_b1_2aft.py
+    xx1: [spv4_b1_2aft, spv4_b1_2aft]
+    spv4_b1_2aft_prenormres: configs/sparsepointv4/sparsepointv4_b1_2aft_prenormres.py
+    xx2: [spv4_b1_2aft_prenormres, spv4_b1_2aft_prenormres]
+    spv4_b1_seed_aft: configs/sparsepointv4/sparsepointv4_b1_seed_aft.py
+    xx3: [spv4_b1_seed_aft, spv4_b1_seed_aft]
+    spv4_b1_seed_aft_prenormres: configs/sparsepointv4/sparsepointv4_b1_seed_aft_prenormres.py
+    xx4: [spv4_b1_seed_aft_prenormres, spv4_b1_seed_aft_prenormres]
+    spv4_b1_seed_2aft: configs/sparsepointv4/sparsepointv4_b1_seed_2aft.py
+    spv4_b1_aft_prenormqres_bias: configs/sparsepointv4/sparsepointv4_b1_aft_prenormqres_bias.py
+    xx5: [spv4_b1_aft_prenormqres_bias, spv4_b1_aft_prenormqres_bias]
+    spv4_b1_2aft_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_2aft_prenormres_bias.py
+    xx6: [spv4_b1_2aft_prenormres_bias, spv4_b1_2aft_prenormres_bias]
+    spv4_b1_3aft_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_3aft_prenormres_bias.py
+    spv4_b1_2aft512_prenormres_bias: configs/sparsepointv4/sparsepointv4_b1_2aft512_prenormres_bias.py
+    spv4_b1_aft_prenormres_morelin: configs/sparsepointv4/sparsepointv4_b1_aft_prenormres_morelin.py
+    spv4_b1_1hexatt2048: configs/sparsepointv4/sparsepointv4_b1_1hextatt2048.py
+    spv4_b1_2hexatt2048: configs/sparsepointv4/sparsepointv4_b1_2hextatt2048.py
+    spv4_b1_8hexatt2048: configs/sparsepointv4/sparsepointv4_b1_8hextatt2048.py
+    xx7: [spv4_b1_8hexatt2048, spv4_b1_8hexatt2048]
+    brnet_d5lr_36e: configs/brnet/brnet_8x2_d5lr_scannet-3d-18class.py
+    brnet_36e: configs/brnet/brnet_8x2_scannet-3d-18class.py
+    brnet_d25lr_36e: configs/brnet/brnet_8x2_d25lr_scannet-3d-18class.py
+    brnet_2lr_36e: configs/brnet/brnet_8x2_2lr_scannet-3d-18class.py
+
+    spv4_b2: configs/sparsepointv4/sparsepointv4_b2-h3_agg160_d9lr_wd1e2_cornerd25.py
+    spv4_b2_novoteall: configs/sparsepointv4/sparsepointv4_b2_novoteall.py
+    sp_novoteall: configs/sparsenet/sparsenet_baseline_novoteall.py
+    sp_novoteall_1d5lr: configs/sparsenet/sparsenet_baseline_novoteall_1d5lr.py
+    # todo sp_roinovoteall => sp_novotemodule_roinovote
+    sp_roinovoteall: configs/sparsenet/sparsenet_baseline_roinovoteall.py
+    # todo sp_roinovoteall_noseed => sp_novotemodule_roinoseed
+    sp_roinovoteall_noseed: configs/sparsenet/sparsenet_baseline_roinovoteall-noseed.py
+
+  work_dirs/2106_sp:
+    sp_4gpu: configs/sparsenet/sparsenet_voteagg_d9lr_wd1e2_cornerd25.py
+    sp_4gpu_1d5lr: configs/sparsenet/sparsenet_baseline_1d5lr.py
+    sp_4gpu_2lr: configs/sparsenet/sparsenet_baseline_2lr.py
+    sp_4gpu_d5lr: configs/sparsenet/sparsenet_baseline_d5lr.py
+    sp_4gpu_d8lr: configs/sparsenet/sparsenet_baseline_d8lr.py
+    xz5: [sp_4gpu, sp_4gpu, sp_4gpu]
+    xz6: [sp_4gpu_1d5lr, sp_4gpu_1d5lr, sp_4gpu_1d5lr]
+    xz7: [sp_4gpu_2lr, sp_4gpu_2lr, sp_4gpu_2lr]
+    xz8: [sp_4gpu_d5lr, sp_4gpu_d5lr, sp_4gpu_d5lr]
+    xz9: [sp_4gpu_d8lr, sp_4gpu_d8lr, sp_4gpu_d8lr]
+
+    sp_noagg: configs/sparsenet/sparsenet_baseline_noagg.py
+    xz: [sp_noagg, sp_noagg]
+    # todo sp_roinoseed => sp_novotemodule_roinoseed
+    sp_roinoseed: configs/sparsenet/sparsenet_baseline_roinoseed.py
+    # todo sp_roinoseed_noagg => sp_novotemodule_roinoseed_noagg
+    sp_roinoseed_noagg: configs/sparsenet/sparsenet_baseline_roinoseed_noagg.py
+    spv4_b2_useposemb: configs/sparsepointv4/sparsepointv4_b2_useposemb.py
+    sp_votenoagg: configs/sparsenet/sparsenet_baseline_votenoagg.py
+    votenoagg: [sp_votenoagg, sp_votenoagg, sp_votenoagg]
+    sp_seedagg: configs/sparsenet/sparsenet_baseline_seedagg.py
+    seedagg: [sp_seedagg, sp_seedagg, sp_seedagg]
+    spv4_b2_useposemb_ln: configs/sparsepointv4/sparsepointv4_b2_useposemb_ln.py
+    sp_roiseed: configs/sparsenet/sparsenet_baseline_roiseed.py
+    xz1: [sp_roiseed, sp_roiseed, sp_roiseed]
+    sp_roiseedagg: configs/sparsenet/sparsenet_baseline_roiseedagg.py
+    xz2: [sp_roiseedagg, sp_roiseedagg, sp_roiseedagg]
+    sp_roivote: configs/sparsenet/sparsenet_baseline_roivote.py
+    xz3: [sp_roivote, sp_roivote, sp_roivote]
+    sp_roivotenoagg: configs/sparsenet/sparsenet_baseline_roivotenoagg.py
+    xz4: [sp_roivotenoagg, sp_roivotenoagg, sp_roivotenoagg]
+
+    sp_4gpu_d4lr: configs/sparsenet/sparsenet_baseline_d4lr.py
+    sp_4gpu_d3lr: configs/sparsenet/sparsenet_baseline_d3lr.py
+    sp_4gpu_d6lr: configs/sparsenet/sparsenet_baseline_d6lr.py
+
+    sp_b1_h6_noinit: configs/sp/sp_b1_h6_noinit.py
+    sp_b1_h3_noinit: configs/sp/sp_b1_noinit.py
+    sp_b1_nointer: configs/sp/sp_b1_nointer.py
+    sp_b1_nointer_intermlp: configs/sp/sp_b1_nointer_intermlp.py
+    sp_b1_h6: configs/sp/sp_b1_h6.py
+    sp_b1_proposal160: configs/sp/sp_b1_proposal160.py
+
+    sp_b1_nointer_foreembw1: configs/sp/sp_b1_nointer_foreembw1.py
+    sp_b1_nointer_intermlp_foreembw1: configs/sp/sp_b1_nointer_intermlp_foreembw1.py
+    sp_b1_initclsobj0: configs/sp/sp_b1_initclsobj0.py
+    sp_b1_dymha: configs/sp/sp_b1_dymha.py
+    sp_b1_roiout7_dymha: configs/sp/sp_b1_roiout7_dymha.py
+    roiout3: configs/sp/sp_b1_roiout3_dymha.py
+    pro256: configs/sp/sp_b1_proposal256.py
+    sp_b1_nointer_intermaxmean_fbw1: configs/sp/sp_b1_nointer_intermaxmean_foreembw1.py
+    pro384: configs/sp/sp_b1_proposal384.py
+    pro512: configs/sp/sp_b1_proposal512.py
+    noshare: configs/sp/sp_b1_noshare.py
+    proposalonobj: configs/sp/sp_b1_proposalonobjness.py
+    h4: configs/sp/sp_b1_roiout3_dymha_h4.py
+    h2: configs/sp/sp_b1_roiout3_dymha_h2.py
+    h1: configs/sp/sp_b1_roiout3_dymha_h1.py
+    h: [h4, h2, h1]
+    fullmlp: configs/sp/sp_b1_nointer_interfullmlp_foreembw1.py
+    roi3_mlp: configs/sp/sp_b1_roiout3_nointer_intermlp_foreembw1.py
+    roi3_fullmlp: configs/sp/sp_b1_roiout3_nointer_interfullmlp_foreembw1.py
+    xxxx: [roi3_fullmlp, h1]
+    fm: [fullmlp, roi3_mlp, roi3_fullmlp]
+    initcls0: configs/sp/sp_b1_proposalonobjness_initcls0.py
+    poo_384_256: configs/sp/sp_b1_proposal384_256_proposalonobjectness.py
+    poo_384_160: configs/sp/sp_b1_proposal384_160_proposalonobjectness.py
+    poo_256_160: configs/sp/sp_b1_proposal256_160_proposalonobjectness.py
+    poo: [poo_384_256, poo_384_160, poo_256_160]
+
+    poo_384_256_cls0: configs/sp/sp_b1_proposal384_256_proposalonobjectness_initcls0.py
+    poo_384_160_cls0: configs/sp/sp_b1_proposal384_160_proposalonobjectness_initcls0.py
+    poo2: [poo_384_256_cls0, poo_384_160_cls0]
+    poo_256_160_cls0: configs/sp/sp_b1_proposal256_160_proposalonobjectness_initcls0.py
+    poo_512_384_cls0: configs/sp/sp_b1_proposal512_384_proposalonobjectness_initcls0.py
+    poo3: [poo_512_384_cls0, poo_256_160_cls0]
+    poo_512_256_cls0: configs/sp/sp_b1_proposal512_256_proposalonobjectness_initcls0.py
+    poo_512_160_cls0: configs/sp/sp_b1_proposal512_160_proposalonobjectness_initcls0.py
+    poo4: [poo_512_256_cls0, poo_512_160_cls0]
+    noshare_384: configs/sp/sp_b1_proposal384_noshare.py
+    pro384_6: configs/sp/sp_b1_proposal384_6head.py
+    p384: [noshare_384, pro384_6]
+
+    bk: [poo_512_384_cls0, pro384, pro512]
+    roi2: configs/sp/sp_b1_roiout2_nointer_interfullmlp_foreembw1.py
+    roi4: configs/sp/sp_b1_roiout4_nointer_interfullmlp_foreembw1.py
+    roi: [roi2, roi4]
+    np256: configs/sp/sp_b1_h6_noinit_proposal256.py
+    np384: configs/sp/sp_b1_h6_noinit_proposal384.py
+    np512: configs/sp/sp_b1_h6_noinit_proposal512.py
+    np: [np256, np384, np512]
+    roi3no: configs/sp/sp_b1_roiout3_dymha_nonormact.py
+    roi5no: configs/sp/sp_b1_roiout5_dymha_nonormact.py
+    roino: [roi3no, roi5no]
+    roio2: configs/sp/sp_b1_roiout2_dymha.py
+    roio4: configs/sp/sp_b1_roiout4_dymha.py
+    roio: [roio2, roio4]
+    dir0: configs/sp/sp_b1_proposalonobjness_initclsdir0.py
+    p256_128: configs/sp/sp_b1_proposal256_128_proposalonobjectness_initcls0.py
+    pluspro: configs/sp/sp_b1_roiout3_dymha_nonormact_plusprofeat.py
+    pluspro2: configs/sp/sp_b1_roiout3_dymha_plusprofeat.py
+    mlpg2: configs/sp/sp_b1_roiout3_nointer_intermlpg2_foreembw1.py
+    mlpg4: configs/sp/sp_b1_roiout3_nointer_intermlpg4_foreembw1.py
+    mlpg8: configs/sp/sp_b1_roiout3_nointer_intermlpg8_foreembw1.py
+    mlpg16: configs/sp/sp_b1_roiout3_nointer_intermlpg16_foreembw1.py
+    roi4_g8: configs/sp/sp_b1_roiout4_nointer_intermlpg8_foreembw1.py
+    roi4_g16: configs/sp/sp_b1_roiout4_nointer_intermlpg16_foreembw1.py
+    roi5_g16: configs/sp/sp_b1_roiout5_nointer_intermlpg16_foreembw1.py
+    roi5_g8: configs/sp/sp_b1_roiout5_nointer_intermlpg8_foreembw1.py
+    roi5_g32: configs/sp/sp_b1_roiout5_nointer_intermlpg32_foreembw1.py
+    roi7_g32: configs/sp/sp_b1_roiout7_nointer_intermlpg32_foreembw1.py
+    roi5_g8norm: configs/sp/sp_b1_roiout5_nointer_intermlpg8norm_foreembw1.py
+    roi5_g16norm: configs/sp/sp_b1_roiout5_nointer_intermlpg16norm_foreembw1.py
+    roi5_g8_embnorm: configs/sp/sp_b1_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    roi5_g16_embnorm: configs/sp/sp_b1_roiout5_nointer_intermlpg16_embnorm_foreembw1.py
+    roi5_g16norm_embnorm: configs/sp/sp_b1_roiout5_nointer_intermlpg16norm_embnorm_foreembw1.py
+    roi5_g8norm_embnorm: configs/sp/sp_b1_roiout5_nointer_intermlpg8norm_embnorm_foreembw1.py
+    r5g8: [roi5_g8norm_embnorm, roi5_g8norm, roi5_g8_embnorm]
+    r5g16: [roi5_g16norm_embnorm, roi5_g16norm, roi5_g16_embnorm]
+    roi7_g16: configs/sp/sp_b1_roiout7_nointer_intermlpg16_foreembw1.py
+    roi7_g16norm: configs/sp/sp_b1_roiout7_nointer_intermlpg16norm_foreembw1.py
+    roi7_g16_embnorm: configs/sp/sp_b1_roiout7_nointer_intermlpg16_embnorm_foreembw1.py
+    roi7_g16norm_embnorm: configs/sp/sp_b1_roiout7_nointer_intermlpg16norm_embnorm_foreembw1.py
+    b2_roi5_g8_embnorm: configs/sp/sp_b2_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    initw1d2: configs/sp/sp_b2_initw1d2.py
+    initw1d4: configs/sp/sp_b2_initw1d4.py
+    init1dx: [initw1d2, initw1d4]
+    initwd6: configs/sp/sp_b2_initwd6.py
+    initwd8: configs/sp/sp_b2_initwd8.py
+    initdx: [initwd6, initwd8]
+    votew1d2: configs/sp/sp_b2_votew1d2.py
+    votew1d4: configs/sp/sp_b2_votew1d4.py
+    vote1dx: [ votew1d2, votew1d4 ]
+    votewd6: configs/sp/sp_b2_votewd6.py
+    votewd8: configs/sp/sp_b2_votewd8.py
+    votedx: [ votewd6, votewd8 ]
+    roi5_g4: configs/sp/sp_b1_roiout5_nointer_intermlpg4_foreembw1.py
+    roi5_g4_embnorm: configs/sp/sp_b1_roiout5_nointer_intermlpg4_embnorm_foreembw1.py
+    b2_roi5_g8norm_embnorm: configs/sp/sp_b2_roiout5_nointer_intermlpg8norm_embnorm_foreembw1.py
+    b2_roi5_g8norm: configs/sp/sp_b2_roiout5_nointer_intermlpg8norm_foreembw1.py
+    initwd5: configs/sp/sp_b2_initwd5.py
+    initwd4: configs/sp/sp_b2_initwd4.py
+    initwd7: configs/sp/sp_b2_initwd7.py
+    b2_roi5_g16_embnorm: configs/sp/sp_b2_roiout5_nointer_intermlpg16_embnorm_foreembw1.py
+    b2_pro256: configs/sp/sp_b2_pro256.py
+    b2_pro256_att128: configs/sp/sp_b2_pro256_att128.py
+    b2_pro256_roi5g8_embnorm: configs/sp/sp_b2_pro256_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    b2_pro256_roi5g16_embnorm: configs/sp/sp_b2_pro256_roiout5_nointer_intermlpg16_embnorm_foreembw1.py
+    b2_pro256_att128_initfeat: configs/sp/sp_b2_pro256_att128_initfeat.py
+    b2_pro256_att160_initfeat: configs/sp/sp_b2_pro256_att160_initfeat.py
+    b2_pro256_att96_initfeat: configs/sp/sp_b2_pro256_att96_initfeat.py
+    b2_initfeatmlp128: configs/sp/sp_b2_initfeatmlp128.py
+    b2_pro256_initfeat: configs/sp/sp_b2_pro256_initfeat.py
+    b2_initfeatmlp128_roi5_g8_embnorm: configs/sp/sp_b2_initfeatmlp128_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    b2_initfeatmlp128_roi5_g8norm: configs/sp/sp_b2_initfeatmlp128_roiout5_nointer_intermlpg8norm_foreembw1.py
+    b2_pro256_att128_roi5g8_embnorm: configs/sp/sp_b2_pro256_att128_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    b2_pro256_att128_roi5g16_embnorm: configs/sp/sp_b2_pro256_att128_roiout5_nointer_intermlpg16_embnorm_foreembw1.py
+    b2_initagn: configs/sp/sp_b2_initagn.py
+    b2_pro256_att64_initfeat: configs/sp/sp_b2_pro256_att64_initfeat.py
+    b2_pro256_att128_initfeat_roi5g8_embnorm: configs/sp/sp_b2_pro256_att128_initfeat_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    b2_pro256_att96_initfeat_mlpc: configs/sp/sp_b2_pro256_att96_initfeat_mlpc.py
+    b2_pro256_att128_initfeat_mlpc: configs/sp/sp_b2_pro256_att128_initfeat_mlpc.py
+    b2_initfeatmlp128_mlpc: configs/sp/sp_b2_initfeatmlp128_mlpc.py
+    b2_pro256_att96: configs/sp/sp_b2_pro256_att96.py
+    b2_pro256_att80_initfeat: configs/sp/sp_b2_pro256_att80_initfeat.py
+    b2_pro256_att112_initfeat: configs/sp/sp_b2_pro256_att112_initfeat.py
+    b2_pro256_att96_initfeat_roi5g8_embnorm: configs/sp/sp_b2_pro256_att96_initfeat_roiout5_nointer_intermlpg8_embnorm_foreembw1.py
+    b2_initagn_sizebr: configs/sp/sp_b2_initagn_sizebr.py
+    b2_att96_initfeatmlp128_mlpc: configs/sp/sp_b2_att96_initfeatmlp128_mlpc.py
+    b3_dymha_nonormact: configs/sp/sp_b3_dymha_nonormact.py
+    b3_dymha_nonormact_enlarge1d2: configs/sp/sp_b3_dymha_nonormact_enlarge1d2.py
+    b3_enlarge1d2: configs/sp/sp_b3_enlarge1d2.py
+    b3_roifp: configs/sp/sp_b3_roifp.py
+    b3_roifp_128x3: configs/sp/sp_b3_roifp_128x3.py
+    b3_roifp_noagg: configs/sp/sp_b3_roifp_noagg.py
+    b3_roi3_roisa: configs/sp/sp_b3_roi3_roisa.py
+    b3_roi3: configs/sp/sp_b3_roi3.py
+    b3_roi3_roifp_128x3: configs/sp/sp_b3_roi3_roifp_128x3.py
+    b3_roi2_roisa: configs/sp/sp_b3_roi2_roisa.py
+    b3_roi3_roifp_128x4: configs/sp/sp_b3_roi3_roifp_128x4.py
+    b3_roi2_roifp_128x4: configs/sp/sp_b3_roi2_roifp_128x4.py
+    b3_roi3_roifp_128x3_nobn: configs/sp/sp_b3_roi3_roifp_128x3_nobn.py
+    b3_roi2_roisa_sample8: configs/sp/sp_b3_roi2_roisa_sample8.py
+    b3_roi2_roisa_sample32: configs/sp/sp_b3_roi2_roisa_sample32.py
+    b3_roi2_roisa_rad2: configs/sp/sp_b3_roi2_roisa_rad2.py
+    b3_roi2_roisa_rad4: configs/sp/sp_b3_roi2_roisa_rad4.py
+    b3_roi2_roisa_ffps: configs/sp/sp_b3_roi2_roisa_ffps.py
+    b3_roi2_roisa_sample4: configs/sp/sp_b3_roi2_roisa_sample4.py
+    b3_roi2_roisa_sample8_rad2: configs/sp/sp_b3_roi2_roisa_sample8_rad2.py
+    b3_roi2: configs/sp/sp_b3_roi2.py
+    b3_ray13_roisa: configs/sp/sp_b3_ray13_roisa.py
+    b3_ray13_roifp_128x3: configs/sp/sp_b3_ray13_roifp_128x3.py
+    b3_roi2_roifp_128x3_nobn: configs/sp/sp_b3_roi2_roifp_128x3_nobn.py
+    b3_roi2_roifp_128x3: configs/sp/sp_b3_roi2_roifp_128x3.py
+    b3_ray13_roifp_128x3_nobn: configs/sp/sp_b3_ray13_roifp_128x3_nobn.py
+    b3_ray13_roisa_xyz: configs/sp/sp_b3_ray13_roisa_xyz.py
+    b3_ray13_roisa_xyz_slim: configs/sp/sp_b3_ray13_roisa_xyz_128-64-64-128.py
+    b3_mergevs: configs/sp/sp_b3_mergevs.py
+    b3_mergevs_noagg: configs/sp/sp_b3_mergevs_noagg.py
+    b3_mergevs_noagg_pts96: configs/sp/sp_b3_mergevs_noagg_pts96.py
+    b3_mergevs_noagg_pts48: configs/sp/sp_b3_mergevs_noagg_pts48.py
+    b3_mergevs_noagg_pts128: configs/sp/sp_b3_mergevs_noagg_pts128.py
+    b3_mergevs_noagg_pts96_256_128: configs/sp/sp_b3_mergevs_noagg_pts96_256-128.py
+    b3_mergevs_noagg_pts96_256_256_128: configs/sp/sp_b3_mergevs_noagg_pts96_256-256-128.py
+    b4_roi3_roifp_128x3_nobn: configs/sp/sp_b4_roi3_roifp_128x3_nobn.py
+    b4_roi2_roifp_128x3_nobn: configs/sp/sp_b4_roi2_roifp_128x3_nobn.py
+    b4_roi2_roisa: configs/sp/sp_b4_roi2_roisa.py
+    b4_roi2: configs/sp/sp_b4_roi2.py
+    b4_roi3: configs/sp/sp_b4_roi3.py
+    b4_roi6: configs/sp/sp_b4_roi6.py
+    b4_multiroi3_5: configs/sp/sp_b4_multiroi3-5.py
+    b4_multiroi3_5_128_96: configs/sp/sp_b4_multiroi3-5_128-96.py
+    b4_multiroi1_3_5: configs/sp/sp_b4_multiroi1-3-5.py
+    b4_multiroi3_5_64_64: configs/sp/sp_b4_multiroi3-5_64-64.py
+    b4_multiroi3_5_96_64: configs/sp/sp_b4_multiroi3-5_96-64.py
+    b4_multiroi3_5_dymha: configs/sp/sp_b4_multiroi3-5_dymha.py
+    b4_dymha: configs/sp/sp_b4_dymha.py
+    b4_dymha_roiatt: configs/sp/sp_b4_dymha_roiatt.py
+    b4_dymha_roiatt_dropoutnorm: configs/sp/sp_b4_dymha_roiatt_dropoutnorm.py
+    b4_dymha_roiatt_roidropoutnorm: configs/sp/sp_b4_dymha_roiatt_roidropoutnorm.py
+    b4_dymha_roiatt_roidropoutnorm_dropoutnorm: configs/sp/sp_b4_dymha_roiatt_roidropoutnorm_dropoutnorm.py
+    b4_dymha_roiatt_roidropoutnorm_dropoutnorm_ldn: configs/sp/sp_b4_dymha_roiatt_roidropoutnorm_dropoutnorm_ldn.py
+    b4_roi4: configs/sp/sp_b4_roi4.py
+    b4_dyclsmha: configs/sp/sp_b4_dyclsmha.py
+    b4_dyclsmha_dropoutnorm: configs/sp/sp_b4_dyclsmha_dropoutnorm.py
+    b4_h2: configs/sp/sp_b4_h2.py
+    b4_h4: configs/sp/sp_b4_h4.py
+    b4_cls2_reg2: configs/sp/sp_b4_cls2_reg2.py
+    b4_cls2: configs/sp/sp_b4_cls2.py
+    b4_reg2: configs/sp/sp_b4_reg2.py
+    b4_novote: configs/sp/sp_b4_novote.py
+    b4_pro256_preconvall_att128: configs/sp/sp_b4_pro256_preconvall_att128.py
+    b4_pro256_att128: configs/sp/sp_b4_pro256_att128.py
+    b4_nomhared: configs/sp/sp_b4_nomhared.py
+    b4_detach: configs/sp/sp_b4_detach.py
+    b4_multiroi3_5_multigroup: configs/sp/sp_b4_multiroi3-5_multigroup.py
+    b4_initnoinit: configs/sp/sp_b4_initnoinit.py
+    b4_roinoinit: configs/sp/sp_b4_roinoinit.py
+    b4_initlikeinit: configs/sp/sp_b4_initlikeinit.py
+    b4_initlikeroi: configs/sp/sp_b4_initlikeroi.py
+    b4_preconv1: configs/sp/sp_b4_preconv1.py
+    b4_pro256_nopreconv_att128: configs/sp/sp_b4_pro256_nopreconv_att128.py
+    b4_midvs: configs/sp/sp_b4_midvs.py
+    b4_nocorner: configs/sp/sp_b4_nocorner.py
+    b4_h1: configs/sp/sp_b4_h1.py
+    b4_points: configs/sp/sp_b4_points.py
+    b4_pointsd1: configs/sp/sp_b4_pointsd1.py
+    b4_pointsd2: configs/sp/sp_b4_pointsd2.py
+    b4_pointsd3: configs/sp/sp_b4_pointsd3.py
+    b4_pointsd05: configs/sp/sp_b4_pointsd05.py
+    b4_pointsd02: configs/sp/sp_b4_pointsd02.py
+    b4_pointsd01: configs/sp/sp_b4_pointsd01.py
+    b4_pointsd03: configs/sp/sp_b4_pointsd03.py
+    b4_pointsd04: configs/sp/sp_b4_pointsd04.py
+    x1: [b4_pointsd2, b4_pro256_preconvall_att128, b4_nocorner]
+    y1: [b4_pointsd1, b4_pro256_preconvall_att128]
+
+    b4_fixiou: configs/sp/sp_b4_fixiou.py
+    b4_fixiou_iouw3: configs/sp/sp_b4_fixiou_iouw3.py
+    b4_fixiou_iouw4: configs/sp/sp_b4_fixiou_iouw4.py
+    b4_fixiou_iouw5: configs/sp/sp_b4_fixiou_iouw5.py
+    b4_fixiou_iouw6: configs/sp/sp_b4_fixiou_iouw6.py
+    b4_fixiou_iouw7: configs/sp/sp_b4_fixiou_iouw7.py
+    b4_fixiou_iouw10: configs/sp/sp_b4_fixiou_iouw10.py
+    z1: [b4_fixiou, b4_fixiou_iouw4]
+    b4_reg0: configs/sp/sp_b4_reg0.py
+    b4_cls0: configs/sp/sp_b4_cls0.py
+
+    b4_nomatchiou: configs/sp/sp_b4_nomatchiou.py
+    iouw4_pointsd05: configs/sp/sp_b4_fixiou_iouw4_pointsd05.py
+    b4_matchcls5: configs/sp/sp_b4_matchcls5.py
+    b4_matchcls8: configs/sp/sp_b4_matchcls8.py
+    b4_detach_dymha: configs/sp/sp_b4_detach_dymha.py
+    multiroi3_5_conv3d: configs/sp/sp_b4_multiroi3-5_multiconv3d.py
+    multiroi1_3_5_conv3d: configs/sp/sp_b4_multiroi1-3-5_multiconv3d.py
+    multiroi3_5_7_conv3d: configs/sp/sp_b4_multiroi3-5-7_multiconv3d.py
+    multiroi3_conv3d: configs/sp/sp_b4_multiroi3_multiconv3d.py
+    iouw4_pointsd02: configs/sp/sp_b4_fixiou_iouw4_pointsd02.py
+    iouw4_pointsd01: configs/sp/sp_b4_fixiou_iouw4_pointsd01.py
+    iouw4_pointsd03: configs/sp/sp_b4_fixiou_iouw4_pointsd03.py
+    b4_matchcls2: configs/sp/sp_b4_matchcls2.py
+    b4_matchcls4: configs/sp/sp_b4_matchcls4.py
+    matchs: [b4_matchcls2, b4_matchcls4]
+    b4_pro256_preconvall_att128_noshare: configs/sp/sp_b4_pro256_preconvall_att128_noshare.py
+    multiroi3_5_conv3dln: configs/sp/sp_b4_multiroi3-5_multiconv3dln.py
+    multiroi3_conv3dln: configs/sp/sp_b4_multiroi3_multiconv3dln.py
+    multiroi3_5_conv1simple: configs/sp/sp_b4_multiroi3-5_multiconv1simple.py
+    multiroi5_7_conv1simple: configs/sp/sp_b4_multiroi5-7_multiconv1simple.py
+    multiroi1_3_5_conv1simple: configs/sp/sp_b4_multiroi1-3-5_multiconv1simple.py
+    multiroi1_3_5_7_conv1simple: configs/sp/sp_b4_multiroi1-3-5-7_multiconv1simple.py
+    multiroi1_3_conv1simple: configs/sp/sp_b4_multiroi1-3_multiconv1simple.py
+    multiroi1_5_conv1simple: configs/sp/sp_b4_multiroi1-5_multiconv1simple.py
+    multiroi1_3_5_conv1simple_bmm: configs/sp/sp_b4_multiroi1-3-5_multiconv1simple_bmm.py
+    b5_multiroi1_3_5_conv1simple: configs/sp/sp_b5_multiroi1-3-5_multiconv1simple.py
+    b5_multiroi1_3_5_7_conv1simple: configs/sp/sp_b5_multiroi1-3-5-7_multiconv1simple.py
+    multiroi1_3_5_conv1simple_sharenorm: configs/sp/sp_b4_multiroi1-3-5_multiconv1simple_sharenorm.py
+    multiroi1_3_5_conv1simple_sharenormact: configs/sp/sp_b4_multiroi1-3-5_multiconv1simple_sharenormact.py
+    b5_multiroi1_3_5_conv1simple_bmm: configs/sp/sp_b5_multiroi1-3-5_multiconv1simple_bmm.py
+    b5_multiroi12345_conv1simple: configs/sp/sp_b5_multiroi1-2-3-4-5_multiconv1simple.py
+    b5_multiroi1_3_5_conv1simple_sun: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple.py
+    b6: configs/sp/sp_b6.py
+    p_sp_b5_roi1: configs/sp/p_sp_b5_roi1.py
+    p_sp_b5_roi3: configs/sp/p_sp_b5_roi3.py
+    p_sp_b6_refine1: configs/sp/p_sp_b6_refine1.py
+    p_sp_b6_refine2: configs/sp/p_sp_b6_refine2.py
+    p_sp_b6_refine4: configs/sp/p_sp_b6_refine4.py
+    p_sp_b6_noshare: configs/sp/p_sp_b6_noshare.py
+    px: [p_sp_b6_refine4, p_sp_b6_noshare]
+    p_sp_b6_noint: configs/sp/p_sp_b6_noint.py
+    p_sp_b6_nomha: configs/sp/p_sp_b6_nomha.py
+    nono: [p_sp_b6_noint, p_sp_b6_nomha]
+    ttest: configs/votenet/votenet_8x8_scannet-3d-18class.py
+    p_sp_b6_votemodule: configs/sp/p_sp_b6_votemodule.py
+    p_sp_b6_voteobj: configs/sp/p_sp_b6_voteobj.py
+    vote: [p_sp_b6_votemodule, p_sp_b6_voteobj]
+    vote2: [p_sp_b6_votemodule, p_sp_b6_votemodule]
+    b6_sunrgbd: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple.py
+    b6_sunrgbd_noinit: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_noinit.py
+    b6_sunrgbd_sim: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_similar.py
+    b6_sunrgbd_same: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_same.py
+    b6_sunrgbd_sim_roi: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_similar_roi.py
+    b6_sunrgbd_sim_nomatchp: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_noinit_nomatchp.py
+    b6_sunrgbd_sim_match: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_noinit_match.py
+    b6_sunrgbd_sim_nomatchp2: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_noinit_nomatchp2.py
+    b6_sunrgbd_sim_roi_init: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_similar_roi_init.py
+
+    votenet_base: configs/tfnv3net/tfnv3net_v2_2lr_seed.py
+    mlcv_base: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_2lr.py
+    brnet_3lr_36e: configs/brnet/brnet_8x2_3lr_scannet-3d-18class.py
+    brnet_4lr_36e: configs/brnet/brnet_8x2_4lr_scannet-3d-18class.py
+    brnet_5lr_36e: configs/brnet/brnet_8x2_5lr_scannet-3d-18class.py
+    brnet_6lr_36e: configs/brnet/brnet_8x2_6lr_scannet-3d-18class.py
+    mlcv_base_3lr: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_3lr.py
+    mlcv_base_4lr: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_4lr.py
+    mlcv_base_5lr: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_5lr.py
+    mlcv_base_6lr: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_6lr.py
+    spbr: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class.py
+    spbr_w2: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_w2.py
+    spbr_wd5: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_wd5.py
+    spbr_w3: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_w3.py
+    spbr_6lr_w2: configs/sp_det/spbrnet_8x2_6lr_scannet-3d-18class_w2.py
+    spbr_5lr_w2: configs/sp_det/spbrnet_8x2_5lr_scannet-3d-18class_w2.py
+    xxx: [spbr_w3, spbr_5lr_w2, spbr_6lr_w2]
+    spbr_3lr_w2: configs/sp_det/spbrnet_8x2_3lr_scannet-3d-18class_w2.py
+    spbr_2lr_w2: configs/sp_det/spbrnet_8x2_2lr_scannet-3d-18class_w2.py
+    yyy: [spbr_3lr_w2, spbr_2lr_w2]
+
+    b6_sunrgbd_sim_nomatchp2_nofix: configs/sp/sp_sunrgbd_b5_multiroi1-3-5_multiconv1simple_noinit_nomatchp2_nofix.py
+    spbr_1lr_w2: configs/sp_det/spbrnet_8x2_1lr_scannet-3d-18class_w2.py
+    spbr_2lr_w1: configs/sp_det/spbrnet_8x2_2lr_scannet-3d-18class_w1.py
+    spbr_2lr_w3: configs/sp_det/spbrnet_8x2_2lr_scannet-3d-18class_w3.py
+    spbr_1lr_w3: configs/sp_det/spbrnet_8x2_1lr_scannet-3d-18class_w3.py
+
+    spbr_d5lr_w3: configs/sp_det/spbrnet_8x2_d5lr_scannet-3d-18class_w3.py
+    mlcv_base_4lr_44e: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_4lr_44e.py
+    mlcv_base_2lr_44e: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_2lr_44e.py
+    mlcv_base_1gpu_44e: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_1gpu_44e.py
+    mlcv_base_5lr_44e: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_5lr_44e.py
+    mlcv_base_3lr_44e: configs/tfnv3net/tfnv3net_v2_pcgnl_ocgnl_seed_3lr_44e.py
+    b6_mlcv: configs/sp/sp_b6_mlcv.py
+    spbr_2lr_w4: configs/sp_det/spbrnet_8x2_2lr_scannet-3d-18class_w4.py
+    b6_mlcv_2lr: configs/sp_det/sp_b6_mlcv_2lr.py
+    b6_mlcv_3lr: configs/sp_det/sp_b6_mlcv_3lr.py
+    b6_mlcv_4lr: configs/sp_det/sp_b6_mlcv_4lr.py
+    spbr_1lr_w4: configs/sp_det/spbrnet_8x2_1lr_scannet-3d-18class_w4.py
+    spbr_1d5lr_w2: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w2.py
+    spbr_2d5lr_w2: configs/sp_det/spbrnet_8x2_2d5lr_scannet-3d-18class_w2.py
+    spbr_2d5lr_w4: configs/sp_det/spbrnet_8x2_2d5lr_scannet-3d-18class_w4.py
+    spbr_1d5lr_w4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4.py
+
+    spbr_1d5lr_w5: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w5.py
+    spbr_1d5lr_w3: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3.py
+    spbr_1d5lr_w4_nofuse: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_nofuse.py
+    b6_mlcv_d5lr: configs/sp_det/sp_b6_mlcv_d5lr.py
+    b6_mlcv_d9lr: configs/sp_det/sp_b6_mlcv_d9lr.py
+    b6_mlcv_d8lr: configs/sp_det/sp_b6_mlcv_d8lr.py
+    b6_mlcv_d7lr: configs/sp_det/sp_b6_mlcv_d7lr.py
+    b6_mlcv_d6lr: configs/sp_det/sp_b6_mlcv_d6lr.py
+    spbr_1d3lr_w3: configs/sp_det/spbrnet_8x2_1d3lr_scannet-3d-18class_w3.py
+    spbr_1d7lr_w3: configs/sp_det/spbrnet_8x2_1d7lr_scannet-3d-18class_w3.py
+    spbr_1d5lr_w3_votecls: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3_votecls.py
+    spbr_1d3lr_w4: configs/sp_det/spbrnet_8x2_1d3lr_scannet-3d-18class_w4.py
+    spbr_1d7lr_w4: configs/sp_det/spbrnet_8x2_1d7lr_scannet-3d-18class_w4.py
+    spbr_1d4lr_w4: configs/sp_det/spbrnet_8x2_1d4lr_scannet-3d-18class_w4.py
+    spbr_1d2lr_w4: configs/sp_det/spbrnet_8x2_1d2lr_scannet-3d-18class_w4.py
+    spbr_1d5lr_w3_votecls_w2: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3_voteclsw2.py
+    spbr_1d5lr_w3_votecls_wd5: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3_voteclswd5.py
+    spbr_1d5lr_w3_votecls_wd3: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3_voteclswd3.py
+
+    spbr_1d4lr_w3: configs/sp_det/spbrnet_8x2_1d4lr_scannet-3d-18class_w3.py
+    spbr_1d4lr_w5: configs/sp_det/spbrnet_8x2_1d4lr_scannet-3d-18class_w5.py
+    spbr_1d5lr_w3_votecls_w3: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3_voteclsw3.py
+    spbr_1d5lr_w3_votecls_w7: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w3_voteclswd7.py
+    b6_mlcv_d9lr_votev2: configs/sp_det/sp_b6_mlcv_d9lr_votev2.py
+    spbr_1d5lr_w4_nofuse_orima: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_nofuse_orimatchiou.py
+    spbr_1d5lr_w4_noinit: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_noinit.py
+    spbr_1d5lr_w4_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_sam4.py
+    spbr_1d3lr_w4_sam4: configs/sp_det/spbrnet_8x2_1d3lr_scannet-3d-18class_w4_sam4.py
+    spbr_1d5lr_w4_sam4_noinit: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_sam4_noinit.py
+    spbr_1d5lr_w4_nofuse_orima_fix: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_nofuse_orimatchiou_fix.py
+    spbr_1d5lr_rwd6_w4_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd6_w4_sam4.py
+    zxzx: [spbr_1d5lr_rwd8_w4_sam4, spbr_1d5lr_rwd6_w4_sam4]
+    spbr_1d5lr_w4_orima_fix: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_w4_orimatchiou_fix.py
+    spbr_1d5lr_rw1d2_w4_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rw1d2_w4_sam4.py
+    spbr_1d5lr_rwd7_w4_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd7_w4_sam4.py
+    spbr_1d5lr_rwd5_w4_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd5_w4_sam4.py
+    zzxxx: [spbr_1d5lr_rwd7_w4_sam4, spbr_1d5lr_rwd5_w4_sam4]
+    spbr_1d2lr_w4_sam4: configs/sp_det/spbrnet_8x2_1d2lr_scannet-3d-18class_w4_sam4.py
+    spbr_1d4lr_w4_sam4: configs/sp_det/spbrnet_8x2_1d4lr_scannet-3d-18class_w4_sam4.py
+    zas: [spbr_1d2lr_w4_sam4, spbr_1d4lr_w4_sam4]
+    spbr_1d5lr_w4_rwd9_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd9_w4_sam4.py
+    spbr_1d4lr_rwd8_sam4: configs/sp_det/spbrnet_8x2_1d4lr_scannet-3d-18class_rwd8_sam4.py
+    spbr_1d4lr_rwd9_sam4: configs/sp_det/spbrnet_8x2_1d4lr_scannet-3d-18class_rwd9_sam4.py
+    spbr_1d5lr_sam4_step_nofuse: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_step_nofuse.py
+    spbr_1d5lr_sam4_step_nofuse_noinit: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_step_nofuse_noinit.py
+    spbr_1d5lr_sam4_step_nofuse_noinit_rw0: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_step_nofuse_noinit_rw0.py
+    spbr_1d5lr_sam4_rwd8_nofuse: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_sam4_nofuse.py
+
+    spbr_1d5lr_rwd6_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd6_sam4.py
+    spbr_1d5lr_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4.py
+    spbr_1d5lr_rwd8_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_sam4.py
+    spbr_1d5lr_rwd9_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd9_sam4.py
+    spbr_1d5lr_rwd7_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd7_sam4.py
+    spbr_1d5lr_sam4_step: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_step.py
+    spbr_1d5lr_rwd8_sam4_step: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_sam4_step.py
+    spbr_1d5lr_rwd6_sam4_step: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd6_sam4_step.py
+    spbr_1d5lr_sam4_w2: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_w2.py
+    spbr_1d5lr_sam4_w4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_w4.py
+    spbr_1d5lr_sam4_w3: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_w3.py
+    spbr_1d5lr_rwd8_w2_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_w2_sam4.py
+    spbr_1d5lr_rwd8_w3_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_w3_sam4.py
+    spbr_1d5lr_rwd8_w4_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_w4_sam4.py
+    spbr_1d5lr_sam4_noinitbox: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_noinitbox.py
+    spbr_1d5lr_sam4_noinitfeat: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_noinitfeat.py
+    spbr_1d5lr_sam4_noinit3: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_noinit3.py
+    spbr_1d5lr_sam4_r2: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r2.py
+    spbr_1d5lr_sam4_r4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r4.py
+    spbr_1d5lr_sam4_r5: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r5.py
+    spbr_1d5lr_sam4_r6: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r6.py
+    spbr_1d5lr_sam4_r4_step: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r4_step.py
+    spbr_1d5lr_sam4_r5_step: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r5_step.py
+    spbr_1d5lr_sam4_r6_step: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_r6_step.py
+    stepL: [spbr_1d5lr_sam4_r4_step, spbr_1d5lr_sam4_r5_step, spbr_1d5lr_sam4_r6_step]
+    spbr_1d5lr_rwd8_sam4_r4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_sam4_r4.py
+    spbr_1d5lr_rwd8_sam4_r5: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_sam4_r5.py
+    spbr_1d5lr_rwd8_sam4_r6: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rwd8_sam4_r6.py
+    rs: [spbr_1d5lr_rwd8_sam4_r4, spbr_1d5lr_rwd8_sam4_r5, spbr_1d5lr_rwd8_sam4_r6]
+    spbr_1d5lr_rw2_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rw2_sam4.py
+    spbr_1d5lr_rw1d5_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rw1d5_sam4.py
+    rw: [spbr_1d5lr_rw2_sam4, spbr_1d5lr_rw1d5_sam4]
+    spbr_1d5lr_rw1d2_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rw1d2_sam4.py
+    spbr_1d5lr_rw1d1_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rw1d1_sam4.py
+    rwx: [spbr_1d5lr_rw1d2_sam4, spbr_1d5lr_rw1d1_sam4]
+    spbr_1d5lr_rw1d3_sam4: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_rw1d3_sam4.py
+    sunrgbd_b6_orimatch: configs/sp/sp_sunrgbd_b6_orimatch.py
+    sunrgbd_b6_orimatch4_fix: configs/sp/sp_sunrgbd_b6_orimatch4_fix.py
+    sunrgbd_b6_orimatch_fix: configs/sp/sp_sunrgbd_b6_orimatch_fix.py
+    sunrgbd_b6_orimatch1_fix: configs/sp/sp_sunrgbd_b6_orimatch1_fix.py
+    sunrgbd_b6_orimatch0_fix: configs/sp/sp_sunrgbd_b6_orimatch0_fix.py
+    sunrgbd_b6_orimatch0_fix_d4lr: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr.py
+    sunrgbd_b6_orimatch0_fix_d2lr: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d2lr.py
+    sunrgbd_b6_orimatch0_fix_d5lr: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d5lr.py
+    sunrgbd_b6_orimatch0_fix_d4lr_r4: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr_r4.py
+    sunrgbd_b6_orimatch0_fix_d35lr: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d35lr.py
+    sunrgbd_b6_orimatch0_fix_d45lr: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d45lr.py
+    sunrgbd_b6_orimatch0_fix_d4lr_r5: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr_r5.py
+    sunrgbd_b6_orimatch0_fix_d4lr_r2: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr_r2.py
+
+    spbr_wd25: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_wd25.py
+    spbr_wd1: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_wd1.py
+    spbr_w4: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_w4.py
+    spbr_w5: configs/sp_det/spbrnet_8x2_4lr_scannet-3d-18class_w5.py
+    match0: configs/sp_det/spbrnet_8x2_1d5lr_scannet-3d-18class_sam4_match0.py
+    sunrgbd_b6_orimatch0_fix_d2lr_sam2: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d2lr_sam2.py
+    sunrgbd_b6_orimatch0_fix_sam2: configs/sp/sp_sunrgbd_b6_orimatch0_fix_sam2.py
+    sunrgbd_b6_orimatch0_fix_d4lr_cornerd25: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr_cornerd25.py
+    sunrgbd_b6_orimatch0_fix_cornerd25: configs/sp/sp_sunrgbd_b6_orimatch0_fix_cornerd25.py
+    sunrgbd_b6_orimatch0_fix_d9lr_cornerd25: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d9lr_cornerd25.py
+
+    b6_nocorner: configs/sp/sp_b6_nocorner.py
+    b6_noiou: configs/sp/sp_b6_noiou.py
+    b6_noiou_nocorner: configs/sp/sp_b6_noiou_nocorner.py
+    votenet_iou: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr.py
+    votenet_iou_cor: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cor.py
+    votenet_iou_cor1: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cor1.py
+    votenet_iou_cord5: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cord5.py
+    votenet_iou_cord3: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cord3.py
+    votenet_iou_cord2: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cord2.py
+    votenet_iou_cord75: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cord75.py
+    votenet_iou_cor1d25: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cor1d25.py
+    votenet_iou_cor1d5: configs/votenet/votenet_iouloss_2x8_scannet-3d-18class_2lr_cor1d5.py
+    cor: [votenet_iou_cord5, votenet_iou_cord3, votenet_iou_cord2, votenet_iou_cord75, votenet_iou_cor1d25, votenet_iou_cor1d5]
+    sunrgbd_2lr: configs/votenet/votenet_16x8_sunrgbd-3d-10class_2lr.py
+    sunrgbd_1lr: configs/votenet/votenet_16x8_sunrgbd-3d-10class.py
+    sunrgbd_d5lr: configs/votenet/votenet_16x8_sunrgbd-3d-10class_d5lr.py
+    sunrgbd_d75lr: configs/votenet/votenet_16x8_sunrgbd-3d-10class_d75lr.py
+    sunrgbd_1d5lr: configs/votenet/votenet_16x8_sunrgbd-3d-10class_1d5lr.py
+    sunrgbd: [sunrgbd_2lr, sunrgbd_1lr, sunrgbd_d5lr, sunrgbd_d75lr, sunrgbd_1d5lr]
+    sun_iou_cord75: configs/votenet/votenet_16x8_sunrgbd-3d-10class_iou_cord75.py
+    sun_iou: configs/votenet/votenet_16x8_sunrgbd-3d-10class_iou.py
+    suniou: [sun_iou_cord75, sun_iou]
+    r1: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr_cornerd25_r1.py
+
+    cls1: configs/sp/sp_b6_cls1.py
+    cls2: configs/sp/sp_b6_cls2.py
+    iou1: configs/sp/sp_b6_iou1.py
+    iou3: configs/sp/sp_b6_iou3.py
+    xzxz: [cls1, cls2, iou1, iou3]
+    l1d6: configs/sp/sp_b6_l1d6.py
+    l1d3: configs/sp/sp_b6_l1d3.py
+    lrx1: configs/sp/sp_b6_lrx1.py
+    lrd1d2: configs/sp/sp_b6_lrdiv1d2.py
+    xzzzx: [l1d6, l1d3, lrx1, lrd1d2]
+    cord1: configs/sp/sp_b6_cord1.py
+    cord4: configs/sp/sp_b6_cord4.py
+    corx: [cord1, cord4]
+    cory: [cord4, cord1]
+
+    b_256128: configs/sp/sp_b6_256_128.py
+    b_256160: configs/sp/sp_b6_256_160.py
+    b_256192: configs/sp/sp_b6_256_192.py
+    b_256256: configs/sp/sp_b6_256_256.py
+    b_160160: configs/sp/sp_b6_160_160.py
+    pro256_192: configs/sp/sp_sunrgbd_b6_orimatch0_fix_d4lr_cornerd25_pro256-192.py
+
+  mono3d_09:
+    fcos: configs/fcos3d/fcos3d_r101_caffe_fpn_gn-head_dcn_2x8_1x_nus-mono3d.py
+    smoke: configs/smoke/smoke_dla34_pytorch_dlaneck_gn-head_kitti_mono3d.py
+
+  work_dirs/smoke:
+    b8: configs/smoke_b8.yaml
+    b8_ld5lr: configs/smoke_b8_lr1d5.yaml
+    b8_d5lr: configs/smoke_b8_lrd5.yaml
+    b8_ld2lr: configs/smoke_b8_lr1d2.yaml
+    b8s: configs/smoke_b8s.yaml
+    xx: [b8, b8_ld2lr]
+    yy: [b8_ld2lr, b8]
+    b8_lr1d1: configs/smoke_b8_lr1d1.yaml
+    b8_lr1d3: configs/smoke_b8_lr1d3.yaml
+    b8_ld2lr_e110: configs/smoke_b8_lr1d2_e110.yaml
+    b8_ld2lr_e90: configs/smoke_b8_lr1d2_e90.yaml
+    b8_ld5lr_e110: configs/smoke_b8_lr1d5_e110.yaml
+    b8_ld2lr_e90_car: configs/smoke_b8_lr1d2_e90_car.yaml
+    b8_ld2lr_e110_car: configs/smoke_b8_lr1d2_e110_car.yaml
+    b8_ld2lr_car: configs/smoke_b8_lr1d2_car.yaml
+
+  work_dirs/monoflex:
+    baseline: runs/monoflex.yaml
+    gpu2_lr1d5: runs/monoflex_2gpu_lr1d5.yaml
+    gpu2_lr2: runs/monoflex_2gpu_lr2.yaml
+    gpu2_lr2d5: runs/monoflex_2gpu_lr2d5.yaml
+    gpu2_lr2_nofusion: runs/monoflex_2gpu_lr2_nofusion.yaml
+    gpu2_lr3: runs/monoflex_2gpu_lr3.yaml
+    gpu2_lr2d75: runs/monoflex_2gpu_lr2d75.yaml
+    gpu2_lr2d25: runs/monoflex_2gpu_lr2d25.yaml
+    gpu2_lr4: runs/monoflex_2gpu_lr4.yaml
+    gpu2_lr5: runs/monoflex_2gpu_lr5.yaml
+    gpu2_lr4d5: runs/monoflex_2gpu_lr4d5.yaml
+    gpu2_lr5d5: runs/monoflex_2gpu_lr5d5.yaml
+    gpu2_lr6: runs/monoflex_2gpu_lr6.yaml
+
+  work_dirs/pointformer:
+    base: configs/pointformer/votenet_ptr_scannet-3d-18class.py
+    base_d5lr: configs/pointformer/votenet_ptr_scannet-3d-18class_d5lr.py
+    base_2lr: configs/pointformer/votenet_ptr_scannet-3d-18class_2lr.py
+    base_4gpu: configs/pointformer/votenet_ptr_scannet-3d-18class_4gpu.py
+    mix_base: configs/pointformer/votenet_mixptr_scannet-3d-18class.py
+    mix_bases2: configs/pointformer/votenet_mixptr_scannet-3d-18class_s2.py
+    base_dec2: configs/pointformer/votenet_ptr_scannet-3d-18class_dec2.py
+    mix_bases3: configs/pointformer/votenet_mixptr_scannet-3d-18class_s3.py
+    axxa: [base_dec2, mix_bases3]
+    mix_bases3_fix: configs/pointformer/votenet_mixptr_scannet-3d-18class_s3_fix.py
+    mix_bases4: configs/pointformer/votenet_mixptr_scannet-3d-18class_s4.py
+    base_allmixermlp: configs/pointformer/votenet_ptr_scannet-3d-18class_allmixermlp.py
+    base_localmixermlp: configs/pointformer/votenet_ptr_scannet-3d-18class_localmixermlp.py
+    base_globalmixermlp: configs/pointformer/votenet_ptr_scannet-3d-18class_globalmixermlp.py
+    allgmlp: configs/pointformer/votenet_ptr_scannet-3d-18class_allgmlp.py
+    globalgmlp: configs/pointformer/votenet_ptr_scannet-3d-18class_globalgmlp.py
+    localgmlp: configs/pointformer/votenet_ptr_scannet-3d-18class_localgmlp.py
+    rpptr: configs/pointformer/votenet_rpptr_scannet-3d-18class_s1.py
+    rpptr_local_global: configs/pointformer/votenet_mixptr_scannet-3d-18class_relpos.py
+    rpptr_local_global_ratio4: configs/pointformer/votenet_mixptr_scannet-3d-18class_relpos_ratio4.py
+    rpptr_local_global_ln_ratio4: configs/pointformer/votenet_mixptr_scannet-3d-18class_relpos_ln_ratio4.py
+    rpptr_nopos: configs/pointformer/votenet_mixptr_scannet-3d-18class_nopos.py
+    rpptr_saln: configs/pointformer/votenet_mixptr_scannet-3d-18class_saln.py
+    rpptr_fpln: configs/pointformer/votenet_mixptr_scannet-3d-18class_fpln.py
+    rpptr_safpln: configs/pointformer/votenet_mixptr_scannet-3d-18class_safpln.py
+    rpptr_s4_safpln: configs/pointformer/votenet_mixptr_scannet-3d-18class_s4_safpln.py
+    rpptr_safpln_pfln: configs/pointformer/votenet_mixptr_scannet-3d-18class_safpln_pfln.py
+    rpptr_s4_saln: configs/pointformer/votenet_mixptr_scannet-3d-18class_s4_saln.py
+    mixptr_pfln: configs/pointformer/votenet_mixptr_scannet-3d-18class_pfln.py
+    mixptr_localmlpmixer: configs/pointformer/votenet_mixptr_scannet-3d-18class_localmixermlp.py
+    nopow: configs/pointformer/votenet_mixptr_scannet-3d-18class_relpos_ln_ratio4_nopow.py
+    encv2: configs/pointformer/votenet_mixptr_scannet-3d-18class_encv2.py
+    encv3: configs/pointformer/votenet_mixptr_scannet-3d-18class_encv3.py
+    encv3_layer21: configs/pointformer/votenet_mixptr_scannet-3d-18class_encv3_layer2_1.py
+    encv4: configs/pointformer/votenet_mixptr_scannet-3d-18class_encv4.py
+    mixermlp2: configs/pointformer/votenet_mixptr_scannet-3d-18class_s2_localmixermlp.py
+    layer1_1: configs/pointformer/votenet_mixptr_scannet-3d-18class_encv3_layer1_1.py
+    layer1_2: configs/pointformer/votenet_mixptr_scannet-3d-18class_encv3_layer1_2.py
+
+  work_dirs/pointformerv2:
+    ptr: configs/pointformerv2/ptr.py
+    ptr_pnbase: configs/pointformerv2/ptr_pnbase.py
+    ptr_pn_samedim: configs/pointformerv2/ptr_pn_samedim.py
+    nx2n: configs/pointformerv2/ptr_pn_samedim_4gt-nx2n.py
+    2nx2n: configs/pointformerv2/ptr_pn_samedim_4gt-2nx2n.py
+    ptr_dimaspn: configs/pointformerv2/ptr_dimaspn.py
+    ptr_mix1: configs/pointformerv2/ptr_mix1.py
+    ptr_mix1_dimaspn: configs/pointformerv2/ptr_mix1_dimaspn.py
+    ptr_gttofcbn: configs/pointformerv2/ptr_gttofcbn.py
+    ptr_gttofcln: configs/pointformerv2/ptr_gttofcln.py
+    ptr_pn_samedim_fcbn: configs/pointformerv2/ptr_pn_samedim_fcbn.py
+    ptr_pn_samedim_fcln: configs/pointformerv2/ptr_pn_samedim_fcln.py
+    ptr_mix1_gttofcbn: configs/pointformerv2/ptr_mix1_gttofcbn.py
+    ptr_mix1_gttofcln: configs/pointformerv2/ptr_mix1_gttofcln.py
+    ptr_dec3: configs/pointformer/votenet_ptr_scannet-3d-18class_dec3.py
+    ptr_pn_4gt_nx2n: configs/pointformerv2/ptr_pn_4gt-nx2n.py
+    ptr_pn_4gt_2nx2n: configs/pointformerv2/ptr_pn_4gt-2nx2n.py
+    ptr_mix1_1gt_2nx2n: configs/pointformerv2/ptr_mix1_1gt_2nx2n.py
+    ptr_mix1_1gt_nx2n: configs/pointformerv2/ptr_mix1_1gt_nx2n.py
+    ptrrev_mix1: configs/pointformerv2/ptrrev_mix1.py
+    ptrrev_mix1_ltd: configs/pointformerv2/ptrrev_mix1_ltd.py
+    ptr_mix1_gttofcbn3: configs/pointformerv2/ptr_mix1_gttofcbn3.py
+    ptr_mix1_gttofcbn1: configs/pointformerv2/ptr_mix1_gttofcbn1.py
+    ptr_mix1_dimaspn_gttofcbn: configs/pointformerv2/ptr_mix1_dimaspn_gttofcbn.py
+    ptr_gttofcbn123: configs/pointformerv2/ptr_gttofcbn123.py
+    ptr_mix1_1gt_2nx2n_gttofcbn123: configs/pointformerv2/ptr_mix1_1gt_2nx2n_gttofcbn123.py
+    ptr_mix1_1fcbn_gttofcbn123: configs/pointformerv2/ptr_mix1_1fcbn_gttofcbn123.py
+    ptr_allgm: configs/pointformerv2/ptr_allgm.py
+    ptr_mix1_gttogm: configs/pointformerv2/ptr_mix1_gttogm.py
+    ptr_mix1_lttolm: configs/pointformerv2/ptr_mix1_lttolm.py
+    ptr_mix1_gttofcbn2: configs/pointformerv2/ptr_mix1_gttofcbn2.py
+    ptr_gttofcbn0: configs/pointformerv2/ptr_gttofcbn0.py
+    ptr_0lm: configs/pointformerv2/ptr_0lm.py
+    ptr_0lmfcbn: configs/pointformerv2/ptr_0lmfcbn.py
+    ptr_mix1_1fcbn: configs/pointformerv2/ptr_mix1_1fcbn.py
+    ptr_mix1_gttofcbn12: configs/pointformerv2/ptr_mix1_gttofcbn12.py
+    ptr_alllmfcbn: configs/pointformerv2/ptr_alllmfcbn.py
+    ptr_mix1_fpm: configs/pointformerv2/ptr_mix1_fpm.py
+    ptr_mix1_fpm2: configs/pointformerv2/ptr_mix1_fpm2.py
+    ptr_alllm: configs/pointformerv2/ptr_alllm.py
+    ptr_mix1_fpt2: configs/pointformerv2/ptr_mix1_fpt2.py
+    ptr_pn_samedim_fpm2: configs/pointformerv2/ptr_pn_samedim_fpm2.py
+    # lm_use_preconv exp
+    ptr_pn_samedim_fcbn_2nx2n: configs/pointformerv2/ptr_pn_samedim_fcbn-2nx2n.py
+    ptr_mix1_lm123_fcbn1: configs/pointformerv2/ptr_mix1_lm123_fcbn1.py
+    ptr_mix1_lmfc123: configs/pointformerv2/ptr_mix1_lmfc123.py
+    ptr_mix1_lmgt123_fpm2: configs/pointformerv2/ptr_mix1_lmgt123_fpm2.py
+    ptr_mix1_1fcbn_2nx2n_gttofcbn123: configs/pointformerv2/ptr_mix1_1fcbn-2nx2n_gttofcbn123.py
+    ptr_mix1_fpt2_relpos: configs/pointformerv2/ptr_mix1_fpt2_relpos.py
+    ptr_mix1_lttolm_gtrelpos: configs/pointformerv2/ptr_mix1_lttolm_gtrelpos.py
+    ptr_mix1_ltrelpos: configs/pointformerv2/ptr_mix1_ltrelpos.py
+    ptr_mix1_fcbn0_2nx2n_lttolm: configs/pointformerv2/ptr_mix1_fcbn0-2nx2n_lttolm.py
+    ptr_mix1_fpt2_relpos_deep: configs/pointformerv2/ptr_mix1_fpt2_relpos_deep.py
+    # try replace the maxpooling in sa module
+    p tr_mix1_lttolm_fcpooling: configs/pointformerv2/ptr_mix1_lttolm_fcpooling.py
+    ptr_mix1_ltrelposdeep: configs/pointformerv2/ptr_mix1_ltrelposdeep.py
+    ptr_mix1_fpm3: configs/pointformerv2/ptr_mix1_fpm3.py
+    ptr_mix1_fpm1: configs/pointformerv2/ptr_mix1_fpm1.py
+    ptr_mix1_gtrelpos: configs/pointformerv2/ptr_mix1_gtrelpos.py
+    ptr_mix2_lttolm: configs/pointformerv2/ptr_mix2_lttolm.py
+    ptr_mix2: configs/pointformerv2/ptr_mix2.py
+    xzx: [ptr_mix1_fpt2_relpos_deep, ptr_mix1_fpt2_relpos]
+    ptr_mix2_lttolm_gtrelpos: configs/pointformerv2/ptr_mix2_lttolm_gtrelpos.py
+    ptr_mix2_gtrelpos: configs/pointformerv2/ptr_mix2_gtrelpos.py
+    ptr_mix2_fpm2: configs/pointformerv2/ptr_mix2_fpm2.py
+    ptr_mix2_lttolm_fpm2: configs/pointformerv2/ptr_mix2_lttolm_fpm2.py
+    sp_b6: configs/sp/sp_b6.py
+    ptr_mix1_fpm2_gtrelpos: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos.py
+    ptr_mix1_lttolm_fpt2_relpos: configs/pointformerv2/ptr_mix1_lttolm_fpt2_relpos.py
+    ptr_mix2_lttolm_fpt2_relpos: configs/pointformerv2/ptr_mix2_lttolm_fpt2_relpos.py
+    ptr_mix2_fpt2_relpos: configs/pointformerv2/ptr_mix2_fpt2_relpos.py
+    ptr_mix1_lttolm_gtrelpos_fpm2: configs/pointformerv2/ptr_mix1_lttolm_gtrelpos_fpm2.py
+    ptr_mix2_lttolm_gtrelpos_fpm2: configs/pointformerv2/ptr_mix2_lttolm_gtrelpos_fpm2.py
+    ptr_mix2_fpm2_gtrelpos: configs/pointformerv2/ptr_mix2_fpm2_gtrelpos.py
+    ptr_mix1_fpm2_gtrelpos_gdrop0: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_gdrop0.py
+    ptr_mix1_fpm2_gtrelpos_gdrop01: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_gdrop01.py
+    ptr_mix1_fpm2_gtrelpos_ldrop01_gdrop01: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_ldrop01_gdrop01.py
+    ptr_mix1_fpm2_gtrelpos_ldrop01: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_ldrop01.py
+    ptr_mix1_fpm2_gtrelpos_ldrop02: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_ldrop02.py
+    sp_b6_pfmix2_fpm_gtrel: configs/sp/sp_b6_pfmix2_fpm_gtrel.py
+    sp_b6_pfmix2lm: configs/sp/sp_b6_pfmix2lm.py
+    sp_b6_pfmix2: configs/sp/sp_b6_pfmix2.py
+    sp_b6_pfmix2lm_fpm_gtrel: configs/sp/sp_b6_pfmix2lm_fpm_gtrel.py
+    ptr_mix1_lttolm_sa3: configs/pointformerv2/ptr_mix1_lttolm_sa3.py
+    ptr_mix1_fpm2_gtrelpos_sa3: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa3.py
+    ptr_mix1_lttolm_sa3_3layer: configs/pointformerv2/ptr_mix1_lttolm_sa3_3layer.py
+    ptr_mix1_fpm2_gtrelpos_sa3_3layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa3_3layer.py
+    ptr_pn_samedim_sa3: configs/pointformerv2/ptr_pn_samedim_sa3.py
+    ptr_pn_samedim_sa2: configs/pointformerv2/ptr_pn_samedim_sa2.py
+    ptr_mix1_fpm2_gtrelpos_sa2_3layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa2_3layer.py
+    ptr_mix1_fpm2_gtrelpos_sa2_4layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa2_4layer.py
+    ptr_mix1_fpm2_gtrelpos_sa2_5layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa2_5layer.py
+    ptr_mix1_fpm2_gtrelpos_sa3_4layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa3_4layer.py
+    ptr_mix1_fpm2_gtrelpos_sa2_6layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa2_6layer.py
+    ptr_mix1_fpm2_gtrelpos_sa3_5layer: configs/pointformerv2/ptr_mix1_fpm2_gtrelpos_sa3_5layer.py
+    ptr_mix1_gtrelpos_sa3_3layer: configs/pointformerv2/ptr_mix1_gtrelpos_sa3_3layer.py
+    ptr_mix1_fpm2_sa3_3layer: configs/pointformerv2/ptr_mix1_fpm2_sa3_3layer.py
+    ptr_mix1_sa3_3layer: configs/pointformerv2/ptr_mix1_sa3_3layer.py
+    ptr_mix1_lttolm_fpm2_gtrelpos_sa3_3layer: configs/pointformerv2/ptr_mix1_lttolm_fpm2_gtrelpos_sa3_3layer.py
+    ptr_v3_nogtrel: configs/pointformerv2/ptr_v3_nogtrel.py
+    ptr_v3_l24: configs/pointformerv2/ptr_v3_l24.py
+    ptr_v3_l42: configs/pointformerv2/ptr_v3_l42.py
+    ptr_v3_gdrop01: configs/pointformerv2/ptr_v3_gdrop01.py
+    ptr_v3_ldrop01_gdrop01: configs/pointformerv2/ptr_v3_ldrop01_gdrop01.py
+    ptr_v3_lm: configs/pointformerv2/ptr_v3_lm.py
+    ptr_v3_lm_l24: configs/pointformerv2/ptr_v3_lm_l24.py
+    ptr_v3_ldrop02: configs/pointformerv2/ptr_v3_ldrop02.py
+    ptr_v3_lm_l42: configs/pointformerv2/ptr_v3_lm_l42.py
+    ptr_v3_nolocal: configs/pointformerv2/ptr_v3_nolocal.py
+    ptr_v3_nolocal_2pn: configs/pointformerv2/ptr_v3_nolocal_2pn.py
+    ptr_v3_largeview: configs/pointformerv2/ptr_v3_largeview.py
+    ptr_v3_fcbn_3layer_morechannel: configs/pointformerv2/ptr_v3_fcbn_3layer_morechannel.py
+    ptr_v3_nolocal_2pn_local: configs/pointformerv2/ptr_v3_nolocal_2pn_local.py
+    ptr_v3_nolocal_2pn_localx2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2.py
+    ptr_v3_nolocal_2pn_localx3: configs/pointformerv2/ptr_v3_nolocal_2pn_localx3-l1.py
+    sp_b6_pfv3_bs2: configs/sp/sp_b6_pfv3_bs2.py
+    ptr_v3_2pn_1024: configs/pointformerv2/ptr_v3_2pn_1024.py
+    sp_b6_pfv3_bs2_lrdiv1d4: configs/sp/sp_b6_pfv3_bs2_lrdiv1d4.py
+    ptr_v3_nolocal_2pn_local_lt1024: configs/pointformerv2/ptr_v3_nolocal_2pn_local_lt1024.py
+    ptr_v3_nolocal_2pn_localx2_largerview: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_largerview.py
+    ptr_v3_ltposrel: configs/pointformerv2/ptr_v3_ltposrel.py
+    ptr_v3_nolocal_1pnfcbn_localx2: configs/pointformerv2/ptr_v3_nolocal_1pnfcbn_localx2.py
+    sp_b6_pfv3_bs2_lrdiv2: configs/sp/sp_b6_pfv3_bs2_lrdiv2.py
+    ptr_v3_largerview: configs/pointformerv2/ptr_v3_largerview.py
+    ptr_t3_ldrop01_gdrop01: configs/pointformerv2/ptr_t3_ldrop01_gdrop01.py
+    ptr_v3_ltnopos: configs/pointformerv2/ptr_v3_ltnopos.py
+    ptr_v3_lm_lmnopos: configs/pointformerv2/ptr_v3_lm_lmnopos.py
+    ptr_v3_gtnopos: configs/pointformerv2/ptr_v3_gtnopos.py
+    ptr_v3_gtposdeep: configs/pointformerv2/ptr_v3_gtposdeep.py
+    sp_b6_pfv3_bs2_lrdiv2_48e: configs/sp/sp_b6_pfv3_bs2_lrdiv2_48e.py
+    ptr_v3_ln: configs/pointformerv2/ptr_v3_ln.py
+    ptr_v3_glt: configs/pointformerv2/ptr_v3_glt.py
+    ptr_v3_glt_largeview: configs/pointformerv2/ptr_v3_glt_largeview.py
+    ptr_v3_l26: configs/pointformerv2/ptr_v3_l26.py
+    ptr_v3_l15: configs/pointformerv2/ptr_v3_l15.py
+    ptr_v3_2pn_gtlocal_gt: configs/pointformerv2/ptr_v3_2pn_gtlocal_gt.py
+    ptr_v3_2pn_1024slim: configs/pointformerv2/ptr_v3_2pn_1024slim.py
+    ptr_v3_2pn_gtlocal_gt_slim: configs/pointformerv2/ptr_v3_2pn_gtlocal_gt_slim.py
+    ptr_v3_64dim_0gtlocal: configs/pointformerv2/ptr_v3_64dim_0gtlocal.py
+    ptr_v3_64dim_0gtlocal_gtrd4: configs/pointformerv2/ptr_v3_64dim_0gtlocal_gtrd4.py
+    ptr_v3_2pn_1024slim_ltsmallview: configs/pointformerv2/ptr_v3_2pn_1024slim_ltsmallview.py
+    ptr_v3_2pn_2gtlocal: configs/pointformerv2/ptr_v3_2pn_2gtlocal.py
+    ptr_v3_2pn_1gtlocal_4l: configs/pointformerv2/ptr_v3_2pn_1gtlocal-4l.py
+    ptr_v3_2pn_1gt_4l: configs/pointformerv2/ptr_v3_2pn_1gt-4l.py
+    ptr_v3_2pn_4gtlocal_2l: configs/pointformerv2/ptr_v3_2pn_4gtlocal-2l.py
+    ptr_v3_2pn_1gtlocal_4l_r1d2: configs/pointformerv2/ptr_v3_2pn_1gtlocal-4l_r1d2.py
+    dptr_v3_2pn_1gtlocal_4l_rd4: configs/pointformerv2/ptr_v3_2pn_1gtlocal-4l_rd4.py
+    ptr_v3_2pn_1gtlocal_4l_r1d6: configs/pointformerv2/ptr_v3_2pn_1gtlocal-4l_r1d6.py
+    ptr_v3_nolocal_2pn_localx2_slim: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_slim.py
+    ptr_v3_dgt: configs/pointformerv2/ptr_v3_dgt.py
+    ptr_v3_dgt_mul1: configs/pointformerv2/ptr_v3_dgt_mul1.py
+    ptr_v3_dgt_mul1_pos: configs/pointformerv2/ptr_v3_dgt_mul1_pos.py
+    ptr_v3_dgt_mul1_modulate: configs/pointformerv2/ptr_v3_dgt_mul1_modulate.py
+    ptr_v3_dgt_mul1_deepoff: configs/pointformerv2/ptr_v3_dgt_mul1_deepoff.py
+    ptr_v3_dgt_mul1_noshare: configs/pointformerv2/ptr_v3_dgt_mul1_noshare.py
+    ptr_v3_dgt_mul2: configs/pointformerv2/ptr_v3_dgt_mul2.py
+    ptr_v3_dgt_div2: configs/pointformerv2/ptr_v3_dgt_div2.py
+    ptr_v3_2pn_2gtlocal_4gt_slim: configs/pointformerv2/ptr_v3_2pn_2gtlocal_4gt_slim.py
+    ptr_v3_2pn_4gtlocal_1l: configs/pointformerv2/ptr_v3_2pn_4gtlocal-1l.py
+    ptr_v3_gtlocal: configs/pointformerv2/ptr_v3_gtlocal.py
+    ptr_v3_dgt_mul1_deepoffbn: configs/pointformerv2/ptr_v3_dgt_mul1_deepoffbn.py
+    ptr_v3_dgt_mul1_noshare_modulate: configs/pointformerv2/ptr_v3_dgt_mul1_noshare_modulate.py
+    ptr_v3_nolocal_2pn_localx2_dgt: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt.py
+    ptr_v3_nolocal_2pn_localx2_slim_dgt: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_slim_dgt.py
+    ptr_v3_2pn_2dgt_4gt_slim: configs/pointformerv2/ptr_v3_2pn_2dgt_4gt_slim.py
+    ptr_v3_2pn_dgt_gt_slim: configs/pointformerv2/ptr_v3_2pn_dgt_gt_slim.py
+    ptr_v3_2pn_4dgt_1l: configs/pointformerv2/ptr_v3_2pn_4dgt-1l.py
+    ptr_v3_2pn_4dgt_2l: configs/pointformerv2/ptr_v3_2pn_4dgt-2l.py
+    ptr_v3_dgt_mul1_deepoffbn_modulate: configs/pointformerv2/ptr_v3_dgt_mul1_deepoffbn_modulate.py
+    ptr_v3_2pn_4dgt_256d_1l: configs/pointformerv2/ptr_v3_2pn_4dgt_256d-1l.py
+    ptr_v3_2pn_4dgt_256d_2l: configs/pointformerv2/ptr_v3_2pn_4dgt_256d-2l.py
+    ptr_v3_2pn_1dgt_4l: configs/pointformerv2/ptr_v3_2pn_1dgt-4l.py
+    ptr_v3_2pn_1dgt_256d_4l: configs/pointformerv2/ptr_v3_2pn_1dgt_256d-4l.py
+    ptr_v3_2pn_1dgt_256d_8l: configs/pointformerv2/ptr_v3_2pn_1dgt_256d-8l.py
+    ptr_v3_2pn_1dgt_6l: configs/pointformerv2/ptr_v3_2pn_1dgt_256d-6l.py
+    ptr_v3_dgt_mul1_fcbn256d: configs/pointformerv2/ptr_v3_dgt_mul1_fcbn256d.py
+    ptr_v3_2pn_dgt_gt: configs/pointformerv2/ptr_v3_2pn_dgt_gt.py
+    ptr_v3_2pn_dgt_dgt_slim: configs/pointformerv2/ptr_v3_2pn_dgt_dgt_slim.py
+    ptr_v3_2pn_4dgt_peshare_1l: configs/pointformerv2/ptr_v3_2pn_4dgt_peshare-1l.py
+    ptr_v3_1lgtfcbn_2dgt_2dgt_256d: configs/pointformerv2/ptr_v3_1lgtfcbn_2dgt_2dgt_256d.py
+    ptr_v3_1lgtfcbn_2dgt_2dgt_128d: configs/pointformerv2/ptr_v3_1lgtfcbn_2dgt_2dgt_128d.py
+    ptr_v3_1lgt_2dgt_2dgt_128d: configs/pointformerv2/ptr_v3_1lgt_2dgt_2dgt_128d.py
+    ptr_v3_dgt_div2_modulate: configs/pointformerv2/ptr_v3_dgt_div2_modulate.py
+    ptr_v3_2pn_dgtx2_largerview: configs/pointformerv2/ptr_v3_2pn_dgtx2_largerview.py
+    ptr_v3_nolocal_2pn_localx2_dgt_192d: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_192d.py
+    ptr_v3_nolocal_2pn_localx2_dgt_peshare: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_peshare.py
+    ptr_v3_2pn_slim_lt_dgt_dgt: configs/pointformerv2/ptr_v3_2pn_slim_lt_dgt_dgt.py
+    ptr_v3_2pn_1dgt_4l_r1d6: configs/pointformerv2/ptr_v3_2pn_1dgt-4l_r1d6.py
+    ptr_v3_pn1024_dgt_dgt_128d: configs/pointformerv2/ptr_v3_pn1024_dgt_dgt_128d.py
+    ptr_v3_pn1024fcbn_dgt_dgt_256d: configs/pointformerv2/ptr_v3_pn1024fcbn_dgt_dgt_256d.py
+    ptr_v3_1pn_slim_lt_dgt_dgt: configs/pointformerv2/ptr_v3_1pn_slim_lt_dgt_dgt.py
+    ptr_v3_nolocal_2pn_localx2_dgt_d8_1d6: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_d8_1d6.py
+    ptr_v3_2pn_4dgt_peshare_1l_192d: configs/pointformerv2/ptr_v3_2pn_4dgt_peshare-1l_192d.py
+    ptr_v3_nolocal_2pn_localx2_dgt_pedeep32: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_pedeep32.py
+    ptr_v3_dgtv2_off: configs/pointformerv2/ptr_v3_dgtv2_off.py
+    ptr_v3_dgtv2_off_byrad: configs/pointformerv2/ptr_v3_dgtv2_off_byrad.py
+    ptr_v3_dgtv2_deepoff: configs/pointformerv2/ptr_v3_dgtv2_deepoff.py
+    ptr_v3_dgtv2_hard: configs/pointformerv2/ptr_v3_dgtv2_hard.py
+    ptr_v3_dgtv2_off_noshare: configs/pointformerv2/ptr_v3_dgtv2_off_noshare.py
+    ptr_v3_dgtv2_off_init: configs/pointformerv2/ptr_v3_dgtv2_off_init.py
+    ptr_v3_nolocal_2pn_localx2_dgt_pedeep16: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_pedeep16.py
+    ptr_v3_nolocal_2pn_localx2_dgtv2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv2.py
+    ptr_v3_dgtv2_deepoff_byrad: configs/pointformerv2/ptr_v3_dgtv2_deepoff_byrad.py
+    ptr_v3_dgtv2_deepoff_byrad_noshare: configs/pointformerv2/ptr_v3_dgtv2_deepoff_byrad_noshare.py
+    ptr_v3_dgtv2_deepoff_byrad_noshare_init: configs/pointformerv2/ptr_v3_dgtv2_deepoff_byrad_noshare_init.py
+    ptr_v3_nolocal_2pn_localx2_dgt_pe64: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_pe64.py
+    ptr_v3_dgtv2_fcinit: configs/pointformerv2/ptr_v3_dgtv2_fcinit.py
+    ptr_v3_dgtv2_smooth1: configs/pointformerv2/ptr_v3_dgtv2_smooth1.py
+    ptr_v3_dgtv2_mul2fix: configs/pointformerv2/ptr_v3_dgtv2_mul2fix.py
+    ptr_v3_2pn_4dgt_pe32_256d_1l: configs/pointformerv2/ptr_v3_2pn_4dgt_pe32_256d-1l.py
+    ptr_v3_nolocal_2pn_localx2_dgt_pe32: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_pe32.py
+    ptr_v3_nolocal_2pn_localx2_dgt_pe16: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_pe16.py
+    ptr_v3_dgtv2_deepoff_byrad_init: configs/pointformerv2/ptr_v3_dgtv2_deepoff_byrad_init.py
+    ptr_v3_dgtv2_fcinitv2: configs/pointformerv2/ptr_v3_dgtv2_fcinitv2.py
+    ptr_v3_dgtv2_fcinitv3: configs/pointformerv2/ptr_v3_dgtv2_fcinitv3.py
+    ptr_v3_dgtv2_mul2fix_fcinitv2: configs/pointformerv2/ptr_v3_dgtv2_mul2fix_fcinitv2.py
+    ptr_v3_dgtv2_mul2fix_hard: configs/pointformerv2/ptr_v3_dgtv2_mul2fix_hard.py
+    ptr_v3_dgtv2_smooth1div8: configs/pointformerv2/ptr_v3_dgtv2_smooth1div8.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3.py
+    ptr_v3_dgtv2_deepoff_byrad_noshare_init_fcinitv2: configs/pointformerv2/ptr_v3_dgtv2_deepoff_byrad_noshare_init_fcinitv2.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2.py
+    ptr_v3_2pn_dgtx2_smallview: configs/pointformerv2/ptr_v3_2pn_dgtx2_smallview.py
+    ptr_boxhead_v3_dgtv3: configs/pointformerv2/ptr_boxhead_v3_dgtv3.py
+    ptr_boxhead_pn: configs/pointformerv2/ptr_boxhead_pn.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_192d:  configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_192d.py
+    ptr_v3_ln_initalldebug: configs/pointformerv2/ptr_v3_ln_initalldebug.py
+    ptr_v3_dgtv3_smallview: configs/pointformerv2/ptr_v3_dgtv3_smallview.py
+    ptr_v3_dgtv3_vsmallview: configs/pointformerv2/ptr_v3_dgtv3_vsmallview.py
+    ptr_boxhead_v3_dgtv3_fcinitv2: configs/pointformerv2/ptr_boxhead_v3_dgtv3_fcinitv2.py
+    ptr_v3_dgtv3_mul2fix: configs/pointformerv2/ptr_v3_dgtv3_mul2fix.py
+    ptr_v3_dgtv3_dgtnorel: configs/pointformerv2/ptr_v3_dgtv3_dgtnorel.py
+    ptr_boxhead_v3_dgtv3_updatexyz: configs/pointformerv2/ptr_boxhead_v3_dgtv3_updatexyz.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_smallview: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_smallview.py
+    ptr_v3_2pn_dgt4l_dgt4l_pe64: configs/pointformerv2/ptr_v3_2pn_dgt4l_dgt4l_pe64.py
+    ptr_v3_2pn_dgt2l_dgt2l_pe64: configs/pointformerv2/ptr_v3_2pn_dgt2l_dgt2l_pe64.py
+    ptr_v3_nolocal_2pn_localx2_dgt_fcinitv2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgt_fcinitv2.py
+    ptr_v3_dgtv3_updatexyz: configs/pointformerv2/ptr_v3_dgtv3_updatexyz.py
+    ptr_v3_dgtv3_largeview: configs/pointformerv2/ptr_v3_dgtv3_largeview.py
+    ptr_v3_dgtv3_mul2fix_fcinitv2: configs/pointformerv2/ptr_v3_dgtv3_mul2fix_fcinitv2.py
+    ptr_v3_2pn_dgtx2_smallview_fcinitv2: configs/pointformerv2/ptr_v3_2pn_dgtx2_smallview_fcinitv2.py
+    ptr_v3_dgtv3_ln: configs/pointformerv2/ptr_v3_dgtv3_ln.py
+    ptr_v3_dgtv3_fcinitv2_ln: configs/pointformerv2/ptr_v3_dgtv3_fcinitv2_ln.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_viewd4_1d2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_viewd4_1d2.py
+    ptr_v3_dgtv3_updatexyz_fcinitv2: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_fcinitv2.py
+    ptr_v3_dgtv3_offshare_updatexyz: configs/pointformerv2/ptr_v3_dgtv3_offshare_updatexyz.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz.py
+    ptr_v3_dgtv3: configs/pointformerv2/ptr_v3_dgtv3.py
+    ptr_v3_dgtv2: configs/pointformerv2/ptr_v3_dgtv2.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_viewd4_2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_viewd4_2.py
+    ptr_v3_dgtv3_nodeepoff: configs/pointformerv2/ptr_v3_dgtv3_nodeepoff.py
+    ptr_v3_dgtv3_fcinitv2_deepradoffln: configs/pointformerv2/ptr_v3_dgtv3_fcinitv2_deepradoffln.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d.py
+    zxz: [ptr_v3_nolocal_2pn_localx2_dgtv3_updatexyz, ptr_v3_dgtv3_updatexyz_notbyrad, ptr_v3_dgtv3_updatexyz_notbyrad, ptr_v3_dgtv3_updatexyz_notbyrad]
+    ptr_v3_dgtv3_updatexyz_notbyrad: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_notbyrad.py
+    ptr_v3_dgtv3_notbyrad: configs/pointformerv2/ptr_v3_dgtv3_notbyrad.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_viewd4_3: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_viewd4_3.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_viewd4_gt: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_viewd4_gt.py
+    ptr_v3_nolocal_2pn_localx2_dgtv2_pe64d: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv2_pe64d.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_viewd4_2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_viewd4_2.py
+    zzz: [ptr_v3_dgtv3_updatexyz_notbyrad, ptr_dyvotehead_v3_dgtv3_updatexyz, ptr_dyvotehead_v3_dgtv3_updatexyz, ptr_dyvotehead_v3_dgtv3_updatexyz]
+    ptr_dyvotehead_v3_dgtv3_updatexyz: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz.py
+    kkk: [ptr_v3_dgtv3_notbyrad, ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad, ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad, ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad]
+    ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_viewd4_4: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_viewd4_4.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_viewd4_3: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_viewd4_3.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_viewd4_gt: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_viewd4_gt.py
+    ptr_v3_dgtv3_updatexyz_notbyrad_blockseedgt: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_notbyrad_blockseedgt.py
+    ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad_blockseedgt: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad_blockseedgt.py
+    ptr_v3_dgtv3_notbyrad_blockseedgt: configs/pointformerv2/ptr_v3_dgtv3_notbyrad_blockseedgt.py
+    ptr_v3_dgtv3_updatexyz_fcinitv2_dy: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_fcinitv2_dy.py
+    ptr_v3_dgtv3_updatexyz_dy: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_dy.py
+    ptr_v3_dgtv3_offshare_updatexyz_dy: configs/pointformerv2/ptr_v3_dgtv3_offshare_updatexyz_dy.py
+    ptr_v3_dgtv3_updatexyz_notbyrad_dy: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_notbyrad_dy.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_dy: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_dy.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz_notbyrad_dy: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz_notbyrad_dy.py
+    ptr_dyvotehead_v3_dgtv3_updatexyz_dy: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz_dy.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy_2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy_2.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_dy_2: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_dy_2.py
+    ptr_v3_dgtv3_updatexyz_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_dy_norep.py
+    ptr_v3_dgtv3_updatexyz_fcinitv2_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_fcinitv2_dy_norep.py
+    ptr_v3_dgtv3_updatexyz_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_notbyrad_dy_norep.py
+    ptr_dyvotehead_v3_dgtv3_updatexyz_dy_norep: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz_dy_norep.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy_norep.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_dy_norep: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_dy_norep.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz_notbyrad_dy_norep.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy_norep_1: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_notbyrad_dy_norep_1.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz_notbyrad_dy_norep_1: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyz_notbyrad_dy_norep_1.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_dy_norep_1: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_dy_norep_1.py
+    ptr_v3_dgtv3_offshare_updatexyz_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_offshare_updatexyz_dy_norep.py
+    ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad_dy_norep: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad_dy_norep.py
+    ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad_dy: configs/pointformerv2/ptr_dyvotehead_v3_dgtv3_updatexyz_notbyrad_dy.py
+    ptr_v3_dgtv3_updatexyz_notbyrad_dy_norep1: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_notbyrad_dy_norep1.py
+    ptr_v3_dgtv3_updatexyz_dy_norep1: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_dy_norep1.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_offshare_dy_norep: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_pe64d_updatexyz_offshare_dy_norep.py
+    ptr_v3_dgtv3_fcinitv4: configs/pointformerv2/ptr_v3_dgtv3_fcinitv4.py
+    ptr_v3_dgtv3_fcinitv4_headnorminit: configs/pointformerv2/ptr_v3_dgtv3_fcinitv4_headnorminit.py
+    ptr_v3_dgtv3_updatexyz_fcinitv4_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_fcinitv4_dy_norep.py
+    ptr_v3_dgtv3_updatexyz_fcinitv4: configs/pointformerv2/ptr_v3_dgtv3_updatexyz_fcinitv4.py
+    ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyzft_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_nolocal_2pn_localx2_dgtv3_fcinitv2_pe64d_updatexyzft_notbyrad_dy_norep.py
+    ptr_v3_dgtv3_2dgt_2dgt: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt.py
+    ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep.py
+    ptr_v3_dgtv3_2dgt_2dgt_viewd4_3: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_viewd4_3.py
+    ptr_v3_dgtv3_2dgt_2dgt_peshare: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_peshare.py
+    ptr_v3_dgtv3_2dgt_2dgt_peshare_viewd4_3: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_peshare_viewd4_3.py
+    ptr_v3_dgtv3_2dgt_2dgt_peshare_update_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_peshare_update_notbyrad_dy_norep.py
+    ptr_v3_dgtv3_2dgt_2dgt_peshare_updateft_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_peshare_updateft_notbyrad_dy_norep.py
+    ptr_v3_dgtv3_2dgt_2dgt_peshare_norel_update_notbyrad_dy_norep: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_peshare_norel_update_notbyrad_dy_norep.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp3: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp3.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp2: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp2.py
+    ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep_inp2: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep_inp2.py
+    ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep_inp3: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep_inp3.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp3_detach: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp3_detach.py
+    ptr_v3_dgtv3_2dgt_2dgt_peshare_update_notbyrad_dy_norep_detach: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_peshare_update_notbyrad_dy_norep_detach.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_detach: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_detach.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp2_detach: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp2_detach.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp0: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp0.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp0_detach: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_inp0_detach.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_detach: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_detach.py
+    ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep_inp0: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_updateft_notbyrad_dy_norep_inp0.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_detachv2: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_detachv2.py
+    ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_detachv2: configs/pointformerv2/ptr_v3_dgtv3_2dgt_2dgt_update_notbyrad_dy_norep_detachv2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_nofeat: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_nofeat.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_mul0: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_mul0.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm_detach_mul0: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm_detach_mul0.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_muld2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_muld2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_nofeat_detach_voteinit: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_nofeat_detach_voteinit.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm_detach_voteinit: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm_detach_voteinit.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_detach_voteinit: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_detach_voteinit.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote3_detach_voteinit: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote3_detach_voteinit.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_voteinit: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_voteinit.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_deepradiusbn: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_deepradiusbn.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2prevote2_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2prevote2_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_nofeat_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_nofeat_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevotenorm_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote3_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote3_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_muld2_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_muld2_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_muld2_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_muld2_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_dynonev2_votenooff: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_dynonev2_votenooff.py
+    xzza: [ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_muld2_dynonev2, ptr_v3_2_dgtv3_2dgt_2dgt_prevote_voteinit_dynonev2]
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2prevote2_detach_voteinit_dynonev2_votenooff: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2prevote2_detach_voteinit_dynonev2_votenooff.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_mul0_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_mul0_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_detach_voteinit_mul0_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_detach_voteinit_mul0_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_muld1_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote_detach_voteinit_muld1_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2none_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2none_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2prevote2none_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2prevote2none_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2none_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2none_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_postvote2_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_postvote2_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2none_detach_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2none_detach_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2nonenorm_detach_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2nonenorm_detach_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_postvote2nonenorm_detach_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_postvote2nonenorm_detach_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_radnoshare: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_radnoshare.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_voteinit_dynonev2.py
+    zzxxs: [ptr_v3_2_dgtv3_2dgt_2dgt_radnoshare, ptr_v3_2_dgtv3_2dgt_2dgt_prevote2_voteinit_dynonev2]
+    ptr_v3_2_dgtv3_2dgt_2dgt_postvote2nonenorm_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_postvote2nonenorm_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2nonenorm_detach_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2nonenorm_detach_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_prevote2nonenorm_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_prevote2nonenorm_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2nonenorm_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_n2postvote2nonenorm_detach_voteinit_dynonev2.py
+    ptr_v3_2_dgtv3_2dgt_2dgt_postvote2nonenorm_detach_voteinit_dynonev2: configs/pointformerv2/ptr_v3_2_dgtv3_2dgt_2dgt_postvote2nonenorm_detach_voteinit_dynonev2.py
+
+  work_dirs/vil:
+    vil_multi: configs/vil_multi.py
+    vil_multi_pretrain_mem1: configs/vil_multi_pretrain_mem1.py
+    vil_multi_pretrain_scale: configs/vil_multi_pretrain_scale.py
+    vil_multi_pretrain_mem0: configs/vil_multi_pretrain_mem0.py
+    vil_multi_pretrain_memv: configs/vil_multi_pretrain_memv.py
+    vil_multi_pretrain_mem0_clip5: configs/vil_multi_pretrain_mem0_clip5.py
+    vil_multi_pretrain_pools2: configs/vil_multi_pretrain_pools2.py
+    vil_multi_pretrain_pools2_mha: configs/vil_multi_pretrain_pools2_mha.py
+    vil_multi_pretrain_pools2_poolsize2: configs/vil_multi_pretrain_pools2_poolsize2.py
+    vil_multi_pretrain_pools4_poolsize4: configs/vil_multi_pretrain_pools4_poolsize4.py
+    vil_multi_pretrain: configs/vil_multi_pretrain.py
+    vil_multi_pretrain_mempoolsize4: configs/vil_multi_pretrain_mempoolsize4.py
+    vil_multi_pretrain_normy: configs/vil_multi_pretrain_normy.py
+    vil_multi_pretrain_sepnorm: configs/vil_multi_pretrain_sepnorm.py
+    vil_multi_pretrain_tokenlearner: configs/vil_multi_pretrain_tokenlearner.py
+    vil_multi_pretrain_tokenlearner16: configs/vil_multi_pretrain_tokenlearner16.py
+    vil_multi_pretrain_tokenlearner32: configs/vil_multi_pretrain_tokenlearner32.py
+    vil_multi_pretrain_mem1_clip5: configs/vil_multi_pretrain_mem1_clip5.py
+    vil_multi_pretrain_mem2_clip5: configs/vil_multi_pretrain_mem2_clip5.py
+    vil_multi_pretrain_pools2_mha_memv: configs/vil_multi_pretrain_pools2_mha_memv.py
+    vil_multi_pretrain_pools4_mha: configs/vil_multi_pretrain_pools4_mha.py
+    vil_multi_pretrain_mem3_clip5: configs/vil_multi_pretrain_mem3_clip5.py
+    vil_multi_pretrain_tokenlearner_att180: configs/vil_multi_pretrain_tokenlearner_att180.py
+    vil_multi_pretrain_tokenlearner64: configs/vil_multi_pretrain_tokenlearner64.py
+    vil_multi_pretrain_tokenlearner12: configs/vil_multi_pretrain_tokenlearner12.py
+    vil_multi_pretrain_normylast: configs/vil_multi_pretrain_normylast.py
+    vil_multi_pretrain_pools2_memv: configs/vil_multi_pretrain_pools2_memv.py
+    vil_multi_pretrain_tokenlearner16_memv: configs/vil_multi_pretrain_tokenlearner16_memv.py
+    vil_multi_pretrain_tokenlearner_memv_att180: configs/vil_multi_pretrain_tokenlearner_memv_att180.py
+    vil_multi_pretrain_tokenlearner_memv_att128: configs/vil_multi_pretrain_tokenlearner_memv_att128.py
+    vil_multi_pretrain_tokenlearner12_memv: configs/vil_multi_pretrain_tokenlearner12_memv.py
+    vil_multi_pretrain_tokenlearner_att180_mha: configs/vil_multi_pretrain_tokenlearner_att180_mha.py
+    vil_multi_pretrain_tokenlearner_memv: configs/vil_multi_pretrain_tokenlearner_memv.py
+    vil_multi_pretrain_tokenlearner_normylast: configs/vil_multi_pretrain_tokenlearner_normylast.py
+    vil_multi_pretrain_tokenlearner_mha: configs/vil_multi_pretrain_tokenlearner_mha.py
+    vil_multi_pretrain_pools2_qkks3: configs/vil_multi_pretrain_pools2_qkks3.py
+    vil_multi_pretrain_pools2_shareproj: configs/vil_multi_pretrain_pools2_shareproj.py
+    vil_multi_pretrain_s2: configs/vil_multi_pretrain_s2.py
+    vil_multi_pretrain_pools2_s2: configs/vil_multi_pretrain_pools2_s2.py
+    vil_multi_pretrain_pools4: configs/vil_multi_pretrain_pools4.py
+    vil_multi_pretrain_tokenlearner32_s2: configs/vil_multi_pretrain_tokenlearner32_s2.py
+    vil_multi_pretrain_s2_propa: configs/vil_multi_pretrain_s2_propa.py
+    vil_multi_pretrain_pools2_s2_propa: configs/vil_multi_pretrain_pools2_s2_propa.py
+    vil_multi_pretrain_tokenlearner32_s2_propa: configs/vil_multi_pretrain_tokenlearner32_s2_propa.py
+    vil_multi_pretrain_qkks3: configs/vil_multi_pretrain_qkks3.py
+    vil_multi_pretrain_justadd: configs/vil_multi_pretrain_justadd.py
+    vil_multi_pretrain_pools2_freezebn: configs/vil_multi_pretrain_pools2_freezebn.py
+    vil_multi_pretrain_tokenlearner32_freezebn: configs/vil_multi_pretrain_tokenlearner32_freezebn.py
+    vil_multi_pretrain_tokenlearner32_listdivm: configs/vil_multi_pretrain_tokenlearner32_listdivm.py
+    vil_multi_pretrain_tokenlearner32bias: configs/vil_multi_pretrain_tokenlearner32bias.py
+    vil_multi_pretrain_tokenlearner32v2bias: configs/vil_multi_pretrain_tokenlearner32v2bias.py
+    vil_multi_pretrain_memup1: configs/vil_multi_pretrain_memup1.py
+    vil_multi_pretrain_tokenlearner32_shareproj: configs/vil_multi_pretrain_tokenlearner32_shareproj.py
+    vil_multi_pretrain_pools2_projnonorm: configs/vil_multi_pretrain_pools2_projnonorm.py
+    vil_multi_pretrain_pools2_qkks3_projnonorm: configs/vil_multi_pretrain_pools2_qkks3_projnonorm.py
+    vil_multi_pretrain_att180: configs/vil_multi_pretrain_att180.py
+    vil_multi_pretrain_tokenlearner32v2fuser: configs/vil_multi_pretrain_tokenlearner32v2fuser.py
+    vil_multi_pretrain_tokenlearner32v2fusers: configs/vil_multi_pretrain_tokenlearner32v2fusers.py
+    vil_multi_pretrain_tokenlearner32noshare: configs/vil_multi_pretrain_tokenlearner32noshare.py
+    vil_multi_pretrain_tokenlearner32fusers: configs/vil_multi_pretrain_tokenlearner32fusers.py
+    vil_multi_pretrain_tokenlearner128: configs/vil_multi_pretrain_tokenlearner128.py
+    vil_multi_pretrain_tokenlearner32_att180: configs/vil_multi_pretrain_tokenlearner32_att180.py
+    vil_multi_pretrain_tokenlearner32_detachmem: configs/vil_multi_pretrain_tokenlearner32_detachmem.py
+    vil_multi_pretrain_tokenlearner32_projnonorm: configs/vil_multi_pretrain_tokenlearner32_projnonorm.py
+    vil_multi_pretrain_tokenlearner32fuser: configs/vil_multi_pretrain_tokenlearner32fuser.py
+    vil_multi_pretrain_tokenlearner32_projnonorm_preln: configs/vil_multi_pretrain_tokenlearner32_projnonorm_preln.py
+    vil_multi_pretrain_tokenlearner32_projnonorm_preln_astf: configs/vil_multi_pretrain_tokenlearner32_projnonorm_preln_astf.py
+    vil_multi_pretrain_tokenlearner64v2: configs/vil_multi_pretrain_tokenlearner64v2.py
+    vil_multi_pretrain_tokenlearner32_mempool1: configs/vil_multi_pretrain_tokenlearner32_mempool1.py
+    vil_multi_pretrain_tokenlearner32_justadd: configs/vil_multi_pretrain_tokenlearner32_justadd.py
+    vilplus4_multi_pretrain_tokenlearner32: configs/vilplus4_multi_pretrain_tokenlearner32.py
+    vilplus3_multi_pretrain_tokenlearner32: configs/vilplus3_multi_pretrain_tokenlearner32.py
+    vil_single_pretrain: configs/vil_single_pretrain.py
+    vil_multi_pretrain_tokenlearner32_bs4: configs/vil_multi_pretrain_tokenlearner32_bs4.py
+    vilplus2_multi_pretrain_tokenlearner32: configs/vilplus2_multi_pretrain_tokenlearner32.py
+    vil_multi_tokenlearner32: configs/vil_multi_tokenlearner32.py
+    vil_multi_pretrain_tokenlearner32v2: configs/vil_multi_pretrain_tokenlearner32v2.py
+    vil_multi_pretrain_tokenlearner32_preln_astf: configs/vil_multi_pretrain_tokenlearner32_preln_astf.py
+    vil_multi_pretrain_tokenlearner16v2: configs/vil_multi_pretrain_tokenlearner16v2.py
+    vil_multi_pretrain_tokenlearner32v2_mempool1: configs/vil_multi_pretrain_tokenlearner32v2_mempool1.py
+    vil_multi_pretrain_tokenlearner32v2_projnonorm_preln_astf: configs/vil_multi_pretrain_tokenlearner32v2_projnonorm_preln_astf.py
+    vilplus2_multi_pretrain_tokenlearner32v2: configs/vilplus2_multi_pretrain_tokenlearner32v2.py
+    vilplus3_multi_pretrain_tokenlearner32v2: configs/vilplus3_multi_pretrain_tokenlearner32v2.py
+    vilplus4_multi_pretrain_tokenlearner32v2: configs/vilplus4_multi_pretrain_tokenlearner32v2.py
+    vil_multi_pretrain_tokenlearner32v2_preln_astf: configs/vil_multi_pretrain_tokenlearner32v2_preln_astf.py
+    vil_multi_pretrain_tokenlearner32v2_memv: configs/vil_multi_pretrain_tokenlearner32v2_memv.py
+    vil_multi_pretrain_tokenlearner32v2_detachmem: configs/vil_multi_pretrain_tokenlearner32v2_detachmem.py
+    vil_multi_pretrain_tokenlearner32v2noshare: configs/vil_multi_pretrain_tokenlearner32v2noshare.py
+    vil_multi_pretrain_tokenlearner32v2_att180: configs/vil_multi_pretrain_tokenlearner32v2_att180.py
+    vil_multi_pretrain_tokenlearner32_addshortcut: configs/vil_multi_pretrain_tokenlearner32_addshortcut.py
+    vil_multi_pretrain_tokenlearner32_addshortcutnorm: configs/vil_multi_pretrain_tokenlearner32_addshortcutnorm.py
+    vilplus2_multi_pretrain_tokenlearner32v2_justadd: configs/vilplus2_multi_pretrain_tokenlearner32v2_justadd.py
+    vilplus3_multi_pretrain_tokenlearner32v2_justadd: configs/vilplus3_multi_pretrain_tokenlearner32v2_justadd.py
+    vilplus4_multi_pretrain_tokenlearner32v2_justadd: configs/vilplus4_multi_pretrain_tokenlearner32v2_justadd.py
+    vil_multi_pretrain_tokenlearner32v2_justadd: configs/vil_multi_pretrain_tokenlearner32v2_justadd.py
+    vil_multi_pretrain_tokenlearner32v2_mempool2: configs/vil_multi_pretrain_tokenlearner32v2_mempool2.py
+    vil_multi_pretrain_tokenlearner32v2_mempool8: configs/vil_multi_pretrain_tokenlearner32v2_mempool8.py
+    vil_multi_pretrain_tokenlearner32v2_projnonorm_preln_astf_qkks3: configs/vil_multi_pretrain_tokenlearner32v2_projnonorm_preln_astf_qkks3.py
+    vil_multi_pretrain_tokenlearner32v2_projsim_preln_astf: configs/vil_multi_pretrain_tokenlearner32v2_projsim_preln_astf.py
+    tt: configs/v1/vil_single.py
+    v2: configs/v2/v2.py
+    v2_postfuser: configs/v2/v2_postfuser.py
+    v2_postfusernorm: configs/v2/v2_postfusernorm.py
+    vil_multi_pretrain_tokenlearner32v2_projsim_preln_astfv2: configs/vil_multi_pretrain_tokenlearner32v2_projsim_preln_astfv2.py
+    nb_v2s2: configs/v2/nb_v2s2.py
+
+    v2_postfuser_nolastnorm: configs/v2/v2_postfuser_nolastnorm.py
+    v2_postfusernorm_nolastnorm: configs/v2/v2_postfusernorm_nolastnorm.py
+    clip: configs/clip/clip.py
+    nb_clip: configs/clip/nb_clip.py
+    clip_eval: configs/clip/clip_eval.py
+    nb_clip_eval: configs/clip/nb_clip_eval.py
+    clip_mjp2: configs/clip/clip_mjp2.py
+    clip_mjp4: configs/clip/clip_mjp4.py
+    clip_2gpu: configs/clip/clip_2gpu.py
+    clip_mjp4_2gpu: configs/clip/clip_mjp4_2gpu.py
+    clip_mjp2_2gpu: configs/clip/clip_mjp2_2gpu.py
+    clip_eval_2gpu: configs/clip/clip_eval_2gpu.py
+    nb_clip_2gpu: configs/clip/nb_clip_2gpu.py
+    clip_2gpu_2lr: configs/clip/clip_2gpu_2lr.py
+    clip_2gpu_d5lr: configs/clip/clip_2gpu_d5lr.py
+    clip_2gpu_4lr: configs/clip/clip_2gpu_4lr.py
+    clip_2gpu_6lr: configs/clip/clip_2gpu_6lr.py
+    clip_2gpu_8lr: configs/clip/clip_2gpu_8lr.py
+    clip_2gpu_1d5lr: configs/clip/clip_2gpu_1d5lr.py
+    clip_2gpu_d75lr: configs/clip/clip_2gpu_d75lr.py
+    clip_mjp6_2gpu: configs/clip/clip_mjp6_2gpu.py
+    clip_mjp8_2gpu: configs/clip/clip_mjp8_2gpu.py
+    clip_2gpu_mem0: configs/clip/clip_2gpu_mem0.py
+    clip_2gpu_mem2: configs/clip/clip_2gpu_mem2.py
+    v2_memconv: configs/v2/v2_memconv.py
+    nb_v2: configs/v2/nb_v2.py
+    nb_v2_mem0: configs/v2/nb_v2_mem0.py
+    v2b2: configs/fix_v2/v2b2.py
+    v2_tokenselfatt256: configs/v2/v2_tokenselfatt256.py
+    v2_tokenselfatt512: configs/v2/v2_tokenselfatt512.py
+    v2_tokenselfatt256sep: configs/v2/v2_tokenselfatt256sep.py
+    v2_tokenselfatt256x2: configs/v2/v2_tokenselfatt256x2.py
+    fv2_memconvnext: configs/v2/fv2_memconvnext.py
+    fv2: configs/v2/fv2.py
+    fv2b2_tokenselfatt256x2: configs/v2/fv2b2_tokenselfatt256x2.py
+    fv2b2_tokenselfatt512: configs/v2/fv2b2_tokenselfatt512.py
+    fv2_memconvv2: configs/v2/fv2_memconvv2.py
+    fv2b2_tokenselfatt256: configs/v2/fv2b2_tokenselfatt256.py
+    fv2b2_tokenselfatt256sep: configs/v2/fv2b2_tokenselfatt256sep.py
+    fv2b2: configs/v2/fv2b2.py
+    fv2b2_tokenselfatt256x3: configs/v2/fv2b2_tokenselfatt256x3.py
+    fnb_v2: configs/v2/fnb_v2.py
+    fnb_v2_mem0: configs/v2/fnb_v2_mem0.py
+    fv2_postfusernorm_nolastnorm: configs/v2/fv2_postfusernorm_nolastnorm.py
+    fv2b2_tokenselfatt512x3: configs/v2/fv2b2_tokenselfatt512x3.py
+    fv2_memconvnextx2: configs/v2/fv2_memconvnextx2.py
+    fv2_memconvnextx3: configs/v2/fv2_memconvnextx3.py
+    fv2b2_tokenselfatt512x2sep: configs/v2/fv2b2_tokenselfatt512x2sep.py
+    fv2b2_tokenselfatt512x2: configs/v2/fv2b2_tokenselfatt512x2.py
+    fclip_nodetach: configs/clip/fclip_nodetach.py
+    fclip: configs/clip/fclip.py
+
+    fv2b2_tokenselfatt1024x2: configs/v2/fv2b2_tokenselfatt1024x2.py
+    fv2b2_mempool2: configs/v2/fv2b2_mempool2.py
+    fv2_init: configs/v2/fv2_init.py
+    fv2_memconvv2_tokenselfatt512x2_init: configs/v2/fv2_memconvv2_tokenselfatt512x2_init.py
+    fclip_init: configs/clip/fclip_init.py
+    fv2_memconvv2_init: configs/v2/fv2_memconvv2_init.py
+    fv2_memconvv2_init_fuserv2: configs/v2/fv2_memconvv2_init_fuserv2.py
+
+    fv2_memconvv2_init_fuserv2_postfusernorm: configs/v2/fv2_memconvv2_init_fuserv2_postfusernorm.py
+    fv2_memconvv2_init_fuserv2_postfusernorm_nolastnorm: configs/v2/fv2_memconvv2_init_fuserv2_postfusernorm_nolastnorm.py
+    fv2s3_init: configs/v2/fv2s3_init.py
+    fv2_memconvv2_init_fuserv2s_postfusernorm: configs/v2/fv2_memconvv2_init_fuserv2s_postfusernorm.py
+    fv2_memconvv2_init_fuserv2s: configs/v2/fv2_memconvv2_init_fuserv2s.py
+    fv2s3_memconvv2_init: configs/v2/fv2s3_memconvv2_init.py
+    fv2s4_init: configs/v2/fv2s4_init.py
+    fv2s4_init_fuserv2: configs/v2/fv2s4_init_fuserv2.py
+    fv2s4_init_fuserv2s: configs/v2/fv2s4_init_fuserv2s.py
+    fv2s4_init_fuserv2s_astfv2: configs/v2/fv2s4_init_fuserv2s_astfv2.py
+    fv2s4_init_fuserv2s_lnsimple_astfv2: configs/v2/fv2s4_init_fuserv2s_lnsimple_astfv2.py
+    fv2s4_memconvv2_init_fuserv2s: configs/v2/fv2s4_memconvv2_init_fuserv2s.py
+    fv2s4_tokenlearneratt512x2_init_fuserv2s: configs/v2/fv2s4_tokenlearneratt512x2_init_fuserv2s.py
+    fv2s5_init: configs/v2/fv2s5_init.py
+    fv2s5_init_fuserv2s: configs/v2/fv2s5_init_fuserv2s.py
+    fv2s4_init_fuserv2s_simple_astfv2: configs/v2/fv2s4_init_fuserv2s_simple_astfv2.py
+    fv2s5_tokenlearneratt512x2_init_fuserv2s: configs/v2/fv2s5_tokenlearneratt512x2_init_fuserv2s.py
+    fv2s4_init_fuserv2_simple_astfv2: configs/v2/fv2s4_init_fuserv2_simple_astfv2.py
+    fv2s4_tokenlearneratt512x2_init_fuserv2: configs/v2/fv2s4_tokenlearneratt512x2_init_fuserv2.py
+    fv2s4_tokenlearneratt512x2_init: configs/v2/fv2s4_tokenlearneratt512x2_init.py
+    fv2s4_memconvv2_tokenlearneratt512x2_init_fuserv2s: configs/v2/fv2s4_memconvv2_tokenlearneratt512x2_init_fuserv2s.py
+    fv2s4_tokenlearneratt512x2_init_fuserv2s_addytoken: configs/v2/fv2s4_tokenlearneratt512x2_init_fuserv2s_addytoken.py
+    fclip_v2s4_tokenlearneratt512x2_init_fuserv2s: configs/clip/fclip_v2s4_tokenlearneratt512x2_init_fuserv2s.py
+    fclipm_v2s4_tokenlearneratt512x2_init_fuserv2s: configs/clip/fclipm_v2s4_tokenlearneratt512x2_init_fuserv2s.py
+    fv2s4_init_fuserv2s_mem0: configs/v2/fv2s4_init_fuserv2s_mem0.py
+    fv2s4_init_fuserv2s_mem2: configs/v2/fv2s4_init_fuserv2s_mem2.py
+    fv2s4_init_fuserv2s_justadd: configs/v2/fv2s4_init_fuserv2s_justadd.py
+    fv2s4_init_fuserv2s_mem2_justadd: configs/v2/fv2s4_init_fuserv2s_mem2_justadd.py
+    fv2s4_init_fuserv2s_mem1: configs/v2/fv2s4_init_fuserv2s_mem1.py
+    fclip_v2s4_init_fuserv2s: configs/clip/fclip_v2s4_init_fuserv2s.py
+    fclip_v2s4_init_fuserv2s_mem1: configs/clip/fclip_v2s4_init_fuserv2s_mem1.py
+    fclip_v2s4_init_fuserv2s_mem0: configs/clip/fclip_v2s4_init_fuserv2s_mem0.py
+    fclip_v2s4_init_fuserv2s_mem0_pool1: configs/clip/fclip_v2s4_init_fuserv2s_mem0_pool1.py
+    fv2s4_init_fuserv2s_mem0_fclipd: configs/v2/fv2s4_init_fuserv2s_mem0_fclipd.py
+    fclip_v2s4_init_fuserv2s_mem0_noeval: configs/clip/fclip_v2s4_init_fuserv2s_mem0_noeval.py
+    fclipn_v2s4_init_fuserv2s: configs/clip/fclipn_v2s4_init_fuserv2s.py
+    fclipn_v2s4_init_fuserv2s_mem1: configs/clip/fclipn_v2s4_init_fuserv2s_mem1.py
+    fclipn_v2s4_init_fuserv2s_mem2: configs/clip/fclipn_v2s4_init_fuserv2s_mem2.py
+    fclipnm_v2s4_init_fuserv2s_mem2: configs/clip/fclipnm_v2s4_init_fuserv2s_mem2.py
+    fclipnm_v2s4_init_fuserv2s_mem1: configs/clip/fclipnm_v2s4_init_fuserv2s_mem1.py
+    fclipn_v2s4_init_fuserv2s_mem1_init: configs/clip/fclipn_v2s4_init_fuserv2s_mem1_init.py
+    fclipn_v2s4_init_fuserv2s_mem2_init: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init.py
+    fclipn_v2s4_init_fuserv2s_mem2_init_short: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init_short.py
+    fclipn_v2s4_init_fuserv2s_init: configs/clip/fclipn_v2s4_init_fuserv2s_init.py
+    fclipn_v2s4_init_fuserv2s_init_short: configs/clip/fclipn_v2s4_init_fuserv2s_init_short.py
+    fclipn_v2s4_init_fuserv2s_mem2_init_vshort: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init_vshort.py
+    fclipn_v2s4_init_fuserv2s_init_vshort: configs/clip/fclipn_v2s4_init_fuserv2s_init_vshort.py
+    fclipn_v2s4_init_fuserv2s_mem2_init_vshortf: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init_vshortf.py
+    fclipn_v2s4_init_fuserv2s_mem0_init_vshortf: configs/clip/fclipn_v2s4_init_fuserv2s_mem0_init_vshortf.py
+    fv2s4_init_fuserv2s_mem2_vshortf: configs/v2/fv2s4_init_fuserv2s_mem2_vshortf.py
+    fclipn_v2s4_init_fuserv2s_init_vshortf: configs/clip/fclipn_v2s4_init_fuserv2s_init_vshortf.py
+    fclipn_v2s4_init_fuserv2s_mem2_init_vshortf_justadd: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init_vshortf_justadd.py
+    fclipn_v2s4_init_fuserv2s_mem2_init_vshortf_mha: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init_vshortf_mha.py
+    fabufv2: configs/fabu/fv2.py
+    fclipn_v2s4_init_fuserv2s_mem0_att256: configs/clip/fclipn_v2s4_init_fuserv2s_mem0_att256.py
+    fclipn_v2s4_init_fuserv2s_mem2_init_vshortf_astfv2: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_init_vshortf_astfv2.py
+    fb_fv2s4_init_fuserv2s_mem0: configs/fabu/fb_fv2s4_init_fuserv2s_mem0.py
+    fclipn_v2s4_init_fuserv2s_init_vshortf_resume: configs/clip/fclipn_v2s4_init_fuserv2s_init_vshortf_resume.py
+    fclipn_v2s4_init_fuserv2s_mem2_att180_2l: configs/clip/fclipn_v2s4_init_fuserv2s_mem2_att180_2l.py
+    fb_novideo: configs/fabu/fb_novideo.py
+    v3c_fuserv2s_mem2_init_vshortf: configs/v3clip/v3c_fuserv2s_mem2_init_vshortf.py
+    v3c_fuserv2s_mem2_init_vshortf_att180: configs/v3clip/v3c_fuserv2s_mem2_init_vshortf_att180.py
+    v3c_fuserv2s_mem2_init_vshortf_att180_2l: configs/v3clip/v3c_fuserv2s_mem2_init_vshortf_att180_2l.py
+    v3c_fuserv2s_mem0_att_0l: configs/v3clip/v3c_fuserv2s_mem0_att_0l.py
+    v3c_fuserv2s_mem2_att_0l: configs/v3clip/v3c_fuserv2s_mem2_att_0l.py
+    fb_novideo_2lr: configs/fabu/fb_novideo_2lr.py
+    v3c_fuserv2s_mem2_init_vshortf_att180_2l_token8: configs/v3clip/v3c_fuserv2s_mem2_init_vshortf_att180_2l_token8.py
+    v3c_fuserv2s_mem2_vshort_att180_3l: configs/v3clip/v3c_fuserv2s_mem2_vshort_att180_3l.py
+    fb_novideo_vshort: configs/fabu/fb_novideo_vshort.py
+    v3c_tbc_fuserv2s_mem2_vshort: configs/v3clip/v3c_tbc_fuserv2s_mem2_vshort.py
+    v3c_tbc_fuserv2s_mem2_vshort_fre: configs/v3clip/v3c_tbc_fuserv2s_mem2_vshort_fre.py
+
+    gpu17: [fv2_memconvv2_init_fuserv2]
+    gpu17a: [fv2s4_tokenlearneratt512x2_init_fuserv2s, fv2s4_init_fuserv2s, fv2s4_init_fuserv2s, fv2s4_init_fuserv2s]
+    gpu17b: [fv2s4_tokenlearneratt512x2_init_fuserv2s, fv2s4_tokenlearneratt512x2_init_fuserv2s]
+    gpu9: [fclip_init]
+    gpu9b: [fv2_memconvv2_init]
+    node9: [fv2, ]
+    node14: [fv2s4_init_fuserv2s_mem0, fv2s4_init_fuserv2s_mem2]
+    node16: []
+
+  work_dirs/fabu:
+    fb_v3c_fuserv2s_mem2: configs/fabu/fb_v3c_fuserv2s_mem2.py
+    fb_v3c_fuserv2s_mem2_vshort: configs/fabu/fb_v3c_fuserv2s_mem2_vshort.py
+    fb_novideo_vshort_w18: configs/fabu/fb_novideo_vshort_w18.py
+    fb_xu_mem1_vshort: configs/fabu/fb_xu_mem1_vshort.py
+    fb_v3c_fuserv2s_mem1_vshort_att180: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180.py
+    fb_v3c_fuserv2s_mem1_vshort_att1024: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att1024.py
+    fb_v3c_fuserv2s_mem1_vshort_att180_2l: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180_2l.py
+    fb_xu_mem1_vshort_removemem: configs/fabu/fb_xu_mem1_vshort_removemem.py
+    fb_v3c_fuserv2s_mem1_vshort: configs/fabu/fb_v3c_fuserv2s_mem1_vshort.py
+    fb_v3c_tbc_fuserv2s_mem1_vshortf0: configs/fabu/fb_v3c_tbc_fuserv2s_mem1_vshortf0.py
+    fb_v3c_fuserv2s_mem1_vshort_att180_learnpos: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180_learnpos.py
+    fb_v3c_fuserv2s_mem1_vshort_att180_tf240_h8: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180_tf240_h8.py
+    fb_v3c_fuserv2s_mem1_vshort_att180_tf240: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180_tf240.py
+    fb_v4c_mem1_vshort_s8_0l: configs/fabu/fb_v4c_mem1_vshort_s8_0l.py
+    fb_v4c_mem1_vshort_s8_learnpos_2l: configs/fabu/fb_v4c_mem1_vshort_s8_learnpos_2l.py
+    fb_v3c_fuserv2s_mem1_vshort_att180_prelearnpos: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180_prelearnpos.py
+    fb_v3c_fuserv2s_mem1_vshort_att180_s1: configs/fabu/fb_v3c_fuserv2s_mem1_vshort_att180_s1.py
+    fb_v4c_mem1_vshort_s8_learnpos_att180: configs/fabu/fb_v4c_mem1_vshort_s8_learnpos_att180.py
+
+    fb_v4c_mem2_vshort_p8_d240_tf240_learnpos: configs/fabu/fb_v4c_mem2_vshort_p8_d240_tf240_learnpos.py
+    fb_v4c_mem2_vshort_p16_learnpos: configs/fabu/fb_v4c_mem2_vshort_p16_learnpos.py
 

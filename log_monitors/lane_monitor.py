@@ -12,7 +12,7 @@ def search_log(base_dir, recent_days=2):
         return elem[0]
 
     log_files = []
-    for root, _, files in os.walk(base_dir, followlinks=True):
+    for root, _, files in os.walk(base_dir, followlinks=False):
         for file in files:
             if file.endswith('eval.log'):
                 time_pass = time.time() - time.mktime(
@@ -100,6 +100,7 @@ if __name__ == '__main__':
     max_epoch = 1
     wait_min = 40
     while True:
-        log_files = search_log('../lane_detection/work_dirs', recent_days=60)
+        # log_files = search_log('../lane_detection/work_dirs', recent_days=60)
+        log_files = search_log('/private/personal/liuzili/workspace/lane_detection/logs', recent_days=60)
         stat_logs(log_files, max_epoch, wait_min)
         time.sleep(30)
