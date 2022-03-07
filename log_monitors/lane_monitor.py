@@ -7,12 +7,12 @@ from collections import defaultdict
 from termcolor import colored
 
 
-def search_log(base_dir, recent_days=2):
+def search_log(base_dir, recent_days=2, followlinks=True):
     def taketime(elem):
         return elem[0]
 
     log_files = []
-    for root, _, files in os.walk(base_dir, followlinks=False):
+    for root, _, files in os.walk(base_dir, followlinks=followlinks):
         for file in files:
             if file.endswith('eval.log'):
                 time_pass = time.time() - time.mktime(
@@ -37,6 +37,7 @@ def stat_logs(log_files, max_epoch, wait_min):
                 continue
             for i, line in enumerate(lines):
                 splitted_line = line.strip().split(' ')
+                metrics['epoch'].append(int(splitted_line[0]) + 1)
                 metrics['acc'].append(splitted_line[1])
                 metrics['miou'].append(splitted_line[2])
                 metrics['mrec'].append(splitted_line[3])
@@ -51,8 +52,8 @@ def stat_logs(log_files, max_epoch, wait_min):
 
             max_miou = metrics['miou'].max()
             max_mf1 = metrics['mf1'].max()
-            max_miou_str = f"{max_miou:5.2f} ({metrics['miou'].argmax():>2d})"
-            max_mf1_str = f"{max_mf1:5.2f} ({metrics['mf1'].argmax():>2d})"
+            max_miou_str = f"{max_miou:5.2f} ({metrics['epoch'][metrics['miou'].argmax()]:>2d})"
+            max_mf1_str = f"{max_mf1:5.2f} ({metrics['epoch'][metrics['mf1'].argmax()]:>2d})"
 
             task_name = f'{log_file.split("/")[-3]}'
             time_str = time.strftime('%m%d-%H%M',
@@ -64,11 +65,18 @@ def stat_logs(log_files, max_epoch, wait_min):
             time_modify = os.path.getmtime(log_file)
             time_modify_str = time.strftime('%d-%H%M', time.localtime(time_modify))
             table_line = [colored(hour_min_str, attrs=['bold']), task_name,
-                          max_miou_str, max_mf1_str, metrics['miou'].shape[0], time_modify_str]
-            if (time.time() - time_modify) > wait_min * 60:
-                color = 'blue'
+                          max_miou_str, max_mf1_str, metrics['epoch'][-1], time_modify_str]
+
+            if int(metrics['epoch'][-1]) == max_epoch:
+                if (time.time() - time_modify) > 1440 * 60:
+                    color = 'blue'
+                else:
+                    color = 'green'
             else:
-                color = 'white'
+                if (time.time() - time_modify) > wait_min * 60:
+                    color = 'red'
+                else:
+                    color = 'white'
             new_table_line = []
             for i, word in enumerate(table_line):
                 if i > 0:
@@ -97,10 +105,10 @@ def stat_logs(log_files, max_epoch, wait_min):
 
 
 if __name__ == '__main__':
-    max_epoch = 1
-    wait_min = 40
+    max_epoch = 11
+    wait_min = 180
     while True:
-        # log_files = search_log('../lane_detection/work_dirs', recent_days=60)
-        log_files = search_log('/private/personal/liuzili/workspace/lane_detection/logs', recent_days=60)
+        log_files = search_log('../lane_detection/work_dirs', recent_days=60, followlinks=False)
+        # log_files = search_log('/private/personal/liuzili/workspace/lane_detection/work_dirs/logs', recent_days=60)
         stat_logs(log_files, max_epoch, wait_min)
         time.sleep(30)
