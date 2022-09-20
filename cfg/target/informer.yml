@@ -1,0 +1,9 @@
+DIR:
+  cad: /home/liuzili/workspace/ChangedInformer-master
+
+ENTRY:
+  path: main_informer.py
+  key_dir: work-dir
+  extra_args: ''
+
+SHELL: informer

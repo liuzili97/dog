@@ -59,9 +59,9 @@ def start_tasks(info_proc, dir_and_cfgs, base_dir, target_dir, gpu_info, custom_
         else:
             while True:
                 if socket.gethostname().startswith('gpu'):
-                    thre = 0.95
+                    thre = 0.4
                 else:
-                    thre = 0.8
+                    thre = 0.5
                 gpu_free_id, _ = get_free_gpu(thre=thre)
                 gpu_list = gpu_info.split(',')
                 if set(gpu_list).issubset(set(gpu_free_id)):

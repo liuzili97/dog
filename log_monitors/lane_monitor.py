@@ -2,7 +2,7 @@ import os
 import socks
 import socket
 import time
-import telepot
+import telegram
 import numpy as np
 
 from tabulate import tabulate
@@ -22,7 +22,8 @@ class Monitor():
         self.max_epoch = max_epoch
         self.wait_min = wait_min
 
-        self.bot = telepot.Bot('2145587920:AAH8zYUkW5iWAX5ZK6xuQtbamB71qTjnxdA')
+        proxy = telegram.utils.request.Request(proxy_url='http://127.0.0.1:7890')
+        self.bot = telegram.Bot('5458464068:AAEh4QIKW5JdagHUHWybnVLOmuRu1NVZAoE', request=proxy)
         self.valid_chat_id = [1818849255]
 
         self.tele_sent = []
@@ -98,9 +99,11 @@ class Monitor():
                 table_line = [colored(hour_min_str, attrs=['bold']), task_name,
                               max_miou_str, max_mf1_str, metrics['epoch'][-1], time_modify_str]
 
-                if int(metrics['epoch'][-1]) == self.max_epoch:
+                if int(metrics['epoch'][-1]) >= self.max_epoch:
                     if (time.time() - time_modify) > 1440 * 60:
                         color = 'blue'
+                    elif (time.time() - time_modify) > 60 * 60:
+                        color = 'yellow'
                     else:
                         color = 'green'
                         if (time.time() - time_modify) < 5 * 60:
@@ -139,11 +142,13 @@ class Monitor():
 if __name__ == '__main__':
     # path = '../lane_detection/work_dirs'
     # follow_links = False
-    path = '/private/personal/liuzili/workspace/lane_detection/work_dirs/logs'
+    # path = '/private/personal/liuzili/workspace/lane_detection/work_dirs/logs'
+    # follow_links = True
+    path = '/home/liuzili/puser/workspace/lane_detection/work_dirs/logs'
     follow_links = True
 
     recent_days = 60
-    max_epoch = 11
+    max_epoch = 8
     wait_min = 180
 
     monitor = Monitor(path, recent_days, follow_links, max_epoch, wait_min)

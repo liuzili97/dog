@@ -1,5 +1,4 @@
 paramiko
 termcolor
-yml
+pyyaml
 tabulate
-torch
