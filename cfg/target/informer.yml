@@ -1,5 +1,6 @@
 DIR:
   cad: /home/liuzili/workspace/ChangedInformer-master
+  v100: /share/home/cdsub01cmh/liuzili/workspace/ChangedInformer-master
 
 ENTRY:
   path: main_informer.py

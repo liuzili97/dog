@@ -2,3 +2,4 @@ paramiko
 termcolor
 pyyaml
 tabulate
+pysocks
